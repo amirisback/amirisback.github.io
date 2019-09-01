@@ -1,0 +1,23 @@
+div.app-container div {
+    margin-top: 24px;
+    display: inline-block;
+    width: 33%;
+}
+
+div.app-container div p {
+    margin-top: 16px;
+    font-size: 20px;
+    text-align: center;
+}
+
+div.app-container div a img {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+    opacity: 0.6;
+}
+
+div.app-container div a img:hover {
+    opacity: 1;
+}

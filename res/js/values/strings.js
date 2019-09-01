@@ -2,6 +2,8 @@ var web_name = "Muhammad Faisal Amir";
 
 var text_name  = "Muhammad Faisal Amir";
 var text_job  = "Android Programmer";
+var text_copyright  = "Copyright &copy Frogobox 2019";
+var text_portofolio  = "My Portofolio";
 
 var text_app_linkedin   = "LinkedIn";
 var text_app_facebook   = "Facebook";
@@ -33,6 +35,7 @@ var product_name_finpro = "Finpro Management";
 var product_name_football = "Football App";
 var product_name_frogonews = "FrogoNews App";
 var product_name_jagosholat = "Jago Sholat";
+var product_name_amir = "Muhammad Faisal Amir";
 var product_name_jami = "Jami";
 var product_name_mood = "Mood";
 var product_name_movie = "Movie App";
@@ -58,4 +61,4 @@ var subtitle_skill = "My professional skill";
 var subtitle_product = "My list product that I make it";
 
 var text_desc_me = "Muhammad Faisal Amir, lulusan D3 Teknik Informatika Telkom University, sangat tertarik dalam bidang pemrograman Android, suka menulis di medium dan aktif mendesign social media";
-var text_desc_skill = "Saya memiliki tanggung jawab dedikasi tinggi, kerja keras, dan memiliki keterampilan komunikasi yang baik. Saya dapat menggunakan Java, Kotlin, Restfull API Laravel, Fast make UI xml. Saya ahli dalam menggunakan Android Studio IDE, membuat dokumentasi pengkodean yang baik untuk tim saya, pandai mengatur proyek.";
+var text_desc_skill = "Saya memiliki tanggung jawab dedikasi tinggi, kerja keras, dan memiliki keterampilan komunikasi yang baik. Saya dapat menggunakan Java, Kotlin, Restfull API Laravel, cepat dalam membuat UI xml. Saya ahli dalam menggunakan Android Studio IDE, membuat dokumentasi pengkodean yang baik untuk tim saya, pandai mengatur proyek.";
