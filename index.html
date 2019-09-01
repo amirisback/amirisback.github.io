@@ -16,11 +16,62 @@
     <body>
     
         <style>
+
+            div#header {
+                width: 100%;
+            }
+
+            div#header div {
+                float: left;
+            }
+
+            div#header div.image img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            div#header div.text {
+                width: 75%;
+                height: 100%;
+            }
+
+            
+            div#header div.image {
+                width: 25%;
+                height: 100%;
+            }
+
         </style>
 
         <div id="header">
-            <p id="p_name"></p>
-            <p id="p_job"></p>
+
+            <div class="text">
+                <p id="p_name"></p>
+                <p id="p_job"></p>
+                <p id="p_desc_me"></p>
+                <p id="p_desc_skill"></p>
+            </div>
+
+            <div class="image">
+                <img src="res/img/img_photo.png"/>
+            </div>
+
+        </div>
+
+        <div id="sub_header">
+            <div id="icon_app">
+                <img src="res/img/icon_product/ic_product_cat.png" height="100" width="100"/>
+                <img src="res/img/icon_product/ic_product_jagosholat.png" height="100" width="100"/>
+                <img src="res/img/icon_product/ic_product_deknappe.png" height="100" width="100"/>
+                <img src="res/img/icon_product/ic_product_finpro.png" height="100" width="100"/>
+                <img src="res/img/icon_product/ic_product_mood.png" height="100" width="100"/>
+                <img src="res/img/icon_product/ic_product_frogonews.png" height="100" width="100"/>
+            </div>
+        </div>
+
+        <div id="footer">
+
         </div>
 
     </body>
@@ -30,4 +81,6 @@
 <script>
         setText("p_name", text_name);
         setText("p_job", text_job);
+        setText("p_desc_me", text_desc_me);
+        setText("p_desc_skill", text_desc_skill);
 </script>

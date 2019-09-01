@@ -56,3 +56,6 @@ var subtitle_social_media = "Follow my social media account";
 var subtitle_education = "My background education";
 var subtitle_skill = "My professional skill";
 var subtitle_product = "My list product that I make it";
+
+var text_desc_me = "Muhammad Faisal Amir, lulusan D3 Teknik Informatika Telkom University, sangat tertarik dalam bidang pemrograman Android, suka menulis di medium dan aktif mendesign social media";
+var text_desc_skill = "Saya memiliki tanggung jawab dedikasi tinggi, kerja keras, dan memiliki keterampilan komunikasi yang baik. Saya dapat menggunakan Java, Kotlin, Restfull API Laravel, Fast make UI xml. Saya ahli dalam menggunakan Android Studio IDE, membuat dokumentasi pengkodean yang baik untuk tim saya, pandai mengatur proyek.";
