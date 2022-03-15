@@ -5,6 +5,9 @@ div.body-container {
 div.photo-container img {
     display: block;
     margin: 0 auto;
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
 }
 
 div.text-container p.text-title {

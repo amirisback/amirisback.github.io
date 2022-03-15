@@ -3,7 +3,7 @@ var web_name = "Muhammad Faisal Amir";
 var text_name  = "Muhammad Faisal Amir";
 var text_job  = "Android Programmer";
 var text_copyright  = "Copyright &copy Frogobox 2019";
-var text_portofolio  = "My Portofolio";
+var text_portofolio  = "Amir's Web Profile";
 
 var text_app_linkedin   = "LinkedIn";
 var text_app_facebook   = "Facebook";
