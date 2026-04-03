@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CMS - Content Manager</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface-2: #242836;
+      --border: #2e3347;
+      --text: #e4e6f0;
+      --text-dim: #8b8fa3;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --success: #22c55e;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ─── Layout ─── */
+    .cms-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .cms-header h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .cms-header h1 i { color: var(--accent); margin-right: 8px; }
+
+    .header-actions { display: flex; gap: 12px; align-items: center; }
+
+    .cms-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 24px;
+    }
+
+    /* ─── Sidebar Nav ─── */
+    .section-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+      padding: 16px;
+      background: var(--surface);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .section-nav a {
+      padding: 8px 16px;
+      border-radius: 8px;
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .section-nav a:hover, .section-nav a.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* ─── Cards ─── */
+    .cms-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .cms-card-header {
+      padding: 16px 20px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .cms-card-header h2 {
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cms-card-header h2 i {
+      color: var(--accent);
+      width: 20px;
+      text-align: center;
+    }
+
+    .cms-card-header .toggle-icon {
+      color: var(--text-dim);
+      transition: transform 0.2s;
+    }
+
+    .cms-card-header.collapsed .toggle-icon {
+      transform: rotate(-90deg);
+    }
+
+    .cms-card-body {
+      padding: 20px;
+    }
+
+    .cms-card-body.hidden { display: none; }
+
+    /* ─── Form ─── */
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px 14px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 80px; }
+
+    .form-group input[type="range"] {
+      padding: 0;
+      background: transparent;
+      border: none;
+      accent-color: var(--accent);
+    }
+
+    .range-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .range-row input[type="range"] { flex: 1; }
+    .range-value {
+      background: var(--surface-2);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      min-width: 48px;
+      text-align: center;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    /* ─── Array Items ─── */
+    .array-item {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .array-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .array-item-header span {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    /* ─── Buttons ─── */
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover { background: var(--accent-hover); }
+
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+
+    .btn-success:hover { opacity: 0.9; }
+
+    .btn-danger {
+      background: transparent;
+      color: var(--danger);
+      border: 1px solid var(--danger);
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+
+    .btn-danger:hover { background: var(--danger); color: white; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+
+    .btn-outline:hover { background: var(--accent); color: white; }
+
+    .btn-sm { padding: 6px 12px; font-size: 12px; }
+
+    .add-btn {
+      width: 100%;
+      padding: 12px;
+      border: 2px dashed var(--border);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--text-dim);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .add-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ─── Toast ─── */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 9999;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast.success { background: var(--success); color: white; }
+    .toast.error { background: var(--danger); color: white; }
+
+    /* ─── Status Badge ─── */
+    .status-badge {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .status-badge.saved {
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--success);
+    }
+
+    .status-badge.unsaved {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--warning);
+    }
+
+    /* ─── Preview Link ─── */
+    .preview-link {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .preview-link:hover { color: var(--accent); }
+
+    @media (max-width: 640px) {
+      .cms-header { padding: 12px 16px; }
+      .cms-container { padding: 16px 12px; }
+      .form-row { grid-template-columns: 1fr; }
+      .header-actions { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cms-header">
+    <h1><i class="fas fa-cog"></i> Content Manager</h1>
+    <div class="header-actions">
+      <span id="status-badge" class="status-badge saved">✓ Saved</span>
+      <a href="/" target="_blank" class="preview-link"><i class="fas fa-external-link-alt"></i> Preview</a>
+      <button class="btn btn-success" onclick="saveContent()"><i class="fas fa-save"></i> Save</button>
+    </div>
+  </div>
+
+  <div class="cms-container">
+    <nav class="section-nav" id="section-nav"></nav>
+    <div id="cms-content"></div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+<script>
+(function() {
+  "use strict";
+
+  let contentData = null;
+  let isDirty = false;
+
+  // ─── Toast ───
+  function showToast(message, type) {
+    const toast = document.getElementById("toast");
+    toast.textContent = message;
+    toast.className = "toast " + type + " show";
+    setTimeout(() => toast.classList.remove("show"), 3000);
+  }
+
+  function markDirty() {
+    isDirty = true;
+    const badge = document.getElementById("status-badge");
+    badge.textContent = "● Unsaved";
+    badge.className = "status-badge unsaved";
+  }
+
+  function markSaved() {
+    isDirty = false;
+    const badge = document.getElementById("status-badge");
+    badge.textContent = "✓ Saved";
+    badge.className = "status-badge saved";
+  }
+
+  // ─── Load & Save ───
+  async function loadContent() {
+    try {
+      const res = await fetch("/api/content");
+      contentData = await res.json();
+      renderCMS();
+    } catch (e) {
+      showToast("Failed to load content: " + e.message, "error");
+    }
+  }
+
+  window.saveContent = async function() {
+    try {
+      const res = await fetch("/api/content", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(contentData),
+      });
+      const result = await res.json();
+      if (result.success) {
+        showToast("✓ Content saved successfully!", "success");
+        markSaved();
+      } else {
+        showToast("Error: " + result.error, "error");
+      }
+    } catch (e) {
+      showToast("Failed to save: " + e.message, "error");
+    }
+  };
+
+  // ─── Helpers ───
+  function setValue(obj, path, value) {
+    const keys = path.split(".");
+    let current = obj;
+    for (let i = 0; i < keys.length - 1; i++) {
+      const key = isNaN(keys[i]) ? keys[i] : parseInt(keys[i]);
+      current = current[key];
+    }
+    const lastKey = isNaN(keys[keys.length - 1]) ? keys[keys.length - 1] : parseInt(keys[keys.length - 1]);
+    current[lastKey] = value;
+    markDirty();
+  }
+
+  function getValue(obj, path) {
+    const keys = path.split(".");
+    let current = obj;
+    for (const key of keys) {
+      const k = isNaN(key) ? key : parseInt(key);
+      current = current[k];
+      if (current === undefined) return "";
+    }
+    return current;
+  }
+
+  function input(label, path, type) {
+    type = type || "text";
+    const val = getValue(contentData, path);
+    const id = "field-" + path.replace(/\./g, "-");
+
+    if (type === "textarea") {
+      return '<div class="form-group"><label for="' + id + '">' + label + '</label>' +
+        '<textarea id="' + id + '" data-path="' + path + '" oninput="CMS.update(this)">' + (val || "") + '</textarea></div>';
+    }
+    if (type === "range") {
+      return '<div class="form-group"><label>' + label + '</label>' +
+        '<div class="range-row"><input type="range" min="0" max="100" value="' + (val || 0) +
+        '" data-path="' + path + '" oninput="CMS.updateRange(this)">' +
+        '<span class="range-value" id="rv-' + id + '">' + (val || 0) + '%</span></div></div>';
+    }
+    return '<div class="form-group"><label for="' + id + '">' + label + '</label>' +
+      '<input type="' + type + '" id="' + id + '" value="' + (val || "").toString().replace(/"/g, '&quot;') +
+      '" data-path="' + path + '" oninput="CMS.update(this)"></div>';
+  }
+
+  function card(id, icon, title, content) {
+    return '<div class="cms-card" id="card-' + id + '">' +
+      '<div class="cms-card-header" onclick="CMS.toggle(this)">' +
+      '<h2><i class="' + icon + '"></i> ' + title + '</h2>' +
+      '<i class="fas fa-chevron-down toggle-icon"></i></div>' +
+      '<div class="cms-card-body">' + content + '</div></div>';
+  }
+
+  // ─── Render ───
+  function renderCMS() {
+    const sections = [
+      { id: "meta", icon: "fas fa-info-circle", title: "Meta / SEO" },
+      { id: "navbar", icon: "fas fa-bars", title: "Navbar" },
+      { id: "hero", icon: "fas fa-home", title: "Hero" },
+      { id: "about", icon: "fas fa-user", title: "About" },
+      { id: "services", icon: "fas fa-briefcase", title: "Projects" },
+      { id: "experience", icon: "fas fa-building", title: "Experience" },
+      { id: "blog", icon: "fas fa-blog", title: "Blog" },
+      { id: "footer", icon: "fas fa-envelope", title: "Footer" },
+    ];
+
+    // Nav
+    const nav = document.getElementById("section-nav");
+    nav.innerHTML = sections.map(s =>
+      '<a href="#card-' + s.id + '">' + s.title + '</a>'
+    ).join("");
+
+    // Content
+    let html = "";
+
+    // Meta
+    html += card("meta", "fas fa-info-circle", "Meta / SEO",
+      input("Title", "meta.title") +
+      input("Keywords", "meta.keywords") +
+      input("Description", "meta.description", "textarea") +
+      input("Favicon URL", "meta.favicon")
+    );
+
+    // Navbar
+    let navLinksHtml = "";
+    contentData.navbar.links.forEach((_, i) => {
+      navLinksHtml += '<div class="array-item">' +
+        '<div class="array-item-header"><span>Link #' + (i + 1) + '</span>' +
+        '<button class="btn btn-danger btn-sm" onclick="CMS.removeItem(\'navbar.links\',' + i + ')"><i class="fas fa-trash"></i></button></div>' +
+        '<div class="form-row">' +
+        input("Label", "navbar.links." + i + ".label") +
+        input("Href", "navbar.links." + i + ".href") +
+        '</div></div>';
+    });
+    html += card("navbar", "fas fa-bars", "Navbar",
+      input("Brand", "navbar.brand") +
+      '<label style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-dim);margin:16px 0 8px;display:block;">Navigation Links</label>' +
+      navLinksHtml +
+      '<button class="add-btn" onclick="CMS.addItem(\'navbar.links\',{href:\'#\',label:\'New Link\'})"><i class="fas fa-plus"></i> Add Link</button>'
+    );
+
+    // Hero
+    let heroBtnsHtml = "";
+    contentData.hero.buttons.forEach((_, i) => {
+      heroBtnsHtml += '<div class="array-item">' +
+        '<div class="array-item-header"><span>Button #' + (i + 1) + '</span>' +
+        '<button class="btn btn-danger btn-sm" onclick="CMS.removeItem(\'hero.buttons\',' + i + ')"><i class="fas fa-trash"></i></button></div>' +
+        '<div class="form-row">' +
+        input("Label", "hero.buttons." + i + ".label") +
+        input("URL", "hero.buttons." + i + ".href") +
+        '</div></div>';
+    });
+    html += card("hero", "fas fa-home", "Hero",
+      '<div class="form-row">' +
+      input("Greeting", "hero.greeting") +
+      input("Name", "hero.name") +
+      '</div>' +
+      input("Typed Texts (comma separated)", "hero.typedTexts.joined") +
+      input("Hero Image", "hero.heroImage") +
+      input("YouTube Video ID", "hero.videoBackground") +
+      '<label style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-dim);margin:16px 0 8px;display:block;">Buttons</label>' +
+      heroBtnsHtml +
+      '<button class="add-btn" onclick="CMS.addItem(\'hero.buttons\',{label:\'New Button\',href:\'#\'})"><i class="fas fa-plus"></i> Add Button</button>'
+    );
+
+    // About
+    let skillsHtml = "";
+    contentData.about.skills.forEach((_, i) => {
+      skillsHtml += '<div class="array-item">' +
+        '<div class="array-item-header"><span>Skill #' + (i + 1) + '</span>' +
+        '<button class="btn btn-danger btn-sm" onclick="CMS.removeItem(\'about.skills\',' + i + ')"><i class="fas fa-trash"></i></button></div>' +
+        input("Name", "about.skills." + i + ".name") +
+        input("Percentage", "about.skills." + i + ".percentage", "range") +
+        '</div>';
+    });
+    html += card("about", "fas fa-user", "About",
+      '<div class="form-row">' +
+      input("Section Label", "about.sectionLabel") +
+      input("Section Title", "about.sectionTitle") +
+      '</div>' +
+      input("Image", "about.image") +
+      input("Description", "about.description", "textarea") +
+      '<label style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-dim);margin:16px 0 8px;display:block;">Skills</label>' +
+      skillsHtml +
+      '<button class="add-btn" onclick="CMS.addItem(\'about.skills\',{name:\'New Skill\',percentage:50})"><i class="fas fa-plus"></i> Add Skill</button>'
+    );
+
+    // Services
+    let servicesHtml = "";
+    contentData.services.items.forEach((_, i) => {
+      servicesHtml += '<div class="array-item">' +
+        '<div class="array-item-header"><span>Project #' + (i + 1) + '</span>' +
+        '<button class="btn btn-danger btn-sm" onclick="CMS.removeItem(\'services.items\',' + i + ')"><i class="fas fa-trash"></i></button></div>' +
+        '<div class="form-row">' +
+        input("Icon", "services.items." + i + ".icon") +
+        input("Title", "services.items." + i + ".title") +
+        '</div>' +
+        input("Description", "services.items." + i + ".description", "textarea") +
+        '<div class="form-row">' +
+        input("URL (optional)", "services.items." + i + ".url") +
+        input("Delay", "services.items." + i + ".delay") +
+        '</div></div>';
+    });
+    html += card("services", "fas fa-briefcase", "Projects",
+      '<div class="form-row">' +
+      input("Section Label", "services.sectionLabel") +
+      input("Section Title", "services.sectionTitle") +
+      '</div>' +
+      servicesHtml +
+      '<button class="add-btn" onclick="CMS.addItem(\'services.items\',{icon:\'fas fa-code\',title:\'New Project\',description:\'\',delay:\'0.4s\',url:\'\'})"><i class="fas fa-plus"></i> Add Project</button>'
+    );
+
+    // Experience
+    let expHtml = "";
+    contentData.experience.items.forEach((_, i) => {
+      expHtml += '<div class="array-item">' +
+        '<div class="array-item-header"><span>Experience #' + (i + 1) + '</span>' +
+        '<button class="btn btn-danger btn-sm" onclick="CMS.removeItem(\'experience.items\',' + i + ')"><i class="fas fa-trash"></i></button></div>' +
+        '<div class="form-row">' +
+        input("Date", "experience.items." + i + ".date") +
+        input("Title", "experience.items." + i + ".title") +
+        '</div>' +
+        '<div class="form-row">' +
+        input("Company", "experience.items." + i + ".company") +
+        input("Location", "experience.items." + i + ".location") +
+        '</div>' +
+        input("Side (left/right)", "experience.items." + i + ".side") +
+        '</div>';
+    });
+    html += card("experience", "fas fa-building", "Experience",
+      '<div class="form-row">' +
+      input("Section Label", "experience.sectionLabel") +
+      input("Section Title", "experience.sectionTitle") +
+      '</div>' +
+      expHtml +
+      '<button class="add-btn" onclick="CMS.addItem(\'experience.items\',{date:\'\',title:\'\',company:\'\',location:\'\',side:\'left\'})"><i class="fas fa-plus"></i> Add Experience</button>'
+    );
+
+    // Blog
+    let blogHtml = "";
+    contentData.blog.posts.forEach((_, i) => {
+      blogHtml += '<div class="array-item">' +
+        '<div class="array-item-header"><span>Post #' + (i + 1) + '</span>' +
+        '<button class="btn btn-danger btn-sm" onclick="CMS.removeItem(\'blog.posts\',' + i + ')"><i class="fas fa-trash"></i></button></div>' +
+        input("Title", "blog.posts." + i + ".title") +
+        '<div class="form-row">' +
+        input("Author", "blog.posts." + i + ".author") +
+        input("Category", "blog.posts." + i + ".category") +
+        '</div>' +
+        '<div class="form-row">' +
+        input("Date", "blog.posts." + i + ".date") +
+        input("Comments", "blog.posts." + i + ".comments") +
+        '</div>' +
+        input("Image URL", "blog.posts." + i + ".image") +
+        input("Excerpt", "blog.posts." + i + ".excerpt", "textarea") +
+        input("Article URL", "blog.posts." + i + ".url") +
+        '</div>';
+    });
+    html += card("blog", "fas fa-blog", "Blog",
+      '<div class="form-row">' +
+      input("Section Label", "blog.sectionLabel") +
+      input("Section Title", "blog.sectionTitle") +
+      '</div>' +
+      blogHtml +
+      '<button class="add-btn" onclick="CMS.addItem(\'blog.posts\',{image:\'\',title:\'New Post\',author:\'\',category:\'\',date:\'\',comments:0,excerpt:\'\',url:\'\',delay:\'0.1s\'})"><i class="fas fa-plus"></i> Add Post</button>'
+    );
+
+    // Footer
+    let socialsHtml = "";
+    contentData.footer.socials.forEach((_, i) => {
+      socialsHtml += '<div class="array-item">' +
+        '<div class="array-item-header"><span>Social #' + (i + 1) + '</span>' +
+        '<button class="btn btn-danger btn-sm" onclick="CMS.removeItem(\'footer.socials\',' + i + ')"><i class="fas fa-trash"></i></button></div>' +
+        '<div class="form-row">' +
+        input("Icon Class", "footer.socials." + i + ".icon") +
+        input("URL", "footer.socials." + i + ".url") +
+        '</div></div>';
+    });
+    html += card("footer", "fas fa-envelope", "Footer",
+      '<div class="form-row">' +
+      input("Name", "footer.name") +
+      input("Address", "footer.address") +
+      '</div>' +
+      '<div class="form-row">' +
+      input("Phone", "footer.phone") +
+      input("Email", "footer.email") +
+      '</div>' +
+      input("Copyright", "footer.copyright") +
+      '<label style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--text-dim);margin:16px 0 8px;display:block;">Social Links</label>' +
+      socialsHtml +
+      '<button class="add-btn" onclick="CMS.addItem(\'footer.socials\',{icon:\'fab fa-link\',url:\'\'})"><i class="fas fa-plus"></i> Add Social</button>'
+    );
+
+    document.getElementById("cms-content").innerHTML = html;
+
+    // Handle typed texts (special: array joined as comma string)
+    const typedField = document.querySelector('[data-path="hero.typedTexts.joined"]');
+    if (typedField) {
+      typedField.value = contentData.hero.typedTexts.join(", ");
+      typedField.removeAttribute("data-path");
+      typedField.addEventListener("input", function() {
+        contentData.hero.typedTexts = this.value.split(",").map(s => s.trim()).filter(s => s);
+        markDirty();
+      });
+    }
+  }
+
+  // ─── Public API ───
+  window.CMS = {
+    update: function(el) {
+      const path = el.getAttribute("data-path");
+      let val = el.value;
+      // Try to parse as number for specific fields
+      if (path.includes("percentage") || path.includes("comments")) {
+        val = parseInt(val) || 0;
+      }
+      setValue(contentData, path, val);
+    },
+
+    updateRange: function(el) {
+      const path = el.getAttribute("data-path");
+      const val = parseInt(el.value);
+      setValue(contentData, path, val);
+      const id = "rv-field-" + path.replace(/\./g, "-");
+      const label = document.getElementById(id);
+      if (label) label.textContent = val + "%";
+    },
+
+    toggle: function(header) {
+      const body = header.nextElementSibling;
+      body.classList.toggle("hidden");
+      header.classList.toggle("collapsed");
+    },
+
+    removeItem: function(path, index) {
+      if (!confirm("Delete this item?")) return;
+      const arr = getValue(contentData, path);
+      arr.splice(index, 1);
+      markDirty();
+      renderCMS();
+    },
+
+    addItem: function(path, template) {
+      const arr = getValue(contentData, path);
+      arr.push(JSON.parse(JSON.stringify(template)));
+      markDirty();
+      renderCMS();
+      // Scroll to bottom
+      const card = document.getElementById("card-" + path.split(".")[0]);
+      if (card) card.scrollIntoView({ behavior: "smooth", block: "end" });
+    }
+  };
+
+  // Warn before leaving with unsaved changes
+  window.addEventListener("beforeunload", function(e) {
+    if (isDirty) {
+      e.preventDefault();
+      e.returnValue = "";
+    }
+  });
+
+  // Keyboard shortcut: Ctrl+S to save
+  document.addEventListener("keydown", function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === "s") {
+      e.preventDefault();
+      saveContent();
+    }
+  });
+
+  // Init
+  loadContent();
+})();
+</script>
+</body>
+</html>
