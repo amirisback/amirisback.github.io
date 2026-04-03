@@ -90,20 +90,22 @@
     ]
   },
   "services": {
-    "sectionLabel": "What I do",
-    "sectionTitle": "Awesome Android Project",
+    "sectionLabel": "What have I been doing all this time?",
+    "sectionTitle": "Awesome Project",
     "items": [
       {
         "icon": "fab fa-android",
         "title": "Android Apps",
         "description": "Application for anything your problem to make easier your live",
-        "delay": "0.4s"
+        "delay": "0.4s",
+        "url": ""
       },
       {
         "icon": "fab fa-android",
         "title": "Android Library",
         "description": "SDK for anything your problem to make easier developing android apps",
-        "delay": "0.6s"
+        "delay": "0.6s",
+        "url": "https://github.com/AmirisBack"
       }
     ]
   },

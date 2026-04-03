@@ -177,7 +177,23 @@
         el("p", {}, item.description)
       );
       const serviceItem = el("div", { className: "service-item" }, serviceIcon, serviceText);
-      const col = el("div", { className: "col-lg-6 wow fadeInUp", "data-wow-delay": item.delay }, serviceItem);
+
+      // Wrap in anchor if url exists
+      var colContent;
+      if (item.url) {
+        const link = el("a", {
+          href: item.url,
+          target: "_blank",
+          rel: "noopener noreferrer",
+          className: "service-link"
+        });
+        link.appendChild(serviceItem);
+        colContent = link;
+      } else {
+        colContent = serviceItem;
+      }
+
+      const col = el("div", { className: "col-lg-6 wow fadeInUp", "data-wow-delay": item.delay }, colContent);
       row.appendChild(col);
     });
 

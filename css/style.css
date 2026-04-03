@@ -850,6 +850,18 @@ a:focus {
     color: #ffffff;
 }
 
+.service .service-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.service .service-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
 @media (max-width: 575.98px) {
     .service .service-text h3 {
         font-size: 16px;
