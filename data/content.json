@@ -105,7 +105,21 @@
         "title": "Android Library",
         "description": "SDK for anything your problem to make easier developing android apps",
         "delay": "0.6s",
-        "url": "https://github.com/AmirisBack"
+        "url": "https://github.com/amirisback"
+      },
+      {
+        "icon": "fas fa-code",
+        "title": "automated-build-android-app-with-github-action",
+        "description": "Android CI",
+        "delay": "0.4s",
+        "url": "https://github.com/amirisback/automated-build-android-app-with-github-action"
+      },
+      {
+        "icon": "fas fa-code",
+        "title": "keyboard",
+        "description": "Keyboard Like Google",
+        "delay": "0.4s",
+        "url": "https://github.com/amirisback/keyboard"
       }
     ]
   },

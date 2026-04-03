@@ -7,6 +7,14 @@
 npx -y http-server -p 8080 -c-1
 ```
 
+## Run Dev + CMS (Content Manager)
+```bash
+node dev-server.js
+```
+- Website: http://localhost:3000
+- CMS Admin: http://localhost:3000/cms.html
+
+
 ## Colaborator
 Very open to anyone, I'll write your name under this, please contribute by sending an email to me
 
