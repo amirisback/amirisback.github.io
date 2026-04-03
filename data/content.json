@@ -95,13 +95,6 @@
     "items": [
       {
         "icon": "fab fa-android",
-        "title": "Android Apps",
-        "description": "Application for anything your problem to make easier your live",
-        "delay": "0.4s",
-        "url": ""
-      },
-      {
-        "icon": "fab fa-android",
         "title": "Android Library",
         "description": "SDK for anything your problem to make easier developing android apps",
         "delay": "0.6s",
@@ -115,11 +108,74 @@
         "url": "https://github.com/amirisback/automated-build-android-app-with-github-action"
       },
       {
-        "icon": "fas fa-code",
+        "icon": "fab fa-android",
         "title": "keyboard",
         "description": "Keyboard Like Google",
         "delay": "0.4s",
         "url": "https://github.com/amirisback/keyboard"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "KoinWorks",
+        "description": "While working at PT. LUNARIA ANNUA TEKNOLOGI, I helped develop the KoinWorks Android app",
+        "delay": "0.4s",
+        "url": "https://play.google.com/store/search?q=koinworks&c=apps&hl=id"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "Qomunal",
+        "description": "While working at PT Qomunal, I helped develop the Qomunal Android app",
+        "delay": "0.4s",
+        "url": "https://play.google.com/store/apps/details?id=id.aot.qomunal&hl=id"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "SJI (School of Journalism) Indonesia)",
+        "description": "While working at PT Qomunal, I helped develop the SJI Android application",
+        "delay": "0.4s",
+        "url": "https://play.google.com/store/apps/details?id=com.qomunal.sji"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "Hening",
+        "description": "While working at PT Qomunal, I helped develop the Hening Android application",
+        "delay": "0.4s",
+        "url": "https://play.google.com/store/apps/details?id=com.hening.android&hl=id"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "NewLife: For Mothers and Babies",
+        "description": "While working at PT Qomunal, I helped develop the NewLife Android application",
+        "delay": "0.4s",
+        "url": "https://play.google.com/store/apps/details?id=com.qomunal.newlife.android"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "Tokowibu Android",
+        "description": "While working at PT Qomunal, I helped develop the Tokowibu Android application",
+        "delay": "0.4s",
+        "url": "https://play.google.com/store/apps/details?id=id.tokowibu.app.android"
+      },
+      {
+        "icon": "fas fa-code",
+        "title": "Tokowibu Web",
+        "description": "While working at PT Qomunal, I helped develop the Tokowibu Web application",
+        "delay": "0.4s",
+        "url": "https://tokowibu.anievo.id/"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "Frogo-Recycler-View",
+        "description": "RecyclerView With No Adapter | Available For Jetpack Compose ",
+        "delay": "0.4s",
+        "url": "https://github.com/amirisback/frogo-recycler-view"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "frogo-sdk",
+        "description": "Frogo SDK - SDK Core for Easy Development",
+        "delay": "0.4s",
+        "url": "https://github.com/frogobox/frogo-sdk"
       }
     ]
   },

@@ -110,11 +110,11 @@ const server = http.createServer((req, res) => {
 
 server.listen(PORT, () => {
   console.log("");
-  console.log("  ╔══════════════════════════════════════════╗");
-  console.log("  ║       🚀 Dev Server Running!             ║");
-  console.log("  ╠══════════════════════════════════════════╣");
+  console.log("  ╔═══════════════════════════════════════════╗");
+  console.log("  ║       🚀 Dev Server Running!              ║");
+  console.log("  ╠═══════════════════════════════════════════╣");
   console.log(`  ║  Website:  http://localhost:${PORT}          ║`);
   console.log(`  ║  CMS:      http://localhost:${PORT}/cms.html ║`);
-  console.log("  ╚══════════════════════════════════════════╝");
+  console.log("  ╚═══════════════════════════════════════════╝");
   console.log("");
 });
