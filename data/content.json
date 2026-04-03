@@ -8,18 +8,38 @@
   "navbar": {
     "brand": "Profile",
     "links": [
-      { "href": "#home", "label": "Home" },
-      { "href": "#about", "label": "About" },
-      { "href": "#service", "label": "Project" },
-      { "href": "#experience", "label": "Experience" },
-      { "href": "#blog", "label": "Medium Post" },
-      { "href": "#contact", "label": "Contact" }
+      {
+        "href": "#home",
+        "label": "Home"
+      },
+      {
+        "href": "#about",
+        "label": "About"
+      },
+      {
+        "href": "#service",
+        "label": "Project"
+      },
+      {
+        "href": "#experience",
+        "label": "Experience"
+      },
+      {
+        "href": "#blog",
+        "label": "Medium Post"
+      },
+      {
+        "href": "#contact",
+        "label": "Contact"
+      }
     ]
   },
   "hero": {
     "greeting": "I'm",
     "name": "Muhammad Faisal Amir",
-    "typedTexts": ["Android Programmer"],
+    "typedTexts": [
+      "Android Programmer"
+    ],
     "heroImage": "img/hero.png",
     "buttons": [
       {
@@ -38,10 +58,22 @@
     "image": "img/about.png",
     "description": "S1 Informatics graduate from Telkom University, very interested in Android programming, I have high dedication, hard work, and have good communication skills. I can use Java and Kotlin",
     "skills": [
-      { "name": "Android Development", "percentage": 80 },
-      { "name": "Kotlin", "percentage": 70 },
-      { "name": "Java", "percentage": 50 },
-      { "name": "GitHub", "percentage": 30 }
+      {
+        "name": "Android Development",
+        "percentage": 80
+      },
+      {
+        "name": "Kotlin",
+        "percentage": 70
+      },
+      {
+        "name": "Java",
+        "percentage": 50
+      },
+      {
+        "name": "GitHub",
+        "percentage": 30
+      }
     ]
   },
   "services": {
@@ -66,6 +98,13 @@
     "sectionLabel": "My Resume",
     "sectionTitle": "Working Experience",
     "items": [
+      {
+        "date": "September 2024 - Now",
+        "title": "Android Dev",
+        "company": "Qomunal",
+        "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
+        "side": "left"
+      },
       {
         "date": "Jun 2022 - Mar 2023",
         "title": "Android Engineer",
@@ -138,11 +177,26 @@
     "email": "faisalamircs@gmail.com",
     "copyright": "Muhammad Faisal Amir, All Right Reserved 2022",
     "socials": [
-      { "icon": "fab fa-twitter", "url": "https://twitter.com/faisalamircs" },
-      { "icon": "fab fa-facebook-f", "url": "https://www.facebook.com/faisalamircs" },
-      { "icon": "fab fa-youtube", "url": "https://www.youtube.com/channel/UCl6r1ZXaZNY1ED0rd1rtJxg" },
-      { "icon": "fab fa-instagram", "url": "https://www.instagram.com/faisalamircs/" },
-      { "icon": "fab fa-linkedin-in", "url": "https://www.linkedin.com/in/faisalamircs/" }
+      {
+        "icon": "fab fa-twitter",
+        "url": "https://twitter.com/faisalamircs"
+      },
+      {
+        "icon": "fab fa-facebook-f",
+        "url": "https://www.facebook.com/faisalamircs"
+      },
+      {
+        "icon": "fab fa-youtube",
+        "url": "https://www.youtube.com/channel/UCl6r1ZXaZNY1ED0rd1rtJxg"
+      },
+      {
+        "icon": "fab fa-instagram",
+        "url": "https://www.instagram.com/faisalamircs/"
+      },
+      {
+        "icon": "fab fa-linkedin-in",
+        "url": "https://www.linkedin.com/in/faisalamircs/"
+      }
     ]
   }
 }
