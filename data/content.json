@@ -41,6 +41,7 @@
       "Android Programmer"
     ],
     "heroImage": "img/hero.png",
+    "videoBackground": "1eeqZNn-k0Y",
     "buttons": [
       {
         "label": "View Amir's CV",
@@ -56,41 +57,125 @@
     "sectionLabel": "Learn About Me",
     "sectionTitle": "Information",
     "image": "img/about.png",
-    "description": "S1 Informatics graduate from Telkom University, very interested in Android programming, I have high dedication, hard work, and have good communication skills. I can use Java and Kotlin",
+    "description": "I am an Android Developer with a strong passion for building real-world applications and continuously improving my technical skills. I focus on developing practical solutions using modern Android development approaches such as MVVM architecture, ViewModel, and efficient state management. I am highly motivated to grow in fast-paced environments where I can face real challenges, solve problems, and gain hands-on experience in software development. Currently, I am seeking opportunities to expand my experience through real projects and collaborative work environments.",
     "skills": [
       {
         "name": "Android Development",
-        "percentage": 80
+        "percentage": 90
       },
       {
-        "name": "Kotlin",
+        "name": "Kotlin & Java",
+        "percentage": 90
+      },
+      {
+        "name": "Version Control Github",
         "percentage": 70
       },
       {
-        "name": "Java",
-        "percentage": 50
+        "name": "Front End Website",
+        "percentage": 40
       },
       {
-        "name": "GitHub",
-        "percentage": 30
+        "name": "Vanila Js, Next Js",
+        "percentage": 40
+      },
+      {
+        "name": "Vanila CSS, Tailwind CSS",
+        "percentage": 40
+      },
+      {
+        "name": "AI Vibes Coding",
+        "percentage": 70
       }
     ]
   },
   "services": {
-    "sectionLabel": "What I do",
-    "sectionTitle": "Awesome Android Project",
+    "sectionLabel": "What have I been doing all this time?",
+    "sectionTitle": "Awesome Project",
     "items": [
-      {
-        "icon": "fab fa-android",
-        "title": "Android Apps",
-        "description": "Application for anything your problem to make easier your live",
-        "delay": "0.4s"
-      },
       {
         "icon": "fab fa-android",
         "title": "Android Library",
         "description": "SDK for anything your problem to make easier developing android apps",
-        "delay": "0.6s"
+        "delay": "0.6s",
+        "url": "https://github.com/amirisback"
+      },
+      {
+        "icon": "fas fa-code",
+        "title": "automated-build-android-app-with-github-action",
+        "description": "Android CI",
+        "delay": "0.4s",
+        "url": "https://github.com/amirisback/automated-build-android-app-with-github-action"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "keyboard",
+        "description": "Keyboard Like Google",
+        "delay": "0.4s",
+        "url": "https://github.com/amirisback/keyboard"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "KoinWorks",
+        "description": "While working at PT. LUNARIA ANNUA TEKNOLOGI, I helped develop the KoinWorks Android app",
+        "delay": "0.4s",
+        "url": "https://play.google.com/store/search?q=koinworks&c=apps&hl=id"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "Qomunal",
+        "description": "While working at PT Qomunal, I helped develop the Qomunal Android app",
+        "delay": "0.4s",
+        "url": "https://play.google.com/store/apps/details?id=id.aot.qomunal&hl=id"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "SJI (School of Journalism) Indonesia)",
+        "description": "While working at PT Qomunal, I helped develop the SJI Android application",
+        "delay": "0.4s",
+        "url": "https://play.google.com/store/apps/details?id=com.qomunal.sji"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "Hening",
+        "description": "While working at PT Qomunal, I helped develop the Hening Android application",
+        "delay": "0.4s",
+        "url": "https://play.google.com/store/apps/details?id=com.hening.android&hl=id"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "NewLife: For Mothers and Babies",
+        "description": "While working at PT Qomunal, I helped develop the NewLife Android application",
+        "delay": "0.4s",
+        "url": "https://play.google.com/store/apps/details?id=com.qomunal.newlife.android"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "Tokowibu Android",
+        "description": "While working at PT Qomunal, I helped develop the Tokowibu Android application",
+        "delay": "0.4s",
+        "url": "https://play.google.com/store/apps/details?id=id.tokowibu.app.android"
+      },
+      {
+        "icon": "fas fa-code",
+        "title": "Tokowibu Web",
+        "description": "While working at PT Qomunal, I helped develop the Tokowibu Web application",
+        "delay": "0.4s",
+        "url": "https://tokowibu.anievo.id/"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "Frogo-Recycler-View",
+        "description": "RecyclerView With No Adapter | Available For Jetpack Compose ",
+        "delay": "0.4s",
+        "url": "https://github.com/amirisback/frogo-recycler-view"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "frogo-sdk",
+        "description": "Frogo SDK - SDK Core for Easy Development",
+        "delay": "0.4s",
+        "url": "https://github.com/frogobox/frogo-sdk"
       }
     ]
   },
@@ -99,7 +184,7 @@
     "sectionTitle": "Working Experience",
     "items": [
       {
-        "date": "September 2024 - Now",
+        "date": "September 2023 - Now",
         "title": "Android Dev",
         "company": "Qomunal",
         "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
@@ -175,7 +260,7 @@
     "address": "Probolinggo - Jawa Timur, Indonesia",
     "phone": "+6281357108568",
     "email": "faisalamircs@gmail.com",
-    "copyright": "Muhammad Faisal Amir, All Right Reserved 2022",
+    "copyright": "Muhammad Faisal Amir, All Right Reserved 2026",
     "socials": [
       {
         "icon": "fab fa-twitter",
@@ -196,6 +281,10 @@
       {
         "icon": "fab fa-linkedin-in",
         "url": "https://www.linkedin.com/in/faisalamircs/"
+      },
+      {
+        "icon": "fab fa-github",
+        "url": "https://www.github.com/amirisback"
       }
     ]
   }
