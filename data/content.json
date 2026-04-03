@@ -41,6 +41,7 @@
       "Android Programmer"
     ],
     "heroImage": "img/hero.png",
+    "videoBackground": "1eeqZNn-k0Y",
     "buttons": [
       {
         "label": "View Amir's CV",
@@ -56,23 +57,35 @@
     "sectionLabel": "Learn About Me",
     "sectionTitle": "Information",
     "image": "img/about.png",
-    "description": "S1 Informatics graduate from Telkom University, very interested in Android programming, I have high dedication, hard work, and have good communication skills. I can use Java and Kotlin",
+    "description": "I am an Android Developer with a strong passion for building real-world applications and continuously improving my technical skills. I focus on developing practical solutions using modern Android development approaches such as MVVM architecture, ViewModel, and efficient state management. I am highly motivated to grow in fast-paced environments where I can face real challenges, solve problems, and gain hands-on experience in software development. Currently, I am seeking opportunities to expand my experience through real projects and collaborative work environments.",
     "skills": [
       {
         "name": "Android Development",
-        "percentage": 80
+        "percentage": 90
       },
       {
-        "name": "Kotlin",
+        "name": "Kotlin & Java",
+        "percentage": 90
+      },
+      {
+        "name": "Version Control Github",
         "percentage": 70
       },
       {
-        "name": "Java",
-        "percentage": 50
+        "name": "Front End Website",
+        "percentage": 40
       },
       {
-        "name": "GitHub",
-        "percentage": 30
+        "name": "Vanila Js, Next Js",
+        "percentage": 40
+      },
+      {
+        "name": "Vanila CSS, Tailwind CSS",
+        "percentage": 40
+      },
+      {
+        "name": "AI Vibes Coding",
+        "percentage": 70
       }
     ]
   },
@@ -99,7 +112,7 @@
     "sectionTitle": "Working Experience",
     "items": [
       {
-        "date": "September 2024 - Now",
+        "date": "September 2023 - Now",
         "title": "Android Dev",
         "company": "Qomunal",
         "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
@@ -175,7 +188,7 @@
     "address": "Probolinggo - Jawa Timur, Indonesia",
     "phone": "+6281357108568",
     "email": "faisalamircs@gmail.com",
-    "copyright": "Muhammad Faisal Amir, All Right Reserved 2022",
+    "copyright": "Muhammad Faisal Amir, All Right Reserved 2026",
     "socials": [
       {
         "icon": "fab fa-twitter",
@@ -196,6 +209,10 @@
       {
         "icon": "fab fa-linkedin-in",
         "url": "https://www.linkedin.com/in/faisalamircs/"
+      },
+      {
+        "icon": "fab fa-github",
+        "url": "https://www.github.com/amirisback"
       }
     ]
   }
