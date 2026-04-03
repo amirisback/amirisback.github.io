@@ -1,0 +1,202 @@
+{
+  "meta": {
+    "title": "Muhammad Faisal Amir",
+    "keywords": "Muhammad Faisal Amir",
+    "description": "Muhammad Faisal Amir",
+    "favicon": "https://avatars.githubusercontent.com/u/24654871?v=4"
+  },
+  "navbar": {
+    "brand": "Profile",
+    "links": [
+      {
+        "href": "#home",
+        "label": "Home"
+      },
+      {
+        "href": "#about",
+        "label": "About"
+      },
+      {
+        "href": "#service",
+        "label": "Project"
+      },
+      {
+        "href": "#experience",
+        "label": "Experience"
+      },
+      {
+        "href": "#blog",
+        "label": "Medium Post"
+      },
+      {
+        "href": "#contact",
+        "label": "Contact"
+      }
+    ]
+  },
+  "hero": {
+    "greeting": "I'm",
+    "name": "Muhammad Faisal Amir",
+    "typedTexts": [
+      "Android Programmer"
+    ],
+    "heroImage": "img/hero.png",
+    "buttons": [
+      {
+        "label": "View Amir's CV",
+        "href": "https://amirisback.github.io/amirisback/docs/cv/cv-muhammad-faisal-amir.pdf"
+      },
+      {
+        "label": "Follow Amir's GitHub",
+        "href": "https://github.com/amirisback"
+      }
+    ]
+  },
+  "about": {
+    "sectionLabel": "Learn About Me",
+    "sectionTitle": "Information",
+    "image": "img/about.png",
+    "description": "S1 Informatics graduate from Telkom University, very interested in Android programming, I have high dedication, hard work, and have good communication skills. I can use Java and Kotlin",
+    "skills": [
+      {
+        "name": "Android Development",
+        "percentage": 80
+      },
+      {
+        "name": "Kotlin",
+        "percentage": 70
+      },
+      {
+        "name": "Java",
+        "percentage": 50
+      },
+      {
+        "name": "GitHub",
+        "percentage": 30
+      }
+    ]
+  },
+  "services": {
+    "sectionLabel": "What I do",
+    "sectionTitle": "Awesome Android Project",
+    "items": [
+      {
+        "icon": "fab fa-android",
+        "title": "Android Apps",
+        "description": "Application for anything your problem to make easier your live",
+        "delay": "0.4s"
+      },
+      {
+        "icon": "fab fa-android",
+        "title": "Android Library",
+        "description": "SDK for anything your problem to make easier developing android apps",
+        "delay": "0.6s"
+      }
+    ]
+  },
+  "experience": {
+    "sectionLabel": "My Resume",
+    "sectionTitle": "Working Experience",
+    "items": [
+      {
+        "date": "September 2024 - Now",
+        "title": "Android Dev",
+        "company": "Qomunal",
+        "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
+        "side": "left"
+      },
+      {
+        "date": "Jun 2022 - Mar 2023",
+        "title": "Android Engineer",
+        "company": "KoinWorks",
+        "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
+        "side": "right"
+      },
+      {
+        "date": "Jun 2022 - Jun 2022",
+        "title": "Android Engineer",
+        "company": "PT Rumahawan Karya Indonesia",
+        "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
+        "side": "left"
+      },
+      {
+        "date": "Jul 2020 - Des 2020",
+        "title": "Android Programmer (Internship)",
+        "company": "Chat Aja Messeger",
+        "location": "Bandung, West Java, Indonesia",
+        "side": "right"
+      },
+      {
+        "date": "Jun 2019 - Sep 2019",
+        "title": "Android Programmer",
+        "company": "GITS Indonesia",
+        "location": "Jl. Margacinta No. 29 Bandung Indonesia",
+        "side": "left"
+      },
+      {
+        "date": "Jan 2019 - Mei 2019",
+        "title": "Android Programmer (Internship)",
+        "company": "Kodelokus",
+        "location": "Bandung dan Sekitarnya, Jawa Barat, IndonesiaBandung",
+        "side": "right"
+      }
+    ]
+  },
+  "blog": {
+    "sectionLabel": "From Blog",
+    "sectionTitle": "Latest Articles",
+    "posts": [
+      {
+        "image": "https://miro.medium.com/max/1400/1*BlMzaDOVhZVn_tgbh5njMw.jpeg",
+        "title": "Consumable Code By Amirisback??Apa itu? (Part 1)",
+        "author": "Faisal Amir",
+        "category": "Android Development",
+        "date": "17-Mar-2020",
+        "comments": 0,
+        "excerpt": "Hallo teman teman developer android semua, kali ini aku akan bercerita dan akan menjelaskan apasih Consumable Code By Amirisback.",
+        "url": "https://medium.com/@faisalamircs/consumable-code-by-amirisback-apa-itu-part-1-188627d559c0",
+        "delay": "0.1s"
+      },
+      {
+        "image": "https://miro.medium.com/max/1400/1*BlMzaDOVhZVn_tgbh5njMw.jpeg",
+        "title": "Consumable Code By Amirisback??Apa itu? (Part 2)",
+        "author": "Faisal Amir",
+        "category": "Android Development",
+        "date": "17-Mar-2020",
+        "comments": 0,
+        "excerpt": "Hey yo, Android library check. lanjutan dari part sebelumnya, kali ini bakal membahas secara rinci apa itu consumable code by amirisback.",
+        "url": "https://medium.com/@faisalamircs/consumable-code-by-amirisback-apa-itu-part-2-7d95b258c7a5",
+        "delay": "0.3s"
+      }
+    ]
+  },
+  "footer": {
+    "name": "Muhammad Faisal Amir",
+    "address": "Probolinggo - Jawa Timur, Indonesia",
+    "phone": "+6281357108568",
+    "email": "faisalamircs@gmail.com",
+    "copyright": "Muhammad Faisal Amir, All Right Reserved 2022",
+    "socials": [
+      {
+        "icon": "fab fa-twitter",
+        "url": "https://twitter.com/faisalamircs"
+      },
+      {
+        "icon": "fab fa-facebook-f",
+        "url": "https://www.facebook.com/faisalamircs"
+      },
+      {
+        "icon": "fab fa-youtube",
+        "url": "https://www.youtube.com/channel/UCl6r1ZXaZNY1ED0rd1rtJxg"
+      },
+      {
+        "icon": "fab fa-instagram",
+        "url": "https://www.instagram.com/faisalamircs/"
+      },
+      {
+        "icon": "fab fa-linkedin-in",
+        "url": "https://www.linkedin.com/in/faisalamircs/"
+      }
+    ]
+  }
+}
