@@ -92,7 +92,30 @@
 
     const row = el("div", { className: "row align-items-center" }, leftCol, rightCol);
     const container = el("div", { className: "container-fluid" }, row);
-    return el("div", { className: "hero", id: "home" }, container);
+    const hero = el("div", { className: "hero", id: "home" });
+
+    // Add YouTube video background if configured
+    if (data.videoBackground) {
+      const videoId = data.videoBackground;
+      const videoSrc = "https://www.youtube.com/embed/" + videoId +
+        "?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&playlist=" + videoId;
+
+      const videoBg = el("div", { className: "hero-video-bg" },
+        el("iframe", {
+          id: "hero-youtube-video",
+          src: videoSrc,
+          frameborder: "0",
+          allow: "autoplay; encrypted-media",
+          allowfullscreen: ""
+        })
+      );
+      const overlay = el("div", { className: "hero-overlay" });
+      hero.appendChild(videoBg);
+      hero.appendChild(overlay);
+    }
+
+    hero.appendChild(container);
+    return hero;
   }
 
   function renderAbout(data) {
