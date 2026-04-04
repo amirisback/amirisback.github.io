@@ -19,6 +19,8 @@
       --success: #22c55e;
       --danger: #ef4444;
       --warning: #f59e0b;
+      --github: #238636;
+      --github-hover: #2ea043;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -57,6 +59,159 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 32px 24px;
+    }
+
+    /* ─── GitHub Status Indicator ─── */
+    .gh-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .gh-status:hover {
+      border-color: var(--accent);
+    }
+
+    .gh-status .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .gh-status .dot.connected { background: var(--success); box-shadow: 0 0 6px rgba(34,197,94,0.5); }
+    .gh-status .dot.disconnected { background: var(--danger); box-shadow: 0 0 6px rgba(239,68,68,0.5); }
+
+    .gh-status .fab { font-size: 14px; }
+
+    /* ─── Commit Message Bar ─── */
+    .commit-bar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .commit-bar label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    .commit-bar input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 12px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+    }
+
+    .commit-bar input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .auto-commit-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-dim);
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .auto-commit-toggle input[type="checkbox"] {
+      accent-color: var(--github);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    /* ─── Commit History ─── */
+    .commit-history {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+
+    .commit-history-header {
+      padding: 12px 16px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+
+    .commit-history-header h3 {
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .commit-history-header h3 i { color: var(--github); }
+
+    .commit-history-body { padding: 0; }
+    .commit-history-body.hidden { display: none; }
+
+    .commit-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      transition: background 0.15s;
+    }
+
+    .commit-item:last-child { border-bottom: none; }
+    .commit-item:hover { background: var(--surface-2); }
+
+    .commit-item .sha {
+      font-family: 'SFMono-Regular', Consolas, monospace;
+      color: var(--accent);
+      background: rgba(99,102,241,0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 11px;
+    }
+
+    .commit-item .sha:hover { background: rgba(99,102,241,0.25); }
+
+    .commit-item .msg { flex: 1; color: var(--text); }
+    .commit-item .date { color: var(--text-dim); white-space: nowrap; }
+    .commit-item .author { color: var(--text-dim); white-space: nowrap; }
+
+    .commit-empty {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-dim);
+      font-size: 13px;
     }
 
     /* ─── Sidebar Nav ─── */
@@ -255,6 +410,13 @@
 
     .btn-success:hover { opacity: 0.9; }
 
+    .btn-github {
+      background: var(--github);
+      color: white;
+    }
+
+    .btn-github:hover { background: var(--github-hover); }
+
     .btn-danger {
       background: transparent;
       color: var(--danger);
@@ -310,6 +472,7 @@
       transform: translateY(100px);
       opacity: 0;
       transition: all 0.3s ease;
+      max-width: 420px;
     }
 
     .toast.show {
@@ -319,6 +482,7 @@
 
     .toast.success { background: var(--success); color: white; }
     .toast.error { background: var(--danger); color: white; }
+    .toast.info { background: var(--accent); color: white; }
 
     /* ─── Status Badge ─── */
     .status-badge {
@@ -338,6 +502,17 @@
       color: var(--warning);
     }
 
+    .status-badge.committing {
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--accent);
+      animation: pulse-badge 1.2s infinite;
+    }
+
+    @keyframes pulse-badge {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
     /* ─── Preview Link ─── */
     .preview-link {
       color: var(--text-dim);
@@ -348,11 +523,186 @@
 
     .preview-link:hover { color: var(--accent); }
 
+    /* ─── Modal ─── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s;
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      width: 520px;
+      max-width: 90vw;
+      max-height: 85vh;
+      overflow-y: auto;
+      transform: scale(0.95) translateY(10px);
+      transition: transform 0.25s;
+    }
+
+    .modal-overlay.show .modal {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-header h2 {
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-header h2 i { color: var(--github); }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--text-dim);
+      font-size: 20px;
+      cursor: pointer;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: var(--text); }
+
+    .modal-body { padding: 24px; }
+
+    .modal-footer {
+      padding: 16px 24px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .modal-section {
+      margin-bottom: 20px;
+    }
+
+    .modal-section h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+    }
+
+    .input-with-icon {
+      position: relative;
+    }
+
+    .input-with-icon input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .input-with-icon input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .input-with-icon i {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+
+    .help-text {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .help-text a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .help-text a:hover { text-decoration: underline; }
+
+    .test-result {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      display: none;
+    }
+
+    .test-result.success {
+      display: block;
+      background: rgba(34,197,94,0.1);
+      color: var(--success);
+      border: 1px solid rgba(34,197,94,0.3);
+    }
+
+    .test-result.error {
+      display: block;
+      background: rgba(239,68,68,0.1);
+      color: var(--danger);
+      border: 1px solid rgba(239,68,68,0.3);
+    }
+
+    /* ─── Save Button Spinner ─── */
+    .btn .spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      display: none;
+    }
+
+    .btn.loading .spinner { display: block; }
+    .btn.loading .btn-text { display: none; }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
     @media (max-width: 640px) {
       .cms-header { padding: 12px 16px; }
       .cms-container { padding: 16px 12px; }
       .form-row { grid-template-columns: 1fr; }
       .header-actions { gap: 8px; }
+      .commit-bar { flex-wrap: wrap; }
+      .commit-bar label { width: 100%; }
     }
   </style>
 </head>
@@ -361,18 +711,108 @@
   <div class="cms-header">
     <h1><i class="fas fa-cog"></i> Content Manager</h1>
     <div class="header-actions">
+      <div class="gh-status" id="gh-status" onclick="GitHubSettings.open()" title="GitHub Settings">
+        <i class="fab fa-github"></i>
+        <span class="dot disconnected" id="gh-dot"></span>
+        <span id="gh-status-text">Not configured</span>
+      </div>
       <span id="status-badge" class="status-badge saved">✓ Saved</span>
       <a href="/" target="_blank" class="preview-link"><i class="fas fa-external-link-alt"></i> Preview</a>
-      <button class="btn btn-success" onclick="saveContent()"><i class="fas fa-save"></i> Save</button>
+      <button class="btn btn-success" id="save-btn" onclick="saveContent()">
+        <span class="spinner"></span>
+        <span class="btn-text"><i class="fas fa-save"></i> Save</span>
+      </button>
     </div>
   </div>
 
   <div class="cms-container">
+    <!-- Commit Bar -->
+    <div class="commit-bar" id="commit-bar" style="display:none;">
+      <label><i class="fab fa-github"></i> Commit</label>
+      <input type="text" id="commit-message" placeholder="Update content via CMS" value="Update content via CMS">
+      <label class="auto-commit-toggle">
+        <input type="checkbox" id="auto-commit" checked>
+        Auto-commit
+      </label>
+    </div>
+
+    <!-- Commit History -->
+    <div class="commit-history" id="commit-history" style="display:none;">
+      <div class="commit-history-header" onclick="toggleCommitHistory()">
+        <h3><i class="fab fa-github"></i> Recent Commits</h3>
+        <i class="fas fa-chevron-down toggle-icon" id="commit-history-toggle"></i>
+      </div>
+      <div class="commit-history-body" id="commit-history-body"></div>
+    </div>
+
     <nav class="section-nav" id="section-nav"></nav>
     <div id="cms-content"></div>
   </div>
 
   <div class="toast" id="toast"></div>
+
+  <!-- GitHub Settings Modal -->
+  <div class="modal-overlay" id="gh-modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h2><i class="fab fa-github"></i> GitHub Settings</h2>
+        <button class="modal-close" onclick="GitHubSettings.close()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-section">
+          <h3>Personal Access Token</h3>
+          <div class="input-with-icon">
+            <i class="fas fa-key"></i>
+            <input type="password" id="gh-pat" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+          </div>
+          <p class="help-text">
+            Generate a token at <a href="https://github.com/settings/tokens?type=beta" target="_blank">GitHub Settings → Fine-grained tokens</a>.<br>
+            Required permission: <strong>Contents: Read and write</strong> for repository <strong>amirisback/amirisback.github.io</strong>.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Repository</h3>
+          <div class="form-row">
+            <div class="input-with-icon">
+              <i class="fas fa-user"></i>
+              <input type="text" id="gh-owner" placeholder="amirisback" value="amirisback">
+            </div>
+            <div class="input-with-icon">
+              <i class="fas fa-book"></i>
+              <input type="text" id="gh-repo" placeholder="amirisback.github.io" value="amirisback.github.io">
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Branch</h3>
+          <div class="input-with-icon">
+            <i class="fas fa-code-branch"></i>
+            <input type="text" id="gh-branch" placeholder="main" value="main">
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>File Path</h3>
+          <div class="input-with-icon">
+            <i class="fas fa-file-code"></i>
+            <input type="text" id="gh-filepath" placeholder="data/content.json" value="data/content.json" readonly>
+          </div>
+          <p class="help-text">The path to the content file in the repository (read-only).</p>
+        </div>
+
+        <button class="btn btn-github" onclick="GitHubSettings.testConnection()">
+          <i class="fas fa-plug"></i> Test Connection
+        </button>
+        <div class="test-result" id="test-result"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" onclick="GitHubSettings.clear()"><i class="fas fa-trash"></i> Clear</button>
+        <button class="btn btn-github" onclick="GitHubSettings.save()"><i class="fas fa-check"></i> Save Settings</button>
+      </div>
+    </div>
+  </div>
 
 <script>
 (function() {
@@ -386,7 +826,7 @@
     const toast = document.getElementById("toast");
     toast.textContent = message;
     toast.className = "toast " + type + " show";
-    setTimeout(() => toast.classList.remove("show"), 3000);
+    setTimeout(() => toast.classList.remove("show"), 3500);
   }
 
   function markDirty() {
@@ -403,6 +843,248 @@
     badge.className = "status-badge saved";
   }
 
+  function setStatus(text, cls) {
+    const badge = document.getElementById("status-badge");
+    badge.textContent = text;
+    badge.className = "status-badge " + cls;
+  }
+
+  // ═══════════════════════════════════════════════
+  // ─── GitHub API Integration ───
+  // ═══════════════════════════════════════════════
+
+  const GitHubAPI = {
+    getConfig() {
+      return {
+        pat: localStorage.getItem("gh_pat") || "",
+        owner: localStorage.getItem("gh_owner") || "amirisback",
+        repo: localStorage.getItem("gh_repo") || "amirisback.github.io",
+        branch: localStorage.getItem("gh_branch") || "main",
+        filepath: "data/content.json",
+      };
+    },
+
+    isConfigured() {
+      return !!this.getConfig().pat;
+    },
+
+    headers() {
+      const config = this.getConfig();
+      return {
+        "Authorization": "Bearer " + config.pat,
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "Content-Type": "application/json",
+      };
+    },
+
+    async testConnection() {
+      const config = this.getConfig();
+      const url = "https://api.github.com/repos/" + config.owner + "/" + config.repo;
+      const res = await fetch(url, { headers: this.headers() });
+      if (!res.ok) throw new Error("HTTP " + res.status + ": " + (await res.text()));
+      return await res.json();
+    },
+
+    async getFileSHA() {
+      const config = this.getConfig();
+      const url = "https://api.github.com/repos/" + config.owner + "/" + config.repo +
+                  "/contents/" + config.filepath + "?ref=" + config.branch;
+      const res = await fetch(url, { headers: this.headers() });
+      if (!res.ok) throw new Error("Failed to get file SHA: HTTP " + res.status);
+      const data = await res.json();
+      return data.sha;
+    },
+
+    async commitFile(content, message) {
+      const config = this.getConfig();
+      const sha = await this.getFileSHA();
+      const encoded = btoa(unescape(encodeURIComponent(content)));
+
+      const url = "https://api.github.com/repos/" + config.owner + "/" + config.repo +
+                  "/contents/" + config.filepath;
+
+      const body = {
+        message: message,
+        content: encoded,
+        sha: sha,
+        branch: config.branch,
+      };
+
+      const res = await fetch(url, {
+        method: "PUT",
+        headers: this.headers(),
+        body: JSON.stringify(body),
+      });
+
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error("Commit failed: HTTP " + res.status + " — " + errText);
+      }
+
+      return await res.json();
+    },
+
+    async getCommitHistory() {
+      const config = this.getConfig();
+      const url = "https://api.github.com/repos/" + config.owner + "/" + config.repo +
+                  "/commits?path=" + config.filepath + "&sha=" + config.branch + "&per_page=5";
+      const res = await fetch(url, { headers: this.headers() });
+      if (!res.ok) return [];
+      return await res.json();
+    }
+  };
+
+  // ─── GitHub Settings Modal ───
+  window.GitHubSettings = {
+    open() {
+      const config = GitHubAPI.getConfig();
+      document.getElementById("gh-pat").value = config.pat;
+      document.getElementById("gh-owner").value = config.owner;
+      document.getElementById("gh-repo").value = config.repo;
+      document.getElementById("gh-branch").value = config.branch;
+      document.getElementById("test-result").className = "test-result";
+      document.getElementById("test-result").textContent = "";
+      document.getElementById("gh-modal").classList.add("show");
+    },
+
+    close() {
+      document.getElementById("gh-modal").classList.remove("show");
+    },
+
+    save() {
+      localStorage.setItem("gh_pat", document.getElementById("gh-pat").value.trim());
+      localStorage.setItem("gh_owner", document.getElementById("gh-owner").value.trim());
+      localStorage.setItem("gh_repo", document.getElementById("gh-repo").value.trim());
+      localStorage.setItem("gh_branch", document.getElementById("gh-branch").value.trim());
+      updateGitHubStatus();
+      this.close();
+      showToast("✓ GitHub settings saved!", "success");
+      if (GitHubAPI.isConfigured()) loadCommitHistory();
+    },
+
+    clear() {
+      if (!confirm("Clear all GitHub settings?")) return;
+      localStorage.removeItem("gh_pat");
+      localStorage.removeItem("gh_owner");
+      localStorage.removeItem("gh_repo");
+      localStorage.removeItem("gh_branch");
+      document.getElementById("gh-pat").value = "";
+      updateGitHubStatus();
+      this.close();
+      showToast("GitHub settings cleared", "info");
+    },
+
+    async testConnection() {
+      const testEl = document.getElementById("test-result");
+      testEl.className = "test-result";
+      testEl.style.display = "block";
+      testEl.textContent = "🔄 Testing connection...";
+      testEl.style.background = "rgba(99,102,241,0.1)";
+      testEl.style.color = "var(--accent)";
+      testEl.style.border = "1px solid rgba(99,102,241,0.3)";
+
+      // Temporarily apply the modal values
+      const origPat = localStorage.getItem("gh_pat");
+      const origOwner = localStorage.getItem("gh_owner");
+      const origRepo = localStorage.getItem("gh_repo");
+      const origBranch = localStorage.getItem("gh_branch");
+
+      localStorage.setItem("gh_pat", document.getElementById("gh-pat").value.trim());
+      localStorage.setItem("gh_owner", document.getElementById("gh-owner").value.trim());
+      localStorage.setItem("gh_repo", document.getElementById("gh-repo").value.trim());
+      localStorage.setItem("gh_branch", document.getElementById("gh-branch").value.trim());
+
+      try {
+        const repo = await GitHubAPI.testConnection();
+        testEl.className = "test-result success";
+        testEl.textContent = "✅ Connected to " + repo.full_name + " (" + (repo.private ? "Private" : "Public") + ")";
+      } catch (e) {
+        testEl.className = "test-result error";
+        testEl.textContent = "❌ " + e.message;
+        // Restore original values on failure
+        if (origPat) localStorage.setItem("gh_pat", origPat);
+        else localStorage.removeItem("gh_pat");
+        if (origOwner) localStorage.setItem("gh_owner", origOwner);
+        if (origRepo) localStorage.setItem("gh_repo", origRepo);
+        if (origBranch) localStorage.setItem("gh_branch", origBranch);
+      }
+    }
+  };
+
+  function updateGitHubStatus() {
+    const dot = document.getElementById("gh-dot");
+    const text = document.getElementById("gh-status-text");
+    const commitBar = document.getElementById("commit-bar");
+    const commitHistory = document.getElementById("commit-history");
+
+    if (GitHubAPI.isConfigured()) {
+      const config = GitHubAPI.getConfig();
+      dot.className = "dot connected";
+      text.textContent = config.owner + "/" + config.repo;
+      commitBar.style.display = "flex";
+      commitHistory.style.display = "block";
+      // Restore auto-commit preference
+      const autoCommit = localStorage.getItem("gh_auto_commit");
+      document.getElementById("auto-commit").checked = autoCommit !== "false";
+    } else {
+      dot.className = "dot disconnected";
+      text.textContent = "Not configured";
+      commitBar.style.display = "none";
+      commitHistory.style.display = "none";
+    }
+  }
+
+  // Auto-commit toggle persistence
+  document.getElementById("auto-commit").addEventListener("change", function() {
+    localStorage.setItem("gh_auto_commit", this.checked);
+  });
+
+  // ─── Commit History ───
+  async function loadCommitHistory() {
+    if (!GitHubAPI.isConfigured()) return;
+    const body = document.getElementById("commit-history-body");
+    body.innerHTML = '<div class="commit-empty"><i class="fas fa-spinner fa-spin"></i> Loading commits...</div>';
+
+    try {
+      const commits = await GitHubAPI.getCommitHistory();
+      if (commits.length === 0) {
+        body.innerHTML = '<div class="commit-empty">No commits found for this file</div>';
+        return;
+      }
+
+      body.innerHTML = commits.map(function(c) {
+        const sha = c.sha.substring(0, 7);
+        const msg = c.commit.message.length > 60 ? c.commit.message.substring(0, 60) + "..." : c.commit.message;
+        const date = new Date(c.commit.author.date);
+        const dateStr = date.toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" });
+        const timeStr = date.toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit" });
+        const author = c.commit.author.name;
+        return '<div class="commit-item">' +
+          '<a class="sha" href="' + c.html_url + '" target="_blank">' + sha + '</a>' +
+          '<span class="msg">' + escapeHtml(msg) + '</span>' +
+          '<span class="author">' + escapeHtml(author) + '</span>' +
+          '<span class="date">' + dateStr + ' ' + timeStr + '</span>' +
+          '</div>';
+      }).join("");
+    } catch (e) {
+      body.innerHTML = '<div class="commit-empty">⚠ Failed to load: ' + escapeHtml(e.message) + '</div>';
+    }
+  }
+
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  window.toggleCommitHistory = function() {
+    const body = document.getElementById("commit-history-body");
+    const icon = document.getElementById("commit-history-toggle");
+    body.classList.toggle("hidden");
+    icon.style.transform = body.classList.contains("hidden") ? "rotate(-90deg)" : "";
+  };
+
   // ─── Load & Save ───
   async function loadContent() {
     try {
@@ -410,26 +1092,65 @@
       contentData = await res.json();
       renderCMS();
     } catch (e) {
-      showToast("Failed to load content: " + e.message, "error");
+      // Fallback: try loading content.json directly (static hosting)
+      try {
+        const res = await fetch("data/content.json");
+        contentData = await res.json();
+        renderCMS();
+      } catch (e2) {
+        showToast("Failed to load content: " + e2.message, "error");
+      }
     }
   }
 
   window.saveContent = async function() {
+    const saveBtn = document.getElementById("save-btn");
+    saveBtn.classList.add("loading");
+
     try {
-      const res = await fetch("/api/content", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(contentData),
-      });
-      const result = await res.json();
-      if (result.success) {
-        showToast("✓ Content saved successfully!", "success");
-        markSaved();
+      // Step 1: Save locally
+      setStatus("⏳ Saving...", "committing");
+      try {
+        const res = await fetch("/api/content", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(contentData),
+        });
+        const result = await res.json();
+        if (!result.success) {
+          showToast("Local save error: " + result.error, "error");
+        }
+      } catch (localErr) {
+        // Dev server might not be running, continue to GitHub commit
+        console.warn("Local save skipped (dev server not running):", localErr.message);
+      }
+
+      // Step 2: Commit to GitHub (if configured and auto-commit is on)
+      const autoCommit = document.getElementById("auto-commit").checked;
+      if (GitHubAPI.isConfigured() && autoCommit) {
+        setStatus("⏳ Committing...", "committing");
+        const message = document.getElementById("commit-message").value.trim() || "Update content via CMS";
+        const formatted = JSON.stringify(contentData, null, 2) + "\n";
+
+        try {
+          const result = await GitHubAPI.commitFile(formatted, message);
+          const sha = result.commit.sha.substring(0, 7);
+          showToast("✓ Saved & committed to GitHub (" + sha + ")", "success");
+          markSaved();
+          // Refresh commit history
+          loadCommitHistory();
+        } catch (ghErr) {
+          showToast("⚠ Saved locally, but GitHub commit failed: " + ghErr.message, "error");
+          markSaved();
+        }
       } else {
-        showToast("Error: " + result.error, "error");
+        showToast("✓ Content saved locally!", "success");
+        markSaved();
       }
     } catch (e) {
       showToast("Failed to save: " + e.message, "error");
+    } finally {
+      saveBtn.classList.remove("loading");
     }
   };
 
@@ -704,7 +1425,6 @@
     update: function(el) {
       const path = el.getAttribute("data-path");
       let val = el.value;
-      // Try to parse as number for specific fields
       if (path.includes("percentage") || path.includes("comments")) {
         val = parseInt(val) || 0;
       }
@@ -739,7 +1459,6 @@
       arr.push(JSON.parse(JSON.stringify(template)));
       markDirty();
       renderCMS();
-      // Scroll to bottom
       const card = document.getElementById("card-" + path.split(".")[0]);
       if (card) card.scrollIntoView({ behavior: "smooth", block: "end" });
     }
@@ -761,8 +1480,20 @@
     }
   });
 
-  // Init
+  // Close modal on backdrop click
+  document.getElementById("gh-modal").addEventListener("click", function(e) {
+    if (e.target === this) GitHubSettings.close();
+  });
+
+  // Close modal on Escape
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") GitHubSettings.close();
+  });
+
+  // ─── Init ───
+  updateGitHubStatus();
   loadContent();
+  if (GitHubAPI.isConfigured()) loadCommitHistory();
 })();
 </script>
 </body>

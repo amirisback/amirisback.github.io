@@ -1,0 +1,116 @@
+name: Validate Content JSON
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/content.json'
+
+jobs:
+  validate:
+    name: Validate content.json
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+    - name: plant a tree in the garden
+      run: node index.js > GARDEN.md
+    - name: Commit change & Push
+      run: |
+          git config user.name 'amirisback
+          git config user.email 'amirisback.dev@gmail.com'
+          git commit -am "plant some tree 🌳"
+          git push
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate JSON syntax
+        run: |
+          echo "🔍 Checking JSON syntax..."
+          if jq empty data/content.json 2>/dev/null; then
+            echo "✅ JSON syntax is valid"
+          else
+            echo "❌ Invalid JSON syntax!"
+            exit 1
+          fi
+
+      - name: Validate required sections
+        run: |
+          echo "🔍 Checking required sections..."
+          REQUIRED_SECTIONS=("meta" "navbar" "hero" "about" "services" "experience" "blog" "footer")
+          ALL_VALID=true
+          
+          for section in "${REQUIRED_SECTIONS[@]}"; do
+            if jq -e ".$section" data/content.json > /dev/null 2>&1; then
+              echo "  ✅ Section '$section' exists"
+            else
+              echo "  ❌ Missing required section: '$section'"
+              ALL_VALID=false
+            fi
+          done
+          
+          if [ "$ALL_VALID" = false ]; then
+            echo ""
+            echo "❌ Validation failed: Missing required sections!"
+            exit 1
+          fi
+
+      - name: Validate meta fields
+        run: |
+          echo "🔍 Checking meta fields..."
+          FIELDS=("title" "keywords" "description" "favicon")
+          
+          for field in "${FIELDS[@]}"; do
+            VALUE=$(jq -r ".meta.$field // empty" data/content.json)
+            if [ -n "$VALUE" ]; then
+              echo "  ✅ meta.$field = '$VALUE'"
+            else
+              echo "  ⚠️  meta.$field is empty"
+            fi
+          done
+
+      - name: Validate content structure
+        run: |
+          echo "🔍 Checking content structure..."
+          
+          # Check navbar links
+          LINKS=$(jq '.navbar.links | length' data/content.json)
+          echo "  📌 Navbar links: $LINKS"
+          
+          # Check services items
+          SERVICES=$(jq '.services.items | length' data/content.json)
+          echo "  📌 Project items: $SERVICES"
+          
+          # Check experience items
+          EXP=$(jq '.experience.items | length' data/content.json)
+          echo "  📌 Experience items: $EXP"
+          
+          # Check blog posts
+          POSTS=$(jq '.blog.posts | length' data/content.json)
+          echo "  📌 Blog posts: $POSTS"
+          
+          # Check footer socials
+          SOCIALS=$(jq '.footer.socials | length' data/content.json)
+          echo "  📌 Social links: $SOCIALS"
+          
+          echo ""
+          echo "✅ Content structure validation passed!"
+
+      - name: Summary
+        run: |
+          echo ""
+          echo "╔═══════════════════════════════════════════╗"
+          echo "║   ✅ Content JSON Validation Passed!      ║"
+          echo "╚═══════════════════════════════════════════╝"
+          echo ""
+          echo "📊 Summary:"
+          echo "  • File: data/content.json"
+          echo "  • Size: $(wc -c < data/content.json) bytes"
+          echo "  • Commit: ${{ github.sha }}"
+          echo "  • Author: ${{ github.actor }}"
