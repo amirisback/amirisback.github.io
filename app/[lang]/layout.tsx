@@ -27,7 +27,7 @@ export async function generateMetadata({
   const { lang } = await params;
 
   if (!hasLocale(lang)) {
-    return { title: "Amir App" };
+    return { title: "Muhammad Faisal Amir" };
   }
 
   const dict = await getDictionary(lang);

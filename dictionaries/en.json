@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "Amir App",
+    "appName": "Muhammad Faisal Amir",
     "loading": "Loading...",
     "error": "An error occurred",
     "retry": "Retry",
@@ -69,8 +69,8 @@
     "documentation": "Documentation"
   },
   "metadata": {
-    "title": "Amir App",
-    "description": "Amir App — Progressive Web Application"
+    "title": "Muhammad Faisal Amir",
+    "description": "Muhammad Faisal Amir — Progressive Web Application"
   },
   "error": {
     "notFound": "Page not found",
@@ -80,7 +80,7 @@
     "goHome": "Go to Homepage"
   },
   "footer": {
-    "copyright": "© {year} Amir App. All rights reserved.",
+    "copyright": "© {year} Muhammad Faisal Amir. All rights reserved.",
     "madeWith": "Made with"
   }
 }

@@ -7,8 +7,8 @@ describe("helloCommand", () => {
     
     const result = helloCommand();
     
-    expect(result).toBe("Hello, World! Welcome to Amir App CLI.");
-    expect(consoleSpy).toHaveBeenCalledWith("Hello, World! Welcome to Amir App CLI.");
+    expect(result).toBe("Hello, World! Welcome to Muhammad Faisal Amir CLI.");
+    expect(consoleSpy).toHaveBeenCalledWith("Hello, World! Welcome to Muhammad Faisal Amir CLI.");
     
     consoleSpy.mockRestore();
   });
@@ -18,8 +18,8 @@ describe("helloCommand", () => {
     
     const result = helloCommand("Amir");
     
-    expect(result).toBe("Hello, Amir! Welcome to Amir App CLI.");
-    expect(consoleSpy).toHaveBeenCalledWith("Hello, Amir! Welcome to Amir App CLI.");
+    expect(result).toBe("Hello, Amir! Welcome to Muhammad Faisal Amir CLI.");
+    expect(consoleSpy).toHaveBeenCalledWith("Hello, Amir! Welcome to Muhammad Faisal Amir CLI.");
     
     consoleSpy.mockRestore();
   });

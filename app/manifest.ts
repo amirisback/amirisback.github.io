@@ -2,9 +2,9 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Amir App',
-    short_name: 'AmirApp',
-    description: 'Amir App Progressive Web App',
+    name: 'Muhammad Faisal Amir',
+    short_name: 'Muhammad Faisal Amir',
+    description: 'Muhammad Faisal Amir Progressive Web App',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',

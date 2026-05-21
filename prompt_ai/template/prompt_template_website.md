@@ -1,7 +1,7 @@
 # 🌐 Prompt Template — Build Website (Next.js 16)
 
 > Template ini digunakan untuk memberikan instruksi ke AI Agent agar membangun website
-> mengikuti standar project **Amir App** (Next.js 16 + Tailwind CSS v4 + TypeScript + PWA).
+> mengikuti standar project **Muhammad Faisal Amir** (Next.js 16 + Tailwind CSS v4 + TypeScript + PWA).
 >
 > Isi bagian di dalam `[...]` sesuai kebutuhan.
 

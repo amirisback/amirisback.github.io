@@ -1,4 +1,4 @@
-# 📘 Project Guidelines — Amir App
+# 📘 Project Guidelines — Muhammad Faisal Amir
 
 > **⚠️ MANDATORY: Semua AI Agent WAJIB membaca file ini sebelum menulis kode apapun.**
 
@@ -8,7 +8,7 @@
 
 | Key            | Value                                    |
 | -------------- | ---------------------------------------- |
-| **App Name**   | Amir App                                 |
+| **App Name**   | Muhammad Faisal Amir                     |
 | **Framework**  | Next.js 16.2.6 (App Router)              |
 | **Language**   | TypeScript 6 (Strict Mode)               |
 | **Styling**    | Tailwind CSS v4.3                        |
@@ -261,7 +261,7 @@ export default async function Page({ params }: PageProps<"/[lang]">) {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Page Title — Amir App",
+  title: "Page Title — Muhammad Faisal Amir",
   description: "Deskripsi halaman yang informatif",
 };
 ```

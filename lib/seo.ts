@@ -7,7 +7,7 @@ import { i18n } from "@/i18n/config";
 
 // Base URL for the site — update in .env for production
 const SITE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
-const SITE_NAME = process.env.NEXT_PUBLIC_APP_NAME || "Amir App";
+const SITE_NAME = process.env.NEXT_PUBLIC_APP_NAME || "Muhammad Faisal Amir";
 
 export const seoConfig = {
   siteUrl: SITE_URL,

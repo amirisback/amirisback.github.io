@@ -1,4 +1,4 @@
-# Amir App CLI
+# Muhammad Faisal Amir CLI
 
 Template ini digunakan untuk membuat script Command Line Interface (CLI) khusus untuk internal project (seperti sinkronisasi database, seeding, pembersihan data, atau task cron).
 

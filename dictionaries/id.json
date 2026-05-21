@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "Amir App",
+    "appName": "Muhammad Faisal Amir",
     "loading": "Memuat...",
     "error": "Terjadi kesalahan",
     "retry": "Coba Lagi",
@@ -69,8 +69,8 @@
     "documentation": "Dokumentasi"
   },
   "metadata": {
-    "title": "Amir App",
-    "description": "Amir App — Aplikasi Web Progressive"
+    "title": "Muhammad Faisal Amir",
+    "description": "Muhammad Faisal Amir — Aplikasi Web Progressive"
   },
   "error": {
     "notFound": "Halaman tidak ditemukan",
@@ -80,7 +80,7 @@
     "goHome": "Kembali ke Beranda"
   },
   "footer": {
-    "copyright": "© {year} Amir App. Semua hak dilindungi.",
+    "copyright": "© {year} Muhammad Faisal Amir. Semua hak dilindungi.",
     "madeWith": "Dibuat dengan"
   }
 }

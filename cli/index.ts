@@ -50,7 +50,7 @@ export async function runCli(argsArray: string[]) {
 
 function showHelp() {
   console.log(`
-Amir App CLI
+Muhammad Faisal Amir CLI
 
 Usage:
   bun run cli <command> [options]
