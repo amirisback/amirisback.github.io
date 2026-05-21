@@ -1,0 +1,86 @@
+{
+  "common": {
+    "appName": "Muhammad Faisal Amir",
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "retry": "Coba Lagi",
+    "back": "Kembali",
+    "next": "Selanjutnya",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "delete": "Hapus",
+    "edit": "Ubah",
+    "search": "Cari",
+    "close": "Tutup",
+    "yes": "Ya",
+    "no": "Tidak",
+    "or": "atau",
+    "and": "dan"
+  },
+  "theme": {
+    "light": "Terang",
+    "dark": "Gelap",
+    "system": "Sistem",
+    "toggle": "Ganti Tema"
+  },
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "contact": "Kontak",
+    "menu": "Menu",
+    "language": "Bahasa",
+    "project": "Projek",
+    "experience": "Pengalaman",
+    "blog": "Medium",
+    "cms": "CMS"
+  },
+  "portfolio": {
+    "sectionLabel": "Projek Saya",
+    "sectionTitle": "Projek Keren",
+    "viewProject": "Lihat Projek"
+  },
+  "experience": {
+    "sectionLabel": "Resume Saya",
+    "sectionTitle": "Pengalaman Kerja"
+  },
+  "blog": {
+    "sectionLabel": "Dari Blog",
+    "sectionTitle": "Artikel Terbaru",
+    "readMore": "Baca Selengkapnya"
+  },
+  "about": {
+    "sectionLabel": "Pelajari Tentang Saya",
+    "sectionTitle": "Informasi"
+  },
+  "contact": {
+    "sectionLabel": "Hubungi Saya",
+    "sectionTitle": "Kontak",
+    "address": "Alamat",
+    "phone": "Telepon",
+    "email": "Email"
+  },
+  "home": {
+    "title": "Selamat Datang",
+    "subtitle": "Untuk memulai, edit file page.tsx.",
+    "description": "Mencari titik awal atau instruksi lebih lanjut? Kunjungi",
+    "templates": "Template",
+    "learning": "Pusat Belajar",
+    "deployNow": "Deploy Sekarang",
+    "documentation": "Dokumentasi"
+  },
+  "metadata": {
+    "title": "Muhammad Faisal Amir",
+    "description": "Muhammad Faisal Amir — Aplikasi Web Progressive"
+  },
+  "error": {
+    "notFound": "Halaman tidak ditemukan",
+    "notFoundDescription": "Maaf, halaman yang Anda cari tidak ada.",
+    "serverError": "Kesalahan Server",
+    "serverErrorDescription": "Terjadi kesalahan pada server. Silakan coba lagi nanti.",
+    "goHome": "Kembali ke Beranda"
+  },
+  "footer": {
+    "copyright": "© {year} Muhammad Faisal Amir. Semua hak dilindungi.",
+    "madeWith": "Dibuat dengan"
+  }
+}

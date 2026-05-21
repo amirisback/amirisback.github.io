@@ -1,0 +1,86 @@
+{
+  "common": {
+    "appName": "Muhammad Faisal Amir",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "back": "Back",
+    "next": "Next",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "and": "and"
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle Theme"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Menu",
+    "language": "Language",
+    "project": "Projects",
+    "experience": "Experience",
+    "blog": "Medium",
+    "cms": "CMS"
+  },
+  "portfolio": {
+    "sectionLabel": "My Projects",
+    "sectionTitle": "Awesome Projects",
+    "viewProject": "View Project"
+  },
+  "experience": {
+    "sectionLabel": "My Resume",
+    "sectionTitle": "Working Experience"
+  },
+  "blog": {
+    "sectionLabel": "From Blog",
+    "sectionTitle": "Latest Articles",
+    "readMore": "Read More"
+  },
+  "about": {
+    "sectionLabel": "Learn About Me",
+    "sectionTitle": "Information"
+  },
+  "contact": {
+    "sectionLabel": "Contact Me",
+    "sectionTitle": "Contact",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "home": {
+    "title": "Welcome",
+    "subtitle": "To get started, edit the page.tsx file.",
+    "description": "Looking for a starting point or more instructions? Head over to",
+    "templates": "Templates",
+    "learning": "Learning Center",
+    "deployNow": "Deploy Now",
+    "documentation": "Documentation"
+  },
+  "metadata": {
+    "title": "Muhammad Faisal Amir",
+    "description": "Muhammad Faisal Amir — Progressive Web Application"
+  },
+  "error": {
+    "notFound": "Page not found",
+    "notFoundDescription": "Sorry, the page you are looking for does not exist.",
+    "serverError": "Server Error",
+    "serverErrorDescription": "A server error occurred. Please try again later.",
+    "goHome": "Go to Homepage"
+  },
+  "footer": {
+    "copyright": "© {year} Muhammad Faisal Amir. All rights reserved.",
+    "madeWith": "Made with"
+  }
+}

@@ -38,7 +38,7 @@
     "greeting": "I'm",
     "name": "Muhammad Faisal Amir",
     "typedTexts": [
-      "Android Programmer"
+      "Software Engineer"
     ],
     "heroImage": "img/hero.png",
     "videoBackground": "1eeqZNn-k0Y",
@@ -185,7 +185,7 @@
     "items": [
       {
         "date": "September 2023 - Now",
-        "title": "Android Dev",
+        "title": "Software Engineer (Android & Frontend Next Js)",
         "company": "Qomunal",
         "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
         "side": "left"

@@ -1,34 +1,36 @@
-## About This Project (release-and-work-in-progress 👷🔧️👷‍♀️⛏)
-[![pages-build-deployment](https://github.com/amirisback/amirisback.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/amirisback/amirisback.github.io/actions/workflows/pages/pages-build-deployment)
-- Web Profile Faisal Amir
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Run Dev 
+## Getting Started
+
+First, run the development server:
+
 ```bash
-npx -y http-server -p 8080 -c-1
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## Run Dev + CMS (Content Manager)
-```bash
-node dev-server.js
-```
-- Website: http://localhost:3000
-- CMS Admin: http://localhost:3000/cms.html
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Colaborator
-Very open to anyone, I'll write your name under this, please contribute by sending an email to me
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-- Mail To faisalamircs@gmail.com
-- Subject : Github _ [Github-Username-Account] _ [Language] _ [Repository-Name]
-- Example : Github_amirisback_kotlin_admob-helper-implementation
+## Learn More
 
-Name Of Contribute
-- Muhammad Faisal Amir
-- Waiting List
-- Waiting List
+To learn more about Next.js, take a look at the following resources:
 
-Waiting for your contribute
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Attention !!!
-- Please enjoy and don't forget fork and give a star
-- Don't Forget Follow My Github Account
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
