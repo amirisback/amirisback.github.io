@@ -12,7 +12,17 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "vanilajs/**",
+    "public/sw.js",
+    "coverage/**",
   ]),
+  {
+    settings: {
+      react: {
+        version: "19.0",
+      },
+    },
+  },
 ]);
 
 export default eslintConfig;

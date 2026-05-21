@@ -17,12 +17,47 @@
     "or": "or",
     "and": "and"
   },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "toggle": "Toggle Theme"
+  },
   "nav": {
     "home": "Home",
     "about": "About",
     "contact": "Contact",
     "menu": "Menu",
-    "language": "Language"
+    "language": "Language",
+    "project": "Projects",
+    "experience": "Experience",
+    "blog": "Medium",
+    "cms": "CMS"
+  },
+  "portfolio": {
+    "sectionLabel": "My Projects",
+    "sectionTitle": "Awesome Projects",
+    "viewProject": "View Project"
+  },
+  "experience": {
+    "sectionLabel": "My Resume",
+    "sectionTitle": "Working Experience"
+  },
+  "blog": {
+    "sectionLabel": "From Blog",
+    "sectionTitle": "Latest Articles",
+    "readMore": "Read More"
+  },
+  "about": {
+    "sectionLabel": "Learn About Me",
+    "sectionTitle": "Information"
+  },
+  "contact": {
+    "sectionLabel": "Contact Me",
+    "sectionTitle": "Contact",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email"
   },
   "home": {
     "title": "Welcome",

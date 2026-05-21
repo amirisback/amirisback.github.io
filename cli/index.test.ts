@@ -1,17 +1,17 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach, type MockInstance } from "vitest";
 import { runCli } from "./index";
 import * as helloModule from "./commands/hello";
 
 describe("runCli", () => {
-  let consoleLogSpy: any;
-  let consoleErrorSpy: any;
-  let processExitSpy: any;
-  let helloCommandSpy: any;
+  let consoleLogSpy: MockInstance;
+  let consoleErrorSpy: MockInstance;
+  let processExitSpy: MockInstance;
+  let helloCommandSpy: MockInstance;
 
   beforeEach(() => {
     consoleLogSpy = vi.spyOn(console, "log").mockImplementation(() => {});
     consoleErrorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
-    processExitSpy = vi.spyOn(process, "exit").mockImplementation((() => {}) as any);
+    processExitSpy = vi.spyOn(process, "exit").mockImplementation((() => {}) as unknown as (code?: number) => never);
     helloCommandSpy = vi.spyOn(helloModule, "helloCommand").mockImplementation(() => "mocked");
   });
 

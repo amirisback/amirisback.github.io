@@ -1,8 +1,18 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getDictionary, hasLocale } from "./dictionaries";
 import { generateWebsiteJsonLd } from "@/lib/seo";
+import { readContent } from "@/lib/content";
 import type { Locale } from "@/i18n/config";
+
+// Component imports
+import { Navbar } from "./_components/navbar";
+import { Hero } from "./_components/hero";
+import { About } from "./_components/about";
+import { Projects } from "./_components/projects";
+import { Experience } from "./_components/experience";
+import { Blog } from "./_components/blog";
+import { Footer } from "./_components/footer";
+import { BackToTop } from "./_components/back-to-top";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -11,11 +21,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
     notFound();
   }
 
+  // Load translations & portfolio JSON content
   const dict = await getDictionary(lang);
+  const content = await readContent();
   const websiteJsonLd = generateWebsiteJsonLd(lang as Locale);
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-zinc-950 font-sans text-zinc-900 dark:text-zinc-50 antialiased selection:bg-cyan-500 selection:text-white">
       {/* JSON-LD Structured Data — WebSite (for Google Sitelinks Search Box) */}
       <script
         type="application/ld+json"
@@ -24,63 +36,36 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         }}
       />
 
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            {dict.home.subtitle}
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            {dict.home.description}{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              {dict.home.templates}
-            </a>{" "}
-            {dict.common.or}{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              {dict.home.learning}
-            </a>
-            .
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            {dict.home.deployNow}
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {dict.home.documentation}
-          </a>
-        </div>
+      {/* Sticky header navbar */}
+      <Navbar
+        brand={content.navbar.brand}
+        links={content.navbar.links}
+        dict={dict}
+        currentLang={lang as Locale}
+      />
+
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <Hero data={content.hero} />
+
+        {/* About Section */}
+        <About data={content.about} dict={dict} />
+
+        {/* Projects Section */}
+        <Projects data={content.services} dict={dict} />
+
+        {/* Experience Section */}
+        <Experience data={content.experience} dict={dict} />
+
+        {/* Blog Section */}
+        <Blog data={content.blog} dict={dict} />
       </main>
+
+      {/* Footer Section */}
+      <Footer data={content.footer} dict={dict} />
+
+      {/* Scroll back to top button */}
+      <BackToTop />
     </div>
   );
 }

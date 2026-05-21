@@ -73,7 +73,7 @@ if (process.env.NODE_ENV !== "test" && process.argv[1]) {
     if (import.meta.url === pathToFileURL(process.argv[1]).href) {
       runCli(args);
     }
-  } catch (e) {
+  } catch {
     // Ignore invalid URLs
   }
 }

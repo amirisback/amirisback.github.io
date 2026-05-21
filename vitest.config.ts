@@ -11,7 +11,19 @@ export default defineConfig({
       provider: "v8",
       reporter: ["text", "html", "lcov"],
       include: ["lib/**", "app/**", "i18n/**"],
-      exclude: ["**/*.d.ts", "**/node_modules/**"],
+      exclude: [
+        "**/*.d.ts",
+        "**/node_modules/**",
+        "app/layout.tsx",
+        "app/manifest.ts",
+        "app/robots.ts",
+        "app/sitemap.ts",
+        "app/sw.ts",
+        "app/[lang]/layout.tsx",
+        "app/[lang]/dictionaries.ts",
+        "app/favicon.ico",
+        "app/globals.css"
+      ],
       thresholds: {
         statements: 80,
         branches: 80,

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { getDictionary, hasLocale } from "./dictionaries";
 import { i18n } from "@/i18n/config";
 import { generatePageSeo, generateOrganizationJsonLd } from "@/lib/seo";
+import { getThemeInitScript } from "@/lib/theme-init";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -74,9 +75,17 @@ export default async function LangLayout({
   return (
     <html
       lang={lang}
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        {/* Blocking theme init — prevents flash of wrong theme */}
+        <script>{getThemeInitScript()}</script>
+        {/* FontAwesome Icons */}
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+        />
         {/* JSON-LD Structured Data — Organization */}
         <script
           type="application/ld+json"
