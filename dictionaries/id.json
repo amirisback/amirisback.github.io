@@ -1,0 +1,51 @@
+{
+  "common": {
+    "appName": "Amir App",
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "retry": "Coba Lagi",
+    "back": "Kembali",
+    "next": "Selanjutnya",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "delete": "Hapus",
+    "edit": "Ubah",
+    "search": "Cari",
+    "close": "Tutup",
+    "yes": "Ya",
+    "no": "Tidak",
+    "or": "atau",
+    "and": "dan"
+  },
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "contact": "Kontak",
+    "menu": "Menu",
+    "language": "Bahasa"
+  },
+  "home": {
+    "title": "Selamat Datang",
+    "subtitle": "Untuk memulai, edit file page.tsx.",
+    "description": "Mencari titik awal atau instruksi lebih lanjut? Kunjungi",
+    "templates": "Template",
+    "learning": "Pusat Belajar",
+    "deployNow": "Deploy Sekarang",
+    "documentation": "Dokumentasi"
+  },
+  "metadata": {
+    "title": "Amir App",
+    "description": "Amir App — Aplikasi Web Progressive"
+  },
+  "error": {
+    "notFound": "Halaman tidak ditemukan",
+    "notFoundDescription": "Maaf, halaman yang Anda cari tidak ada.",
+    "serverError": "Kesalahan Server",
+    "serverErrorDescription": "Terjadi kesalahan pada server. Silakan coba lagi nanti.",
+    "goHome": "Kembali ke Beranda"
+  },
+  "footer": {
+    "copyright": "© {year} Amir App. Semua hak dilindungi.",
+    "madeWith": "Dibuat dengan"
+  }
+}

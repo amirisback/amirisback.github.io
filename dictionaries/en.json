@@ -1,0 +1,51 @@
+{
+  "common": {
+    "appName": "Amir App",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "back": "Back",
+    "next": "Next",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "close": "Close",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "and": "and"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Menu",
+    "language": "Language"
+  },
+  "home": {
+    "title": "Welcome",
+    "subtitle": "To get started, edit the page.tsx file.",
+    "description": "Looking for a starting point or more instructions? Head over to",
+    "templates": "Templates",
+    "learning": "Learning Center",
+    "deployNow": "Deploy Now",
+    "documentation": "Documentation"
+  },
+  "metadata": {
+    "title": "Amir App",
+    "description": "Amir App — Progressive Web Application"
+  },
+  "error": {
+    "notFound": "Page not found",
+    "notFoundDescription": "Sorry, the page you are looking for does not exist.",
+    "serverError": "Server Error",
+    "serverErrorDescription": "A server error occurred. Please try again later.",
+    "goHome": "Go to Homepage"
+  },
+  "footer": {
+    "copyright": "© {year} Amir App. All rights reserved.",
+    "madeWith": "Made with"
+  }
+}
