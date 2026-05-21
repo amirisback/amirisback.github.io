@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { i18n } from "@/i18n/config";
 
+export const dynamic = 'force-static';
+
 const SITE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
 // Add all your static routes here
