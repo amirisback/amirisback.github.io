@@ -6,23 +6,24 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["./vitest.setup.ts"],
-    include: ["**/*.test.{ts,tsx}"],
+    include: ["src/**/*.test.{ts,tsx}", "cli/**/*.test.{ts,tsx}"],
+    exclude: ["**/node_modules/**", ".asample/**", "build/**", "out/**"],
     coverage: {
       provider: "v8",
       reporter: ["text", "html", "lcov"],
-      include: ["lib/**", "app/**", "i18n/**"],
+      include: ["src/**"],
       exclude: [
         "**/*.d.ts",
         "**/node_modules/**",
-        "app/layout.tsx",
-        "app/manifest.ts",
-        "app/robots.ts",
-        "app/sitemap.ts",
-        "app/sw.ts",
-        "app/[lang]/layout.tsx",
-        "app/[lang]/dictionaries.ts",
-        "app/favicon.ico",
-        "app/globals.css"
+        "src/app/layout.tsx",
+        "src/app/manifest.ts",
+        "src/app/robots.ts",
+        "src/app/sitemap.ts",
+        "src/app/sw.ts",
+        "src/app/favicon.ico",
+        "src/app/globals.css",
+        "src/lib/dictionaries.ts",
+        "src/dictionaries/**",
       ],
       thresholds: {
         statements: 80,
@@ -34,7 +35,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "."),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
 });

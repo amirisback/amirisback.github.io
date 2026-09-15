@@ -1,0 +1,108 @@
+{
+  "common": {
+    "appName": "Muhammad Faisal Amir",
+    "loading": "Memuat...",
+    "error": "Terjadi kesalahan",
+    "retry": "Coba Lagi",
+    "back": "Kembali",
+    "next": "Selanjutnya",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "delete": "Hapus",
+    "edit": "Ubah",
+    "search": "Cari",
+    "close": "Tutup",
+    "yes": "Ya",
+    "no": "Tidak",
+    "or": "atau",
+    "and": "dan"
+  },
+  "theme": {
+    "label": "Tema",
+    "light": "Terang",
+    "dark": "Gelap",
+    "system": "Sistem",
+    "toggle": "Ganti Tema"
+  },
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "contact": "Kontak",
+    "menu": "Menu",
+    "language": "Bahasa",
+    "project": "Projek",
+    "experience": "Pengalaman",
+    "blog": "Medium",
+    "cms": "CMS"
+  },
+  "portfolio": {
+    "sectionLabel": "Projek Saya",
+    "sectionTitle": "Projek Keren",
+    "viewProject": "Lihat Projek"
+  },
+  "experience": {
+    "sectionLabel": "Resume Saya",
+    "sectionTitle": "Pengalaman Kerja"
+  },
+  "blog": {
+    "sectionLabel": "Dari Blog",
+    "sectionTitle": "Artikel Terbaru",
+    "readMore": "Baca Selengkapnya"
+  },
+  "about": {
+    "sectionLabel": "Pelajari Tentang Saya",
+    "sectionTitle": "Informasi"
+  },
+  "contact": {
+    "sectionLabel": "Hubungi Saya",
+    "sectionTitle": "Kontak",
+    "address": "Alamat",
+    "phone": "Telepon",
+    "email": "Email"
+  },
+  "home": {
+    "title": "Selamat Datang",
+    "subtitle": "Untuk memulai, edit file page.tsx.",
+    "description": "Mencari titik awal atau instruksi lebih lanjut? Kunjungi",
+    "templates": "Template",
+    "learning": "Pusat Belajar",
+    "deployNow": "Deploy Sekarang",
+    "documentation": "Dokumentasi"
+  },
+  "metadata": {
+    "title": "Muhammad Faisal Amir",
+    "description": "Muhammad Faisal Amir — Aplikasi Web Progressive"
+  },
+  "error": {
+    "notFound": "Halaman tidak ditemukan",
+    "notFoundDescription": "Maaf, halaman yang Anda cari tidak ada.",
+    "serverError": "Kesalahan Server",
+    "serverErrorDescription": "Terjadi kesalahan pada server. Silakan coba lagi nanti.",
+    "goHome": "Kembali ke Beranda"
+  },
+  "footer": {
+    "copyright": "© {year} Muhammad Faisal Amir. Semua hak dilindungi.",
+    "madeWith": "Dibuat dengan"
+  },
+  "demo": {
+    "title": "Enkripsi & Penyamaran ID",
+    "subtitle": "Keamanan tingkat tinggi & URL yang bersih untuk Next.js",
+    "intro": "Halaman ini menunjukkan implementasi dari dua teknik pengamanan ID yang telah diintegrasikan ke dalam template ini.",
+    "obfuscationTitle": "1. Penyamaran ID (Sqids)",
+    "obfuscationDesc": "Mengubah ID integer berurutan (misal dari database) menjadi string acak pendek dan ramah URL. Cocok untuk menyembunyikan ID agar tidak ditebak.",
+    "obfuscationPlaceholder": "Masukkan ID angka positif (misal: 12345)",
+    "obfuscateButton": "Samarkan ID",
+    "deobfuscateButton": "Kembalikan ID",
+    "encryptionTitle": "2. Enkripsi Kriptografis (AES-256-GCM)",
+    "encryptionDesc": "Enkripsi tingkat tinggi yang aman, terautentikasi (AES-GCM), dan anti-manipulasi. Hanya berjalan di sisi server (Server Component / Action).",
+    "encryptionPlaceholder": "Masukkan teks atau UUID sensitif",
+    "encryptButton": "Enkripsi Teks",
+    "decryptButton": "Dekripsi Teks",
+    "result": "Hasil",
+    "original": "Asli",
+    "processed": "Hasil Proses",
+    "errorInvalidNumber": "Silakan masukkan angka positif yang valid.",
+    "errorEmptyText": "Teks tidak boleh kosong.",
+    "success": "Sukses!"
+  }
+}
