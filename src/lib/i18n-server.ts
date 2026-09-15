@@ -6,11 +6,19 @@ import { getDictionary, hasLocale } from "@/lib/dictionaries";
 export const COOKIE_NAME = "NEXT_LOCALE";
 
 export async function getCurrentLocale(): Promise<Locale> {
-  const cookieStore = await cookies();
-  const cookieLocale = cookieStore.get(COOKIE_NAME)?.value;
+  if (process.env.OUTPUT_EXPORT === "true") {
+    return i18n.defaultLocale;
+  }
 
-  if (cookieLocale && hasLocale(cookieLocale)) {
-    return cookieLocale;
+  try {
+    const cookieStore = await cookies();
+    const cookieLocale = cookieStore.get(COOKIE_NAME)?.value;
+
+    if (cookieLocale && hasLocale(cookieLocale)) {
+      return cookieLocale;
+    }
+  } catch {
+    // In static export or SSR without request context, fallback to defaultLocale
   }
 
   return i18n.defaultLocale;

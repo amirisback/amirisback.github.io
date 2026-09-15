@@ -184,9 +184,8 @@ describe("CmsDashboard Component", () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       }));
+      expect(screen.getByText("Content saved successfully on the local disk!")).toBeInTheDocument();
     });
-
-    expect(screen.getByText("Content saved successfully on the local disk!")).toBeInTheDocument();
   });
 
   it("handles validation in Raw JSON tab", () => {

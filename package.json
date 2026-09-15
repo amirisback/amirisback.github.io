@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",
-    "cli": "bun run cli/index.ts"
+    "cli": "bun run cli/index.ts",
+    "deploy:gh-pages": "bun run scripts/deploy-gh-pages.ts"
   },
   "dependencies": {
     "@serwist/next": "^9.5.11",
