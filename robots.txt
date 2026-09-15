@@ -4,5 +4,5 @@ Disallow: /api/
 Disallow: /_next/
 Disallow: /private/
 
-Host: https://your-domain.com
-Sitemap: https://your-domain.com/sitemap.xml
+Host: http://localhost:3000
+Sitemap: http://localhost:3000/sitemap.xml
