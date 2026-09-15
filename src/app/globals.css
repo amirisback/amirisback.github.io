@@ -1,0 +1,466 @@
+@import "tailwindcss";
+
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Light theme (default) ── */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* ── Gradient stops ── */
+  --accent-from: #22d3ee;       /* cyan-400 */
+  --accent-via: #6366f1;        /* indigo-500 */
+  --accent-to: #8b5cf6;         /* violet-500 */
+
+  /* ── Glass ── */
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-shadow: rgba(0, 0, 0, 0.05);
+
+  /* ── Glow ── */
+  --glow-cyan: rgba(34, 211, 238, 0.4);
+  --glow-violet: rgba(139, 92, 246, 0.4);
+  --glow-blue: rgba(59, 130, 246, 0.3);
+
+  /* ── Section backgrounds (light) ── */
+  --section-primary-bg: #ffffff;
+  --section-alt-bg: #f8fafc;    /* slate-50 — softer than zinc-50 */
+
+  /* ── Hero gradient ── */
+  --hero-from: #0f172a;         /* slate-900 */
+  --hero-via: #1e1b4b;          /* indigo-950 */
+  --hero-to: #0c0a09;           /* stone-950 */
+}
+
+/* ── Dark theme (class-based) ── */
+:root.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  /* ── Glass (dark) ── */
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+
+  /* ── Section backgrounds (dark) ── */
+  --section-primary-bg: #09090b;  /* zinc-950 */
+  --section-alt-bg: #0a0a0a;
+
+  /* ── Hero gradient (dark) ── */
+  --hero-from: #020617;          /* slate-950 */
+  --hero-via: #0f0b2e;
+  --hero-to: #030712;            /* gray-950 */
+}
+
+/* ── OS-preference fallback (when no explicit class is set) ── */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* New: Accent gradient colors */
+  --color-accent-from: var(--accent-from);
+  --color-accent-via: var(--accent-via);
+  --color-accent-to: var(--accent-to);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ==========================================
+   CMS Visual Editor - Light/Dark Theme Styles
+   ========================================== */
+
+/* 1. Base inputs, textareas, selects, and text editors */
+.cms-editor input,
+.cms-editor textarea,
+.cms-editor select {
+  background-color: #ffffff !important;
+  border-color: #e4e4e7 !important;
+  color: #18181b !important;
+}
+.cms-editor input::placeholder,
+.cms-editor textarea::placeholder {
+  color: #a1a1aa !important;
+}
+.cms-editor input:focus,
+.cms-editor textarea:focus,
+.cms-editor select:focus {
+  border-color: #0891b2 !important; /* cyan-600 */
+}
+
+/* Dark mode inputs overrides */
+.dark .cms-editor input,
+.dark .cms-editor textarea,
+.dark .cms-editor select {
+  background-color: #09090b !important; /* zinc-950 */
+  border-color: #27272a !important; /* zinc-800 */
+  color: #ffffff !important;
+}
+.dark .cms-editor input::placeholder,
+.dark .cms-editor textarea::placeholder {
+  color: #71717a !important;
+}
+.dark .cms-editor input:focus,
+.dark .cms-editor textarea:focus,
+.dark .cms-editor select:focus {
+  border-color: #22d3ee !important; /* cyan-400 */
+}
+
+/* Nested input boxes in list row sub-items (e.g. bg-zinc-900) */
+.cms-editor .bg-zinc-900 input,
+.cms-editor .bg-zinc-900 textarea,
+.cms-editor .bg-zinc-900 select {
+  background-color: #f4f4f5 !important; /* zinc-100 */
+  border-color: #e4e4e7 !important;
+  color: #18181b !important;
+}
+.dark .cms-editor .bg-zinc-900 input,
+.dark .cms-editor .bg-zinc-900 textarea,
+.dark .cms-editor .bg-zinc-900 select {
+  background-color: #18181b !important; /* zinc-900 */
+  border-color: #27272a !important;
+  color: #ffffff !important;
+}
+
+/* 2. Container List Cards (originally bg-zinc-950 border-zinc-800) */
+.cms-editor div.bg-zinc-950 {
+  background-color: #ffffff !important;
+  border-color: #e4e4e7 !important;
+  color: #18181b !important;
+}
+.dark .cms-editor div.bg-zinc-950 {
+  background-color: #09090b !important; /* zinc-950 */
+  border-color: #27272a !important; /* zinc-800 */
+  color: #f4f4f5 !important;
+}
+
+/* 3. Utility Button styles (bg-zinc-800, bg-zinc-900) */
+.cms-editor button.bg-zinc-800 {
+  background-color: #f4f4f5 !important;
+  color: #18181b !important;
+  border: 1px solid #e4e4e7 !important;
+}
+.cms-editor button.bg-zinc-800:hover {
+  background-color: #e4e4e7 !important;
+}
+.dark .cms-editor button.bg-zinc-800 {
+  background-color: #27272a !important; /* zinc-800 */
+  color: #f4f4f5 !important;
+  border: none !important;
+}
+.dark .cms-editor button.bg-zinc-800:hover {
+  background-color: #3f3f46 !important; /* zinc-700 */
+}
+
+/* Navigation buttons (bg-zinc-900 border-zinc-800) */
+.cms-editor button.bg-zinc-900 {
+  background-color: #f4f4f5 !important;
+  border-color: #e4e4e7 !important;
+  color: #27272a !important;
+}
+.cms-editor button.bg-zinc-900:hover {
+  background-color: #e4e4e7 !important;
+}
+.dark .cms-editor button.bg-zinc-900 {
+  background-color: #18181b !important;
+  border-color: #27272a !important;
+  color: #ffffff !important;
+}
+.dark .cms-editor button.bg-zinc-900:hover {
+  background-color: #27272a !important;
+}
+
+/* Red / Danger buttons (bg-red-950/40 border-red-900/50 text-red-400) */
+.cms-editor button.bg-red-950\/40 {
+  background-color: #fee2e2 !important; /* red-100 */
+  border-color: #fca5a5 !important; /* red-300 */
+  color: #b91c1c !important; /* red-700 */
+}
+.cms-editor button.bg-red-950\/40:hover {
+  background-color: #fecaca !important;
+}
+.dark .cms-editor button.bg-red-950\/40 {
+  background-color: rgba(69, 10, 10, 0.4) !important; /* red-950/40 */
+  border-color: rgba(127, 29, 29, 0.5) !important; /* red-900/50 */
+  color: #f87171 !important; /* red-400 */
+}
+.dark .cms-editor button.bg-red-950\/40:hover {
+  background-color: rgba(127, 29, 29, 0.4) !important;
+}
+
+/* 4. Heading elements (h2, h3, h4, and borders) */
+.cms-editor h2,
+.cms-editor h3,
+.cms-editor h4 {
+  color: #18181b !important;
+  border-color: #e4e4e7 !important;
+}
+.dark .cms-editor h2,
+.dark .cms-editor h3,
+.dark .cms-editor h4 {
+  color: #ffffff !important;
+  border-color: #27272a !important;
+}
+
+/* 5. Labels and descriptions */
+.cms-editor label {
+  color: #4b5563 !important; /* gray-600 */
+}
+.dark .cms-editor label {
+  color: #a1a1aa !important; /* zinc-400 */
+}
+
+/* 6. GitHub Sync Modal Styling */
+.cms-editor-modal-container {
+  background-color: #ffffff !important;
+  border-color: #e4e4e7 !important;
+  color: #18181b !important;
+}
+.dark .cms-editor-modal-container {
+  background-color: #18181b !important;
+  border-color: #27272a !important;
+  color: #ffffff !important;
+}
+
+/* Modal specific inputs and buttons */
+.cms-editor-modal-container h3 {
+  color: #18181b !important;
+  border-color: #e4e4e7 !important;
+}
+.dark .cms-editor-modal-container h3 {
+  color: #ffffff !important;
+  border-color: #27272a !important;
+}
+
+.cms-editor-modal-container input {
+  background-color: #ffffff !important;
+  border-color: #e4e4e7 !important;
+  color: #18181b !important;
+}
+.dark .cms-editor-modal-container input {
+  background-color: #09090b !important;
+  border-color: #27272a !important;
+  color: #ffffff !important;
+}
+
+.cms-editor-modal-container button.bg-zinc-800 {
+  background-color: #f4f4f5 !important;
+  color: #18181b !important;
+  border: 1px solid #e4e4e7 !important;
+}
+.dark .cms-editor-modal-container button.bg-zinc-800 {
+  background-color: #27272a !important;
+  color: #f4f4f5 !important;
+  border: none !important;
+}
+
+/* Modal divider border colors */
+.cms-editor-modal-container .border-t,
+.cms-editor-modal-container .border-b {
+  border-color: #e4e4e7 !important;
+}
+.dark .cms-editor-modal-container .border-t,
+.dark .cms-editor-modal-container .border-b {
+  border-color: #27272a !important;
+}
+
+/* ====================================================
+   UI Modernization — Animations & Utility Classes
+   ==================================================== */
+
+/* ── Gradient shift (smooth background position animation) ── */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ── Glow pulse (for accent elements) ── */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px var(--glow-cyan), 0 0 40px var(--glow-violet); }
+  50% { box-shadow: 0 0 30px var(--glow-cyan), 0 0 60px var(--glow-violet); }
+}
+
+/* ── Float (gentle vertical floating) ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ── Float delayed (for staggered decorative elements) ── */
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(8deg); }
+}
+
+/* ── Shimmer (for progress bars, badges) ── */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* ── Spin slow (for decorative ring elements) ── */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── Scale in (for BackToTop appear) ── */
+@keyframes scale-in {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ── Gradient text shimmer ── */
+@keyframes gradient-text-shift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 200% center; }
+}
+
+/* ── Timeline dot pulse ── */
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.6); }
+  50% { box-shadow: 0 0 0 8px rgba(34, 211, 238, 0); }
+}
+
+/* ── Border glow rotate (for avatar ring) ── */
+@keyframes border-spin {
+  from { --angle: 0deg; }
+  to { --angle: 360deg; }
+}
+
+/* ── Glassmorphism base class ── */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.dark .glass {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark .glass-strong {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ── Animated gradient background ── */
+.gradient-animated {
+  background-size: 200% 200%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-via), var(--accent-to));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-text-shift 6s ease infinite;
+}
+
+/* ── Glow effects ── */
+.glow-accent {
+  box-shadow: 0 0 20px var(--glow-cyan), 0 0 40px var(--glow-violet);
+}
+
+.glow-accent-hover:hover {
+  box-shadow: 0 0 25px var(--glow-cyan), 0 0 50px var(--glow-violet);
+}
+
+/* ── Shimmer overlay (for progress bars) ── */
+.shimmer-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+/* ── Gradient border wrapper (conic gradient trick) ── */
+.gradient-border {
+  position: relative;
+  background-clip: padding-box;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-via), var(--accent-to));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.gradient-border:hover::before {
+  opacity: 1;
+}
+
+/* ── Section heading gradient accent line ── */
+.section-accent-line {
+  height: 3px;
+  width: 2.5rem;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+}
+
+/* ── Section label gradient text ── */
+.section-label {
+  background: linear-gradient(135deg, var(--accent-from), var(--accent-to));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Nav link animated underline ── */
+.nav-link-underline {
+  position: relative;
+}
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--accent-from), var(--accent-to));
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+.nav-link-underline:hover::after {
+  width: 70%;
+}

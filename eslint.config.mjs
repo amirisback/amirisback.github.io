@@ -15,6 +15,7 @@ const eslintConfig = defineConfig([
     "vanilajs/**",
     "public/sw.js",
     "coverage/**",
+    ".asample/**",
   ]),
   {
     settings: {

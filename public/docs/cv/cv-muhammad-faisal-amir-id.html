@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum Vitae - Muhammad Faisal Amir</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --primary: #0f172a;
+      --primary-accent: #0284c7;
+      --secondary: #334155;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #ffffff;
+      --surface: #f8fafc;
+      --tag-bg: #f1f5f9;
+      --tag-text: #1e293b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--secondary);
+      background-color: var(--surface);
+      line-height: 1.5;
+      font-size: 13.5px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page-container {
+      max-width: 820px;
+      margin: 24px auto;
+      background: var(--bg);
+      padding: 40px 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+    }
+
+    header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: -0.02em;
+    }
+
+    .job-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary-accent);
+      margin-top: 2px;
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      margin-top: 14px;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .contact-item a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-item a:hover {
+      color: var(--primary-accent);
+      text-decoration: underline;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--primary-accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+    }
+
+    .summary-text {
+      color: var(--secondary);
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .timeline-item {
+      margin-bottom: 14px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    .role-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .company-name {
+      font-weight: 600;
+      color: var(--primary-accent);
+    }
+
+    .item-date {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .item-location {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    ul.bullet-list {
+      list-style-type: disc;
+      margin-left: 18px;
+      color: var(--secondary);
+    }
+
+    ul.bullet-list li {
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+
+    .skill-category {
+      margin-bottom: 8px;
+    }
+
+    .skill-label {
+      font-weight: 600;
+      color: var(--primary);
+      display: inline;
+    }
+
+    .skill-tags {
+      display: inline;
+      color: var(--secondary);
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 10px;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .project-name {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .project-name a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .project-name a:hover {
+      color: var(--primary-accent);
+      text-decoration: underline;
+    }
+
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    @media print {
+      body {
+        background-color: #ffffff;
+        font-size: 11.5px;
+        line-height: 1.4;
+      }
+
+      .page-container {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        max-width: 100%;
+        border-radius: 0;
+      }
+
+      header {
+        margin-bottom: 14px;
+        padding-bottom: 12px;
+      }
+
+      h1 {
+        font-size: 20px;
+      }
+
+      .job-title {
+        font-size: 13px;
+      }
+
+      .contact-grid {
+        margin-top: 8px;
+        font-size: 11px;
+        gap: 6px 12px;
+      }
+
+      section {
+        margin-bottom: 14px;
+      }
+
+      .section-title {
+        font-size: 11.5px;
+        margin-bottom: 8px;
+        padding-bottom: 2px;
+      }
+
+      .timeline-item {
+        margin-bottom: 10px;
+        page-break-inside: avoid;
+      }
+
+      .role-title {
+        font-size: 12.5px;
+      }
+
+      ul.bullet-list li {
+        margin-bottom: 2px;
+      }
+
+      .project-card {
+        padding: 6px 10px;
+        margin-bottom: 6px;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <header>
+      <div class="header-top">
+        <div>
+          <h1>Muhammad Faisal Amir</h1>
+          <div class="job-title">Senior Android Developer & Software Engineer</div>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item">
+          📍 <span>Jakarta / Probolinggo, Jawa Timur, Indonesia</span>
+        </div>
+        <div class="contact-item">
+          ✉️ <a href="mailto:faisalamircs@gmail.com">faisalamircs@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          📱 <a href="https://wa.me/6281357108568">+62 813-5710-8568</a>
+        </div>
+        <div class="contact-item">
+          🔗 <a href="https://www.linkedin.com/in/faisalamircs/" target="_blank">linkedin.com/in/faisalamircs</a>
+        </div>
+        <div class="contact-item">
+          🐙 <a href="https://github.com/amirisback" target="_blank">github.com/amirisback</a>
+        </div>
+        <div class="contact-item">
+          🌐 <a href="https://amirisback.github.io" target="_blank">amirisback.github.io</a>
+        </div>
+        <div class="contact-item">
+          ✍️ <a href="https://medium.com/@faisalamircs" target="_blank">medium.com/@faisalamircs</a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <div class="section-title">Ringkasan Profesional</div>
+      <p class="summary-text">
+        <strong>Software Engineer</strong> yang berdedikasi dan berorientasi pada pencapaian dengan pengalaman lebih dari 6 tahun yang berfokus pada <strong>Pengembangan Aplikasi Android Native</strong> (Kotlin, Java, Jetpack Compose) dan <strong>Frontend Web Modern</strong> (Next.js, TypeScript, Tailwind CSS). Terbukti sukses merancang arsitektur aplikasi mobile yang scalable dan berperforma tinggi, membangun library serta SDK modular yang dapat digunakan kembali, dan menyusun pipeline CI/CD otomatis. Merupakan founder dan maintainer ekosistem open-source <strong>Frogobox</strong> (antara lain <em>Frogo-Recycler-View</em>, <em>Frogo SDK</em>). Berpengalaman luas dalam meluncurkan aplikasi-aplikasi skala produksi di bidang fintech, e-commerce, media/jurnalisme, kesehatan, dan perpesanan enterprise. Memiliki komitmen mendalam terhadap penerapan Clean Architecture (MVVM/MVI), pengujian otomatis, serta alur kerja modern berbasis AI.
+      </p>
+    </section>
+
+    <section>
+      <div class="section-title">Keahlian Teknis & Kompetensi Utama</div>
+      <div class="skill-category">
+        <span class="skill-label">Mobile Development:</span>
+        <span class="skill-tags">Kotlin, Java, Jetpack Compose, Android SDK, Android Jetpack (ViewModel, LiveData, StateFlow, Room, Navigation, WorkManager, Paging 3), Coroutines & Flow, Dependency Injection (Dagger Hilt, Koin), Retrofit2, OkHttp3, CameraX, Pengelolaan & Kebijakan Google Play Store.</span>
+      </div>
+      <div class="skill-category">
+        <span class="skill-label">Web & Frontend:</span>
+        <span class="skill-tags">Next.js (App Router & Pages Router), React.js, TypeScript, JavaScript (ES6+), Tailwind CSS, HTML5, CSS3, Desain Web Responsif, PWA (Serwist).</span>
+      </div>
+      <div class="skill-category">
+        <span class="skill-label">Arsitektur & Kualitas Kode:</span>
+        <span class="skill-tags">Clean Architecture, MVVM, MVI, Repository Pattern, Prinsip SOLID, Test-Driven Development (TDD), JUnit, Mockito, Android Profiler.</span>
+      </div>
+      <div class="skill-category">
+        <span class="skill-label">DevOps & Peralatan:</span>
+        <span class="skill-tags">Git, GitHub Actions (Automasi CI/CD Android), Gradle (Kotlin DSL), Android Studio, Postman, Vercel, Firebase (FCM, Analytics, Crashlytics), AI Vibes Coding.</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Pengalaman Kerja</div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="role-title">Software Engineer (Android & Frontend Next.js)</span>
+          <span class="item-date">September 2023 – Sekarang</span>
+        </div>
+        <div class="item-location"><span class="company-name">Qomunal (PT Qomunal / PT Aset Solusi Digital)</span> — Jakarta Selatan, Indonesia</div>
+        <ul class="bullet-list">
+          <li>Bertanggung jawab merancang arsitektur dan membangun aplikasi Android skala produksi serta solusi web modern Next.js di berbagai lini produk.</li>
+          <li>Mengembangkan dan merilis aplikasi penting: <strong>Qomunal Android</strong> (manajemen komunitas), <strong>Tokowibu</strong> (platform e-commerce web & Android), <strong>SJI</strong> (aplikasi edukasi jurnalistik), <strong>Hening</strong> (aplikasi mindfulness & audio relaksasi), dan <strong>NewLife</strong> (aplikasi pendamping ibu hamil & bayi).</li>
+          <li>Melakukan modernisasi codebase ke Jetpack Compose dan Kotlin Coroutines/Flow, mengurangi baris kode UI hingga 40% dan meningkatkan kehalusan rendering.</li>
+          <li>Mengintegrasikan REST API dengan penanganan offline-caching dan pembaruan token autentikasi otomatis yang andal.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="role-title">Android Engineer</span>
+          <span class="item-date">Juni 2022 – Maret 2023</span>
+        </div>
+        <div class="item-location"><span class="company-name">KoinWorks (PT Lunaria Annua Teknologi)</span> — Jakarta Selatan, Indonesia</div>
+        <ul class="bullet-list">
+          <li>Mengembangkan fitur finansial inti dan modul pinjaman peer-to-peer (P2P) pada aplikasi <strong>KoinWorks Super App</strong> yang digunakan jutaan pengguna terdaftar.</li>
+          <li>Berkolaborasi dalam squad agile lintas divisi bersama Product, Backend, QA, dan Security untuk fitur KYC, onboarding digital, dan transaksi pembayaran otomatis.</li>
+          <li>Memimpin refaktorisasi modul legacy Java ke Kotlin dengan arsitektur Clean Architecture dan MVVM, menjaga tingkat crash-free sessions di atas 99.5%.</li>
+          <li>Mengoptimalkan query basis data Room SQLite dan caching data, memangkas waktu inisialisasi layar transaksi.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="role-title">Android Engineer</span>
+          <span class="item-date">Juni 2022 – Juni 2022</span>
+        </div>
+        <div class="item-location"><span class="company-name">PT Rumahawan Karya Indonesia</span> — Jakarta Selatan, Indonesia</div>
+        <ul class="bullet-list">
+          <li>Berkontribusi dalam perencanaan arsitektur mobile dan pengembangan modul klien Android untuk solusi properti hunian.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="role-title">Android Programmer (Internship)</span>
+          <span class="item-date">Juli 2020 – Desember 2020</span>
+        </div>
+        <div class="item-location"><span class="company-name">ChatAja Messenger</span> — Bandung, Jawa Barat, Indonesia</div>
+        <ul class="bullet-list">
+          <li>Mengembangkan fitur-fitur aplikasi pesan instan berbasis Android native, komponen antarmuka chat, dan notifikasi push latar belakang (FCM).</li>
+          <li>Menangani kendala sinkronisasi pesan lokal (SQLite/Room) dan race condition pada komunikasi soket waktu-nyata.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="role-title">Android Programmer</span>
+          <span class="item-date">Juni 2019 – September 2019</span>
+        </div>
+        <div class="item-location"><span class="company-name">GITS Indonesia</span> — Bandung, Jawa Barat, Indonesia</div>
+        <ul class="bullet-list">
+          <li>Membangun aplikasi Android kustom untuk kebutuhan klien korporat dengan arsitektur standar MVVM dan integrasi REST API.</li>
+        </ul>
+      </div>
+
+      <div class="timeline-item">
+        <div class="item-header">
+          <span class="role-title">Android Programmer (Internship)</span>
+          <span class="item-date">Januari 2019 – Mei 2019</span>
+        </div>
+        <div class="item-location"><span class="company-name">Kodelokus</span> — Bandung, Jawa Barat, Indonesia</div>
+        <ul class="bullet-list">
+          <li>Mendesain antarmuka responsif pada layout XML dan mengatasi issue rendering tampilan pada beragam dimensi layar Android.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Ekosistem Open-Source & Proyek Utama</div>
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name"><a href="https://github.com/amirisback/frogo-recycler-view" target="_blank">Frogo-Recycler-View</a></span>
+          <span class="item-date">Frogobox Media</span>
+        </div>
+        <p style="font-size: 12.5px; color: var(--secondary);">Library RecyclerView tanpa penulisan adapter manual yang mendukung multi-view type, empty state, dan interoperabilitas dengan Jetpack Compose.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name"><a href="https://github.com/frogobox/frogo-sdk" target="_blank">Frogo SDK (frogo-sdk, frogo-core, frogo-admob)</a></span>
+          <span class="item-date">Frogobox Media</span>
+        </div>
+        <p style="font-size: 12.5px; color: var(--secondary);">Koleksi SDK modular yang menyederhanakan consumable code, pembungkus jaringan REST, dan integrasi monetisasi iklan.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-name"><a href="https://github.com/amirisback/automated-build-android-app-with-github-action" target="_blank">Automated Android CI/CD via GitHub Actions</a></span>
+          <span class="item-date">DevOps Template</span>
+        </div>
+        <p style="font-size: 12.5px; color: var(--secondary);">Template alur kerja CI/CD untuk otomatisasi build, penandatanganan keystore, dan rilis artefak APK/AAB secara otomatis.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Pendidikan & Sertifikasi</div>
+      <div class="timeline-item">
+        <div class="edu-item">
+          <span class="role-title">Sarjana Informatika (S1 Informatika)</span>
+          <span class="item-date">Lulus 2022</span>
+        </div>
+        <div class="item-location"><span class="company-name">Universitas Telkom</span> — Bandung, Indonesia</div>
+        <p style="font-size: 12px; color: var(--secondary);">
+          • Tugas Akhir: <em>"Pengembang Framework untuk Membuat Aplikasi Seputar Permasalahan Gizi berbasis Platform Android"</em>.<br>
+          • Hak Cipta: Penerima Sertifikat Hak Cipta resmi dari Kemdiktisaintek untuk karya <em>Generator Aplikasi MicroNutrient</em>.
+        </p>
+      </div>
+      <div class="timeline-item" style="margin-top: 8px;">
+        <div class="edu-item">
+          <span class="role-title">Diploma Tiga Rekayasa Perangkat Lunak Aplikasi (D3 RPL Aplikasi)</span>
+          <span class="item-date">2016 – 2019</span>
+        </div>
+        <div class="item-location"><span class="company-name">Universitas Telkom</span> — Bandung, Indonesia</div>
+        <p style="font-size: 12px; color: var(--secondary);">
+          • Proyek Akhir: Aplikasi Android <em>Finpro</em> (Sistem Manajemen & Sidang Proyek Akhir).
+        </p>
+      </div>
+      <div class="timeline-item" style="margin-top: 8px;">
+        <div class="edu-item">
+          <span class="role-title">Pendidikan Menengah Atas (MIPA)</span>
+          <span class="item-date">2013 – 2016</span>
+        </div>
+        <div class="item-location"><span class="company-name">SMAN 1 Probolinggo</span> — Probolinggo, Jawa Timur, Indonesia</div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-title">Bahasa</div>
+      <p style="font-size: 12.5px; color: var(--secondary);">
+        <strong>Bahasa Indonesia:</strong> Penutur Asli (Native) &nbsp;|&nbsp; <strong>Bahasa Inggris:</strong> Kemampuan Profesional Kerja (Professional Working Proficiency)
+      </p>
+    </section>
+  </div>
+</body>
+</html>
