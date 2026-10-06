@@ -1,8 +1,8 @@
 import { render, screen, cleanup } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
-import { HeroBackground3D } from "./hero-background-3d";
+import { AboutBackground3D } from "./about-background-3d";
 
-describe("HeroBackground3D Component", () => {
+describe("AboutBackground3D Component", () => {
   let originalMatchMedia: typeof window.matchMedia;
 
   beforeEach(() => {
@@ -46,17 +46,17 @@ describe("HeroBackground3D Component", () => {
   });
 
   it("should render the canvas element with proper accessibility attributes", () => {
-    render(<HeroBackground3D />);
+    render(<AboutBackground3D />);
 
-    const canvas = screen.getByTestId("hero-background-3d");
+    const canvas = screen.getByTestId("about-background-3d");
     expect(canvas).toBeInTheDocument();
     expect(canvas).toHaveAttribute("aria-hidden", "true");
   });
 
   it("should accept custom props and render cleanly", () => {
-    render(<HeroBackground3D particleCount={20} focalLength={400} maxDistance={90} />);
+    render(<AboutBackground3D particleCount={20} focalLength={400} maxDistance={90} />);
 
-    const canvas = screen.getByTestId("hero-background-3d");
+    const canvas = screen.getByTestId("about-background-3d");
     expect(canvas).toBeInTheDocument();
   });
 
@@ -64,7 +64,7 @@ describe("HeroBackground3D Component", () => {
     const cancelAnimationFrameSpy = vi.spyOn(window, "cancelAnimationFrame");
     const removeEventListenerSpy = vi.spyOn(window, "removeEventListener");
 
-    const { unmount } = render(<HeroBackground3D />);
+    const { unmount } = render(<AboutBackground3D />);
     unmount();
 
     expect(cancelAnimationFrameSpy).toHaveBeenCalled();
@@ -85,22 +85,21 @@ describe("HeroBackground3D Component", () => {
 
     const requestAnimationFrameSpy = vi.spyOn(window, "requestAnimationFrame");
 
-    render(<HeroBackground3D />);
+    render(<AboutBackground3D />);
 
-    const canvas = screen.getByTestId("hero-background-3d");
+    const canvas = screen.getByTestId("about-background-3d");
     expect(canvas).toBeInTheDocument();
-    // In reduced motion, loop does not queue continuous requestAnimationFrame
     expect(requestAnimationFrameSpy).not.toHaveBeenCalled();
   });
 
   it("should handle showPolyhedron toggle and window mouse events", () => {
-    const { unmount } = render(<HeroBackground3D showPolyhedron={false} />);
+    const { unmount } = render(<AboutBackground3D showPolyhedron={false} />);
 
     // Simulate mouse movements
     window.dispatchEvent(new MouseEvent("mousemove", { clientX: 300, clientY: 200 }));
     window.dispatchEvent(new MouseEvent("mouseleave"));
 
-    const canvas = screen.getByTestId("hero-background-3d");
+    const canvas = screen.getByTestId("about-background-3d");
     expect(canvas).toBeInTheDocument();
 
     unmount();

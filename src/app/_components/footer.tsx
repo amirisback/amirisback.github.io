@@ -44,7 +44,7 @@ export function Footer({ data, dict }: FooterProps) {
     : `© ${currentYear} ${data.name}. All rights reserved.`;
 
   return (
-    <footer id="contact" className="relative bg-white dark:bg-zinc-950 py-16 overflow-hidden" data-testid="footer">
+    <footer className="relative bg-white dark:bg-zinc-950 py-16 overflow-hidden" data-testid="footer">
       {/* Gradient top border accent */}
       <div className="absolute top-0 left-0 right-0 h-1 rounded-b-full" style={{ background: 'linear-gradient(90deg, var(--accent-from), var(--accent-via), var(--accent-to))' }} aria-hidden="true" />
 

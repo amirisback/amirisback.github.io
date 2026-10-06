@@ -1,10 +1,17 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { TiltCard3D } from "./tilt-card-3d";
 
 describe("TiltCard3D Component", () => {
+  let originalMatchMedia: typeof window.matchMedia;
+
   beforeEach(() => {
     vi.clearAllMocks();
+    originalMatchMedia = window.matchMedia;
+  });
+
+  afterEach(() => {
+    window.matchMedia = originalMatchMedia;
   });
 
   it("should render children correctly", () => {
@@ -126,5 +133,32 @@ describe("TiltCard3D Component", () => {
     // Glare should not be rendered when reduced motion is preferred
     expect(screen.queryByTestId("tilt-glare")).not.toBeInTheDocument();
     expect(card.style.transform).toBe("");
+  });
+
+  it("should render prismatic border when prismatic prop is true", () => {
+    const { container } = render(
+      <TiltCard3D prismatic={true} glare={true}>
+        <div>Prismatic Card</div>
+      </TiltCard3D>
+    );
+
+    const card = container.firstChild as HTMLDivElement;
+    vi.spyOn(card, "getBoundingClientRect").mockReturnValue({
+      width: 200,
+      height: 200,
+      left: 0,
+      top: 0,
+      right: 200,
+      bottom: 200,
+      x: 0,
+      y: 0,
+      toJSON: () => {},
+    });
+
+    fireEvent.pointerMove(card, { clientX: 180, clientY: 40 });
+
+    const prismaticEl = screen.getByTestId("tilt-prismatic");
+    expect(prismaticEl).toBeInTheDocument();
+    expect(prismaticEl.style.background).toContain("conic-gradient");
   });
 });

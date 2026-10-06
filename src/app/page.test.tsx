@@ -50,6 +50,9 @@ vi.mock("./_components/experience", () => ({
 vi.mock("./_components/blog", () => ({
   Blog: () => <div data-testid="mock-blog">Blog</div>,
 }));
+vi.mock("./_components/contact", () => ({
+  Contact: () => <div data-testid="mock-contact">Contact</div>,
+}));
 vi.mock("./_components/footer", () => ({
   Footer: () => <div data-testid="mock-footer">Footer</div>,
 }));
@@ -68,6 +71,7 @@ describe("Home Page Component", () => {
     expect(screen.getByTestId("mock-projects")).toBeInTheDocument();
     expect(screen.getByTestId("mock-experience")).toBeInTheDocument();
     expect(screen.getByTestId("mock-blog")).toBeInTheDocument();
+    expect(screen.getByTestId("mock-contact")).toBeInTheDocument();
     expect(screen.getByTestId("mock-footer")).toBeInTheDocument();
     expect(screen.getByTestId("mock-back-to-top")).toBeInTheDocument();
   });

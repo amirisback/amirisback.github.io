@@ -39,6 +39,12 @@ describe("Projects Component", () => {
       sectionLabel: "My Portfolio",
       sectionTitle: "My Work",
       viewProject: "View details",
+      flagshipBadge: "Flagship Showcase",
+      flagshipSubtitle: "4 flagship web applications.",
+      allProjectsTitle: "More Projects & Open Source",
+      allProjectsSubtitle: "Explore additional projects.",
+      liveDemo: "Live Demo",
+      visitApp: "Visit Website",
     },
   };
 
@@ -66,5 +72,64 @@ describe("Projects Component", () => {
 
     const tiltCards = screen.getAllByTestId("project-card-tilt");
     expect(tiltCards).toHaveLength(mockProjectsData.items.length);
+  });
+
+  it("should render Dual-Tier layout with Flagship Showcase when featured items are present", () => {
+    const mockWithFeatured = {
+      items: [
+        {
+          icon: "fas fa-calculator",
+          title: "Life Calculator Financial",
+          description: "Financial calculator in English.",
+          description_id: "Kalkulator finansial dalam bahasa Indonesia.",
+          delay: "0.2s",
+          url: "https://financial-math-amir.vercel.app/",
+          thumbnail: "https://example.com/calc.png",
+          badge: "Financial Engine",
+          featured: true,
+          tags: ["Next.js", "Financial Math", "Compound Engine"],
+        },
+        {
+          icon: "fas fa-magic",
+          title: "Magic Clipper AI",
+          description: "AI video trimmer tool.",
+          delay: "0.3s",
+          url: "https://clipper-magic.vercel.app/",
+          thumbnail: "https://example.com/clipper.png",
+          badge: "AI Video Tool",
+          featured: true,
+          tags: ["Next.js", "AI Video Processing"],
+        },
+        {
+          icon: "fas fa-box",
+          title: "Regular Archive Project",
+          description: "Archive description.",
+          delay: "0.4s",
+          url: "https://example.com/archive",
+          badge: "Open Source",
+        },
+      ],
+    };
+
+    render(<Projects data={mockWithFeatured} dict={mockDict} currentLang="en" />);
+
+    // Header and Subtitle
+    expect(screen.getByText("4 flagship web applications.")).toBeInTheDocument();
+
+    // Featured items in Tier 1
+    expect(screen.getByText("Life Calculator Financial")).toBeInTheDocument();
+    expect(screen.getByText("Magic Clipper AI")).toBeInTheDocument();
+    expect(screen.getByText("Financial Math")).toBeInTheDocument();
+    expect(screen.getByText("AI Video Processing")).toBeInTheDocument();
+    expect(screen.getAllByText("Live Demo").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("Visit Website").length).toBeGreaterThan(0);
+
+    // Tier 2 Catalog divider and regular items
+    expect(screen.getByText("More Projects & Open Source")).toBeInTheDocument();
+    expect(screen.getByText("Explore additional projects.")).toBeInTheDocument();
+    expect(screen.getByText("Regular Archive Project")).toBeInTheDocument();
+
+    const allTiltCards = screen.getAllByTestId("project-card-tilt");
+    expect(allTiltCards).toHaveLength(mockWithFeatured.items.length);
   });
 });

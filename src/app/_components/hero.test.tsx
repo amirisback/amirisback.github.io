@@ -76,5 +76,14 @@ describe("Hero Component", () => {
 
     const avatarTilt = screen.getByTestId("hero-avatar-tilt");
     expect(avatarTilt).toBeInTheDocument();
+
+    // Verify 3D spatial tech badges
+    expect(screen.getByTestId("hero-badge-android")).toBeInTheDocument();
+    expect(screen.getByTestId("hero-badge-nextjs")).toBeInTheDocument();
+    expect(screen.getByTestId("hero-badge-architect")).toBeInTheDocument();
+
+    // Verify 3D gyroscopic orbital rings
+    expect(screen.getByTestId("hero-orbit-ring-1")).toBeInTheDocument();
+    expect(screen.getByTestId("hero-orbit-ring-2")).toBeInTheDocument();
   });
 });

@@ -80,8 +80,10 @@
         "description_id": "Kalkulator finansial dan bisnis terintegrasi regulasi Indonesia: BEP, BPHTB, KPR, Compound Interest, dan Depresiasi.",
         "delay": "0.2s",
         "url": "https://financial-math-amir.vercel.app/",
-        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Ffinancial-math-amir.vercel.app%2F?w=800&h=450",
-        "badge": "Financial Tool"
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Ffinancial-math-amir.vercel.app%2F?w=1200&h=675",
+        "badge": "Financial Engine",
+        "featured": true,
+        "tags": ["Next.js", "TypeScript", "Financial Math", "Indonesian Regulations"]
       },
       {
         "icon": "fas fa-hospital",
@@ -100,8 +102,10 @@
         "description_id": "Alat web profesional untuk memotong video menjadi klip dan memprosesnya secara otomatis dengan kecerdasan buatan.",
         "delay": "0.4s",
         "url": "https://clipper-magic.vercel.app/",
-        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Fclipper-magic.vercel.app%2F?w=800&h=450",
-        "badge": "AI Video Tool"
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Fclipper-magic.vercel.app%2F?w=1200&h=675",
+        "badge": "AI Video Tool",
+        "featured": true,
+        "tags": ["Next.js", "AI Video Processing", "Smart Trimming", "Web Media"]
       },
       {
         "icon": "fas fa-camera-retro",
@@ -110,8 +114,10 @@
         "description_id": "Aplikasi web photobooth premium dengan penghapus latar belakang, teks kustom, dan filter visual kreatif.",
         "delay": "0.2s",
         "url": "https://photobooth-six-taupe.vercel.app/",
-        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Fphotobooth-six-taupe.vercel.app%2F?w=800&h=450",
-        "badge": "Photo Studio"
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Fphotobooth-six-taupe.vercel.app%2F?w=1200&h=675",
+        "badge": "Interactive Studio",
+        "featured": true,
+        "tags": ["Next.js", "Canvas API", "Background Removal", "Creative Filters"]
       },
       {
         "icon": "fas fa-map-marked-alt",
@@ -120,8 +126,10 @@
         "description_id": "Portal direktori layanan warga Probolinggo: temukan tukang bangunan, pengangkut air, dan penyedia jasa terpercaya.",
         "delay": "0.3s",
         "url": "https://live-at-probolinggo.vercel.app/",
-        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Flive-at-probolinggo.vercel.app%2F?w=800&h=450",
-        "badge": "Community Portal"
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Flive-at-probolinggo.vercel.app%2F?w=1200&h=675",
+        "badge": "Community Portal",
+        "featured": true,
+        "tags": ["Next.js", "Directory Portal", "Local Services", "Community"]
       },
       {
         "icon": "fas fa-envelope-open-text",
@@ -312,42 +320,128 @@
         "title": "Software Engineer",
         "company": "Qomunal",
         "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
-        "side": "left"
+        "side": "left",
+        "type": "Full-time",
+        "type_id": "Penuh Waktu",
+        "description": "Architecting and engineering enterprise mobile and web applications across fintech, digital publishing, and wellness sectors. Leading frontend and mobile development with scalable clean architecture.",
+        "description_id": "Merancang arsitektur dan membangun aplikasi mobile dan web skala enterprise di sektor fintech, media digital, dan wellness. Memimpin pengembangan frontend dan mobile dengan arsitektur bersih yang skalabel.",
+        "highlights": [
+          "Engineered multi-platform applications including Qomunal Fintech, SJI, NewLife, and Tokowibu.",
+          "Implemented automated CI/CD deployment pipelines reducing release turnaround time.",
+          "Established reactive UI paradigms and modular Kotlin/TypeScript design systems."
+        ],
+        "highlights_id": [
+          "Mengembangkan aplikasi multiplatform meliputi Qomunal Fintech, SJI, NewLife, dan Tokowibu.",
+          "Membangun alur otomasi CI/CD yang mempercepat siklus pengujian dan rilis aplikasi.",
+          "Menerapkan paradigma UI reaktif dan sistem desain modular berbasis Kotlin dan TypeScript."
+        ],
+        "skills": ["Android Native", "Kotlin", "Next.js", "TypeScript", "Clean Architecture", "CI/CD", "Fintech"]
       },
       {
         "date": "Jun 2022 - Mar 2023",
         "title": "Software Engineer",
         "company": "KoinWorks",
         "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
-        "side": "right"
+        "side": "right",
+        "type": "Full-time",
+        "type_id": "Penuh Waktu",
+        "description": "Developed key fintech modules for KoinWorks Super Financial App serving millions of peer-to-peer lending and investment users across Indonesia.",
+        "description_id": "Mengembangkan modul inti fintech untuk Super Financial App KoinWorks yang melayani jutaan pengguna pinjaman peer-to-peer dan investasi di Indonesia.",
+        "highlights": [
+          "Contributed to core P2P lending transactions, portfolio management, and biometric security auth.",
+          "Modernized legacy modules into modern Kotlin Coroutines and Jetpack Architecture Components.",
+          "Collaborated closely with cross-functional product, risk management, and QA engineering teams."
+        ],
+        "highlights_id": [
+          "Berkontribusi pada modul transaksi P2P lending, manajemen portofolio, dan autentikasi biometrik.",
+          "Memodernisasi modul legacy menjadi arsitektur modern berbasis Kotlin Coroutines dan Jetpack Components.",
+          "Bekerja sama erat dengan tim lintas fungsi manajemen risiko, produk, dan QA engineering."
+        ],
+        "skills": ["Kotlin", "Android Jetpack", "Coroutines", "MVVM", "Fintech Security", "P2P Lending"]
       },
       {
         "date": "Jun 2022 - Jun 2022",
         "title": "Software Engineer",
         "company": "PT Rumahawan Karya Indonesia",
         "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
-        "side": "left"
+        "side": "left",
+        "type": "Contract",
+        "type_id": "Kontrak",
+        "description": "Conducted comprehensive technical architecture consultation and rapid prototype audits for digital property and home services.",
+        "description_id": "Melakukan konsultasi arsitektur teknis komprehensif dan audit prototipe cepat untuk platform properti digital dan layanan hunian.",
+        "highlights": [
+          "Audited mobile application codebase and proposed performance optimization strategies.",
+          "Formulated modular component standards for future feature scalability."
+        ],
+        "highlights_id": [
+          "Melakukan audit basis kode aplikasi mobile dan merumuskan strategi optimalisasi performa.",
+          "Menyusun standar komponen modular untuk skalabilitas pengembangan fitur di masa depan."
+        ],
+        "skills": ["Mobile Architecture", "Kotlin", "Code Audit", "Technical Consulting"]
       },
       {
         "date": "Jul 2020 - Dec 2020",
         "title": "Software Engineer",
         "company": "Chat Aja Messenger",
         "location": "Bandung, Jawa Barat, Indonesia",
-        "side": "right"
+        "side": "right",
+        "type": "Full-time",
+        "type_id": "Penuh Waktu",
+        "description": "Engineered core instant messaging and media distribution capabilities for an enterprise messaging platform.",
+        "description_id": "Membangun kapabilitas pesan instan dan distribusi media untuk platform perpesanan tingkat enterprise.",
+        "highlights": [
+          "Implemented real-time WebSocket protocol handlers for low-latency messaging.",
+          "Optimized local SQLite persistence and media caching for seamless offline-first experience.",
+          "Hardened push notification delivery reliability and background synchronization."
+        ],
+        "highlights_id": [
+          "Menerapkan penanganan protokol real-time WebSocket untuk pengiriman pesan berlatensi rendah.",
+          "Mengoptimalkan penyimpanan lokal SQLite dan caching media untuk pengalaman offline yang mulus.",
+          "Meningkatkan keandalan pengiriman push notification dan sinkronisasi latar belakang."
+        ],
+        "skills": ["Instant Messaging", "WebSocket", "SQLite", "Real-time Protocols", "Kotlin", "Android SDK"]
       },
       {
         "date": "Jun 2019 - Sep 2019",
         "title": "Software Engineer",
         "company": "GITS Indonesia",
         "location": "Jl. Margacinta No. 29 Bandung, Indonesia",
-        "side": "left"
+        "side": "left",
+        "type": "Internship",
+        "type_id": "Magang",
+        "description": "Contributed to native Android client mobile applications for prominent enterprise and government clients under agile workflows.",
+        "description_id": "Berkontribusi dalam pengembangan aplikasi native Android untuk klien enterprise dan instansi pemerintah terkemuka dengan metodologi agile.",
+        "highlights": [
+          "Developed client-facing UI features adhering to Google Material Design guidelines.",
+          "Integrated RESTful APIs and handled background data synchronization.",
+          "Participated in daily agile standups, code reviews, and sprint retrospectives."
+        ],
+        "highlights_id": [
+          "Mengembangkan fitur antarmuka pengguna sesuai panduan Google Material Design.",
+          "Mengintegrasikan RESTful API dan menangani sinkronisasi data latar belakang.",
+          "Berpartisipasi aktif dalam daily standup agile, review kode, dan retrospektif sprint."
+        ],
+        "skills": ["Java", "Android SDK", "RESTful APIs", "Material Design", "Agile/Scrum"]
       },
       {
         "date": "Jan 2019 - May 2019",
         "title": "Software Engineer",
         "company": "Kodelokus",
         "location": "Bandung dan Sekitarnya, Jawa Barat, Indonesia",
-        "side": "right"
+        "side": "right",
+        "type": "Internship",
+        "type_id": "Magang",
+        "description": "Developed responsive mobile user interfaces and database persistence layers for early-stage digital products.",
+        "description_id": "Membangun antarmuka mobile yang responsif dan lapisan persistensi database untuk produk digital tahap awal.",
+        "highlights": [
+          "Created intuitive Android UI components and integrated SQLite database storage.",
+          "Resolved responsive layout edge cases across diverse Android screen resolutions."
+        ],
+        "highlights_id": [
+          "Membuat komponen antarmuka Android yang intuitif dan mengintegrasikan database lokal SQLite.",
+          "Menyelesaikan kasus tata letak responsif di berbagai resolusi layar Android."
+        ],
+        "skills": ["Android UI", "Java", "SQLite", "Mobile Layouts", "Git"]
       }
     ]
   },

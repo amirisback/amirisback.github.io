@@ -9,6 +9,7 @@ import { About } from "./_components/about";
 import { Projects } from "./_components/projects";
 import { Experience } from "./_components/experience";
 import { Blog } from "./_components/blog";
+import { Contact } from "./_components/contact";
 import { Footer } from "./_components/footer";
 import { BackToTop } from "./_components/back-to-top";
 
@@ -50,6 +51,9 @@ export default async function Home() {
 
         {/* Blog Section */}
         <Blog data={content.blog} dict={dict} />
+
+        {/* Luxurious Contact Section */}
+        <Contact data={content.footer} dict={dict} />
       </main>
 
       {/* Footer Section */}

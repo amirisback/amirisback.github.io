@@ -9,6 +9,7 @@ export interface TiltCard3DProps extends React.HTMLAttributes<HTMLDivElement> {
   scale?: number;
   glare?: boolean;
   glareMaxOpacity?: number;
+  prismatic?: boolean;
   disabled?: boolean;
   className?: string;
   role?: string;
@@ -22,6 +23,7 @@ export function TiltCard3D({
   scale = 1.02,
   glare = true,
   glareMaxOpacity = 0.15,
+  prismatic = false,
   disabled = false,
   className = "",
   style,
@@ -40,10 +42,12 @@ export function TiltCard3D({
     x: number;
     y: number;
     opacity: number;
+    angle: number;
   }>({
     x: 50,
     y: 50,
     opacity: 0,
+    angle: 0,
   });
 
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(() => {
@@ -91,20 +95,24 @@ export function TiltCard3D({
       const rotateX = -normalizedY * maxTilt;
       const rotateY = normalizedX * maxTilt;
 
+      // Calculate virtual light angle for prismatic sheen
+      const angle = Math.atan2(normalizedY, normalizedX) * (180 / Math.PI) + 180;
+
       setTiltStyle({
         transform: `perspective(${perspective}px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(${scale}, ${scale}, ${scale})`,
         transition: "transform 0.1s ease-out",
       });
 
-      if (glare) {
+      if (glare || prismatic) {
         setGlarePosition({
           x: xPct,
           y: yPct,
           opacity: glareMaxOpacity,
+          angle,
         });
       }
     },
-    [disabled, prefersReducedMotion, maxTilt, perspective, scale, glare, glareMaxOpacity]
+    [disabled, prefersReducedMotion, maxTilt, perspective, scale, glare, glareMaxOpacity, prismatic]
   );
 
   const handlePointerLeave = useCallback(() => {
@@ -115,13 +123,13 @@ export function TiltCard3D({
       transition: "transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)",
     });
 
-    if (glare) {
+    if (glare || prismatic) {
       setGlarePosition((prev) => ({
         ...prev,
         opacity: 0,
       }));
     }
-  }, [disabled, prefersReducedMotion, perspective, glare]);
+  }, [disabled, prefersReducedMotion, perspective, glare, prismatic]);
 
   const isMotionDisabled = disabled || prefersReducedMotion;
 
@@ -138,6 +146,23 @@ export function TiltCard3D({
       data-testid={restProps["data-testid"] || "tilt-card-3d"}
       {...restProps}
     >
+      {/* Prismatic Holographic Rim Light */}
+      {prismatic && !isMotionDisabled && (
+        <div
+          data-testid="tilt-prismatic"
+          className="pointer-events-none absolute -inset-[1.5px] z-20 rounded-[inherit] transition-opacity duration-300"
+          style={{
+            opacity: glarePosition.opacity > 0 ? 0.7 : 0,
+            background: `conic-gradient(from ${glarePosition.angle.toFixed(1)}deg at 50% 50%, rgba(34, 211, 238, 0.7), rgba(99, 102, 241, 0.7), rgba(192, 132, 252, 0.7), rgba(34, 211, 238, 0.7))`,
+            WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            WebkitMaskComposite: "xor",
+            maskComposite: "exclude",
+            padding: "1.5px",
+          }}
+          aria-hidden="true"
+        />
+      )}
+
       {children}
 
       {glare && !isMotionDisabled && (

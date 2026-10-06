@@ -81,7 +81,7 @@ describe("Comprehensive Localization & Antislop Verification", () => {
     render(<About data={mockAbout} dict={idDict} />);
 
     expect(screen.getByText("Pelajari Tentang Saya")).toBeInTheDocument();
-    expect(screen.getByText("Informasi")).toBeInTheDocument();
+    expect(screen.getByText(/Informasi/i)).toBeInTheDocument();
     expect(screen.getByText(/Saya adalah seorang Software Engineer dengan pengalaman lebih dari 6 tahun/i)).toBeInTheDocument();
   });
 

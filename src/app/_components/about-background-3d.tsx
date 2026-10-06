@@ -14,7 +14,7 @@ interface Point3D {
   offsetY: number;
 }
 
-export interface HeroBackground3DProps {
+export interface AboutBackground3DProps {
   className?: string;
   particleCount?: number;
   focalLength?: number;
@@ -22,13 +22,13 @@ export interface HeroBackground3DProps {
   showPolyhedron?: boolean;
 }
 
-export function HeroBackground3D({
+export function AboutBackground3D({
   className = "",
   particleCount,
-  focalLength = 350,
-  maxDistance = 110,
+  focalLength = 380,
+  maxDistance = 120,
   showPolyhedron = true,
-}: HeroBackground3DProps): React.JSX.Element {
+}: AboutBackground3DProps): React.JSX.Element {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -79,12 +79,12 @@ export function HeroBackground3D({
 
     // Responsive particle count & settings
     const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-    const count = particleCount ?? (isMobile ? 36 : 72);
+    const count = particleCount ?? (isMobile ? 32 : 64);
 
-    // Initialize 3D points
+    // Initialize 3D points (Luxury platinum amber + cyan palette)
     const points: Point3D[] = [];
-    const colors = ["#22d3ee", "#818cf8", "#c084fc", "#38bdf8"];
-    const radiusRange = isMobile ? 240 : 360;
+    const colors = ["#22d3ee", "#fbbf24", "#818cf8", "#38bdf8", "#f59e0b"];
+    const radiusRange = isMobile ? 220 : 340;
 
     for (let i = 0; i < count; i++) {
       const phi = Math.acos(1 - (2 * (i + 0.5)) / count);
@@ -93,9 +93,9 @@ export function HeroBackground3D({
 
       points.push({
         x: r * Math.sin(phi) * Math.cos(theta),
-        y: r * Math.sin(phi) * Math.sin(theta) * 0.75,
+        y: r * Math.sin(phi) * Math.sin(theta) * 0.8,
         z: r * Math.cos(phi),
-        baseRadius: Math.random() * 1.5 + 1.2,
+        baseRadius: Math.random() * 1.6 + 1.1,
         color: colors[i % colors.length],
         vx: 0,
         vy: 0,
@@ -104,39 +104,33 @@ export function HeroBackground3D({
       });
     }
 
-    // Initialize 3D Icosahedron Vertices & Edges (Golden ratio phi)
-    const phiVal = (1 + Math.sqrt(5)) / 2;
-    const rawVertices = [
-      [-1, phiVal, 0], [1, phiVal, 0], [-1, -phiVal, 0], [1, -phiVal, 0],
-      [0, -1, phiVal], [0, 1, phiVal], [0, -1, -phiVal], [0, 1, -phiVal],
-      [phiVal, 0, -1], [phiVal, 0, 1], [-phiVal, 0, -1], [-phiVal, 0, 1],
+    // 3D Octahedron / Stella Octangula Vertices & Edges (Geometric spatial lattice)
+    const octRadius = isMobile ? 110 : 160;
+    const rawOctVertices = [
+      [octRadius, 0, 0],
+      [-octRadius, 0, 0],
+      [0, octRadius, 0],
+      [0, -octRadius, 0],
+      [0, 0, octRadius],
+      [0, 0, -octRadius],
     ];
 
-    // Normalize and scale vertices
-    const polyRadius = isMobile ? 120 : 180;
-    const normFactor = Math.sqrt(1 + phiVal * phiVal);
-    const polyVertices = rawVertices.map(([vx, vy, vz]) => ({
-      x: (vx / normFactor) * polyRadius,
-      y: (vy / normFactor) * polyRadius,
-      z: (vz / normFactor) * polyRadius,
-    }));
+    const octEdges: [number, number][] = [
+      [0, 2], [0, 3], [0, 4], [0, 5],
+      [1, 2], [1, 3], [1, 4], [1, 5],
+      [2, 4], [4, 3], [3, 5], [5, 2],
+    ];
 
-    // Find edges (pairs where 3D distance is approximately edge length)
-    const polyEdges: [number, number][] = [];
-    const expectedEdgeDist = (2 / normFactor) * polyRadius;
-    const tolerance = 15;
-
-    for (let i = 0; i < polyVertices.length; i++) {
-      for (let j = i + 1; j < polyVertices.length; j++) {
-        const dx = polyVertices[i].x - polyVertices[j].x;
-        const dy = polyVertices[i].y - polyVertices[j].y;
-        const dz = polyVertices[i].z - polyVertices[j].z;
-        const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-        if (Math.abs(dist - expectedEdgeDist) < tolerance) {
-          polyEdges.push([i, j]);
-        }
-      }
-    }
+    // Inner nested octahedron for luxury multi-tier lattice
+    const innerRadius = octRadius * 0.55;
+    const innerVertices = [
+      [innerRadius, 0, 0],
+      [-innerRadius, 0, 0],
+      [0, innerRadius, 0],
+      [0, -innerRadius, 0],
+      [0, 0, innerRadius],
+      [0, 0, -innerRadius],
+    ];
 
     // Resize handler
     const updateSize = () => {
@@ -176,16 +170,16 @@ export function HeroBackground3D({
       ctx.clearRect(0, 0, width, height);
 
       // Smooth mouse easing (lerp)
-      currentMouseX += (targetMouseX - currentMouseX) * 0.05;
-      currentMouseY += (targetMouseY - currentMouseY) * 0.05;
+      currentMouseX += (targetMouseX - currentMouseX) * 0.04;
+      currentMouseY += (targetMouseY - currentMouseY) * 0.04;
 
       if (!prefersReducedMotion) {
-        rotY += 0.0016 + currentMouseX * 0.001;
-        rotX += 0.0008 + currentMouseY * 0.0008;
+        rotY += 0.0014 + currentMouseX * 0.001;
+        rotX += 0.0006 + currentMouseY * 0.0006;
 
-        polyRotY += 0.003 + currentMouseX * 0.002;
-        polyRotX += 0.002 + currentMouseY * 0.0015;
-        polyRotZ += 0.001;
+        polyRotY += 0.0028 + currentMouseX * 0.002;
+        polyRotX += 0.0018 + currentMouseY * 0.0012;
+        polyRotZ += 0.0012;
       }
 
       const cosY = Math.cos(rotY);
@@ -196,9 +190,9 @@ export function HeroBackground3D({
       const centerX = width / 2;
       const centerY = height / 2;
 
-      // Polyhedron center offset: right side behind hero portrait on desktop, center on mobile
-      const polyCenterX = isMobile ? width * 0.5 : width * 0.72;
-      const polyCenterY = height * 0.48;
+      // Position geometric polyhedron behind portrait area on desktop, center on mobile
+      const polyCenterX = isMobile ? width * 0.5 : width * 0.22;
+      const polyCenterY = isMobile ? height * 0.22 : height * 0.42;
 
       // Project and draw 3D Polyhedron Lattice if enabled
       if (showPolyhedron) {
@@ -209,48 +203,67 @@ export function HeroBackground3D({
         const pCosZ = Math.cos(polyRotZ);
         const pSinZ = Math.sin(polyRotZ);
 
-        interface ProjectedPolyVertex {
+        interface ProjectedNode {
           screenX: number;
           screenY: number;
           scale: number;
           z: number;
         }
 
-        const projPoly: ProjectedPolyVertex[] = [];
+        const projectCoords = (vertices: number[][]): ProjectedNode[] => {
+          const res: ProjectedNode[] = [];
+          for (let i = 0; i < vertices.length; i++) {
+            const [vx, vy, vz] = vertices[i];
 
-        for (let i = 0; i < polyVertices.length; i++) {
-          const v = polyVertices[i];
+            // 3D rotations: Yaw, Pitch, Roll
+            const xz = vx * pCosZ - vy * pSinZ;
+            const yz = vx * pSinZ + vy * pCosZ;
+            const zz = vz;
 
-          // 3D rotations: Yaw, Pitch, Roll
-          // Rot Z
-          const xz = v.x * pCosZ - v.y * pSinZ;
-          const yz = v.x * pSinZ + v.y * pCosZ;
-          const zz = v.z;
+            const x1 = xz * pCosY + zz * pSinY;
+            const z1 = -xz * pSinY + zz * pCosY;
 
-          // Rot Y
-          const x1 = xz * pCosY + zz * pSinY;
-          const z1 = -xz * pSinY + zz * pCosY;
+            const y2 = yz * pCosX - z1 * pSinX;
+            const z2 = yz * pSinX + z1 * pCosX;
 
-          // Rot X
-          const y2 = yz * pCosX - z1 * pSinX;
-          const z2 = yz * pSinX + z1 * pCosX;
+            const scale = focalLength / (focalLength + z2 + 320);
+            const screenX = polyCenterX + x1 * scale;
+            const screenY = polyCenterY + y2 * scale;
 
-          const scale = focalLength / (focalLength + z2 + 300);
-          const screenX = polyCenterX + x1 * scale;
-          const screenY = polyCenterY + y2 * scale;
+            res.push({ screenX, screenY, scale, z: z2 });
+          }
+          return res;
+        };
 
-          projPoly.push({ screenX, screenY, scale, z: z2 });
-        }
+        const projOuter = projectCoords(rawOctVertices);
+        const projInner = projectCoords(innerVertices);
 
-        // Draw Polyhedron Wireframe Edges
+        // Draw Outer Octahedron Edges (Gold/Cyan hybrid)
         ctx.lineWidth = 1.2;
-        for (let i = 0; i < polyEdges.length; i++) {
-          const [idxA, idxB] = polyEdges[i];
-          const ptA = projPoly[idxA];
-          const ptB = projPoly[idxB];
+        for (let i = 0; i < octEdges.length; i++) {
+          const [idxA, idxB] = octEdges[i];
+          const ptA = projOuter[idxA];
+          const ptB = projOuter[idxB];
 
           const avgZ = (ptA.z + ptB.z) / 2;
-          const depthAlpha = Math.min(Math.max((avgZ + polyRadius) / (polyRadius * 2), 0.1), 0.7) * 0.4;
+          const depthAlpha = Math.min(Math.max((avgZ + octRadius) / (octRadius * 2), 0.1), 0.7) * 0.35;
+
+          ctx.strokeStyle = `rgba(251, 191, 36, ${depthAlpha.toFixed(3)})`;
+          ctx.beginPath();
+          ctx.moveTo(ptA.screenX, ptA.screenY);
+          ctx.lineTo(ptB.screenX, ptB.screenY);
+          ctx.stroke();
+        }
+
+        // Draw Inner Octahedron Edges (Cyan)
+        ctx.lineWidth = 0.9;
+        for (let i = 0; i < octEdges.length; i++) {
+          const [idxA, idxB] = octEdges[i];
+          const ptA = projInner[idxA];
+          const ptB = projInner[idxB];
+
+          const avgZ = (ptA.z + ptB.z) / 2;
+          const depthAlpha = Math.min(Math.max((avgZ + innerRadius) / (innerRadius * 2), 0.08), 0.6) * 0.28;
 
           ctx.strokeStyle = `rgba(34, 211, 238, ${depthAlpha.toFixed(3)})`;
           ctx.beginPath();
@@ -259,23 +272,33 @@ export function HeroBackground3D({
           ctx.stroke();
         }
 
-        // Draw Polyhedron Vertices (Luminous cyber nodes)
-        for (let i = 0; i < projPoly.length; i++) {
-          const pt = projPoly[i];
-          const nodeAlpha = Math.min(Math.max(pt.scale * 0.8, 0.2), 0.85);
+        // Connect outer to inner vertices for hyper-dimensional architectural lattice
+        ctx.lineWidth = 0.6;
+        for (let i = 0; i < projOuter.length; i++) {
+          const ptA = projOuter[i];
+          const ptB = projInner[i];
+          ctx.strokeStyle = "rgba(129, 140, 248, 0.15)";
+          ctx.beginPath();
+          ctx.moveTo(ptA.screenX, ptA.screenY);
+          ctx.lineTo(ptB.screenX, ptB.screenY);
+          ctx.stroke();
+        }
 
-          // Node core
-          ctx.fillStyle = "#22d3ee";
+        // Draw Polyhedron Vertices
+        for (let i = 0; i < projOuter.length; i++) {
+          const pt = projOuter[i];
+          const nodeAlpha = Math.min(Math.max(pt.scale * 0.75, 0.2), 0.8);
+
+          ctx.fillStyle = "#fbbf24";
           ctx.globalAlpha = nodeAlpha;
           ctx.beginPath();
-          ctx.arc(pt.screenX, pt.screenY, Math.max(pt.scale * 2.8, 1.2), 0, Math.PI * 2);
+          ctx.arc(pt.screenX, pt.screenY, Math.max(pt.scale * 2.4, 1.2), 0, Math.PI * 2);
           ctx.fill();
 
-          // Outer halo
-          ctx.fillStyle = "#818cf8";
-          ctx.globalAlpha = nodeAlpha * 0.35;
+          ctx.fillStyle = "#22d3ee";
+          ctx.globalAlpha = nodeAlpha * 0.3;
           ctx.beginPath();
-          ctx.arc(pt.screenX, pt.screenY, Math.max(pt.scale * 5.5, 2.5), 0, Math.PI * 2);
+          ctx.arc(pt.screenX, pt.screenY, Math.max(pt.scale * 5, 2.2), 0, Math.PI * 2);
           ctx.fill();
         }
       }
@@ -298,42 +321,38 @@ export function HeroBackground3D({
 
         // Magnetic mouse ripple physics
         if (!prefersReducedMotion && mousePixelX > -9000) {
-          // Current estimated 2D position for proximity check
           const approxScreenX = centerX + p.x + p.offsetX;
           const approxScreenY = centerY + p.y + p.offsetY;
           const dx = approxScreenX - mousePixelX;
           const dy = approxScreenY - mousePixelY;
           const distSq = dx * dx + dy * dy;
-          const radiusSq = 160 * 160;
+          const radiusSq = 150 * 150;
 
           if (distSq < radiusSq && distSq > 4) {
             const dist = Math.sqrt(distSq);
-            const force = (1 - dist / 160) * 1.8;
+            const force = (1 - dist / 150) * 1.5;
             p.vx += (dx / dist) * force;
             p.vy += (dy / dist) * force;
           }
         }
 
-        // Spring restitution towards original orbit
         p.offsetX = (p.offsetX + p.vx) * 0.92;
         p.offsetY = (p.offsetY + p.vy) * 0.92;
         p.vx *= 0.86;
         p.vy *= 0.86;
 
-        // Rotate around Y-axis
-        const xRot = (p.x + p.offsetX);
-        const yRot = (p.y + p.offsetY);
+        // Rotate points in 3D
+        const xRot = p.x + p.offsetX;
+        const yRot = p.y + p.offsetY;
         const zRot = p.z;
 
         const x1 = xRot * cosY + zRot * sinY;
         const z1 = -xRot * sinY + zRot * cosY;
 
-        // Rotate around X-axis
         const y2 = yRot * cosX - z1 * sinX;
         const z2 = yRot * sinX + z1 * cosX;
 
-        // Perspective division
-        const scale = focalLength / (focalLength + z2 + 350);
+        const scale = focalLength / (focalLength + z2 + 360);
         if (scale <= 0) continue;
 
         const screenX = centerX + x1 * scale;
@@ -350,8 +369,8 @@ export function HeroBackground3D({
         });
       }
 
-      // Draw connecting constellation lines
-      ctx.lineWidth = 1;
+      // Draw constellation connecting lines
+      ctx.lineWidth = 0.9;
       for (let i = 0; i < projected.length; i++) {
         const p1 = projected[i];
         for (let j = i + 1; j < projected.length; j++) {
@@ -363,7 +382,7 @@ export function HeroBackground3D({
           const dist3D = Math.sqrt(dx * dx + dy * dy + dz * dz);
 
           if (dist3D < maxDistance) {
-            const alpha = (1 - dist3D / maxDistance) * 0.16 * Math.min(p1.scale, p2.scale);
+            const alpha = (1 - dist3D / maxDistance) * 0.14 * Math.min(p1.scale, p2.scale);
             if (alpha > 0.01) {
               ctx.strokeStyle = `rgba(34, 211, 238, ${alpha.toFixed(3)})`;
               ctx.beginPath();
@@ -375,10 +394,10 @@ export function HeroBackground3D({
         }
       }
 
-      // Draw particle nodes
+      // Draw particle dots
       for (let i = 0; i < projected.length; i++) {
         const p = projected[i];
-        const alpha = Math.min(Math.max((p.scale - 0.2) * 0.85, 0.15), 0.75);
+        const alpha = Math.min(Math.max((p.scale - 0.2) * 0.8, 0.12), 0.7);
 
         ctx.fillStyle = p.color;
         ctx.globalAlpha = alpha;
@@ -412,7 +431,7 @@ export function HeroBackground3D({
     <canvas
       ref={canvasRef}
       className={`pointer-events-none absolute inset-0 w-full h-full ${className}`}
-      data-testid="hero-background-3d"
+      data-testid="about-background-3d"
       aria-hidden="true"
     />
   );
