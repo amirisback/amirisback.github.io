@@ -208,7 +208,7 @@ export function CmsDashboard({ initialContent }: CmsDashboardProps) {
     const newData = { ...data };
     const [parentKey, childKey] = listName.split(".");
     const parent = newData[parentKey as keyof PortfolioData] as unknown as Record<string, unknown[]>;
-    parent[childKey] = [...parent[childKey], defaultItem];
+    parent[childKey] = [...(parent[childKey] || []), defaultItem];
     handleFormUpdate(newData);
   };
 
@@ -219,7 +219,7 @@ export function CmsDashboard({ initialContent }: CmsDashboardProps) {
     const newData = { ...data };
     const [parentKey, childKey] = listName.split(".");
     const parent = newData[parentKey as keyof PortfolioData] as unknown as Record<string, unknown[]>;
-    parent[childKey] = parent[childKey].filter((_, i) => i !== index);
+    parent[childKey] = (parent[childKey] || []).filter((_, i) => i !== index);
     handleFormUpdate(newData);
   };
 
@@ -231,7 +231,7 @@ export function CmsDashboard({ initialContent }: CmsDashboardProps) {
     const newData = { ...data };
     const [parentKey, childKey] = listName.split(".");
     const parent = newData[parentKey as keyof PortfolioData] as unknown as Record<string, unknown[]>;
-    const list = [...parent[childKey]];
+    const list = [...(parent[childKey] || [])];
     
     if (direction === "up" && index > 0) {
       const temp = list[index];
@@ -620,7 +620,7 @@ export function CmsDashboard({ initialContent }: CmsDashboardProps) {
                 </div>
 
                 <div className="space-y-3">
-                  {data.about.skills.map((skill, idx) => (
+                  {(data.about.skills || []).map((skill, idx) => (
                     <div key={idx} className="flex items-center gap-3 p-3 bg-zinc-950 rounded border border-zinc-800">
                       <div className="flex-2 space-y-1">
                         <input
@@ -669,7 +669,7 @@ export function CmsDashboard({ initialContent }: CmsDashboardProps) {
               <div className="flex justify-between items-center border-b border-zinc-800 pb-3">
                 <h2 className="text-xl font-bold text-white">Projects List</h2>
                 <button
-                  onClick={() => addListItem("services.items", { icon: "fab fa-android", title: "My New Project", description: "Project description details.", delay: "0.4s", url: "" })}
+                  onClick={() => addListItem("services.items", { icon: "fab fa-android", title: "My New Project", description: "Project description details.", delay: "0.4s", url: "", thumbnail: "", badge: "" })}
                   className="px-3 py-1 bg-zinc-800 hover:bg-zinc-700 text-xs font-semibold rounded cursor-pointer"
                 >
                   <i className="fas fa-plus mr-1.5" /> Add Project
@@ -741,6 +741,29 @@ export function CmsDashboard({ initialContent }: CmsDashboardProps) {
                           onChange={(e) => updateListItem("services.items", idx, "delay", e.target.value)}
                           placeholder="e.g. 0.4s"
                           className="w-full bg-zinc-900 border border-zinc-800 focus:border-cyan-500 rounded p-1.5 text-sm outline-none text-zinc-400"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-1">
+                        <label className="block text-2xs text-zinc-500 uppercase tracking-wide">Thumbnail Preview URL (Optional)</label>
+                        <input
+                          type="text"
+                          value={item.thumbnail || ""}
+                          onChange={(e) => updateListItem("services.items", idx, "thumbnail", e.target.value)}
+                          placeholder="e.g. https://... or /img/..."
+                          className="w-full bg-zinc-900 border border-zinc-800 focus:border-cyan-500 rounded p-1.5 text-sm outline-none"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="block text-2xs text-zinc-500 uppercase tracking-wide">Category Badge (Optional)</label>
+                        <input
+                          type="text"
+                          value={item.badge || ""}
+                          onChange={(e) => updateListItem("services.items", idx, "badge", e.target.value)}
+                          placeholder="e.g. Web POS, AI Tool, Open Source"
+                          className="w-full bg-zinc-900 border border-zinc-800 focus:border-cyan-500 rounded p-1.5 text-sm outline-none text-zinc-300"
                         />
                       </div>
                     </div>

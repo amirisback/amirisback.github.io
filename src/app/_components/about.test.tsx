@@ -16,11 +16,7 @@ vi.mock("./scroll-reveal", () => ({
 describe("About Component", () => {
   const mockAboutData = {
     image: "img/about.png",
-    description: "I am a developer.",
-    skills: [
-      { name: "Kotlin", percentage: 90 },
-      { name: "React", percentage: 70 },
-    ],
+    description: "I am a Software Engineer.",
   };
 
   const mockDict = {
@@ -30,15 +26,22 @@ describe("About Component", () => {
     },
   };
 
-  it("should render correctly with title, description and skills", () => {
+  it("should render correctly with title and description", () => {
     render(<About data={mockAboutData} dict={mockDict} />);
 
     expect(screen.getByText("About Me")).toBeInTheDocument();
     expect(screen.getByText("My Info")).toBeInTheDocument();
-    expect(screen.getByText("I am a developer.")).toBeInTheDocument();
-    expect(screen.getByText("Kotlin")).toBeInTheDocument();
-    expect(screen.getByText("90%")).toBeInTheDocument();
-    expect(screen.getByText("React")).toBeInTheDocument();
-    expect(screen.getByText("70%")).toBeInTheDocument();
+    expect(screen.getByText("I am a Software Engineer.")).toBeInTheDocument();
+  });
+
+  it("should render multiple paragraphs when description contains double newlines", () => {
+    const multiParagraphData = {
+      image: "img/about.png",
+      description: "First paragraph about software engineering.\n\nSecond paragraph about clean architecture.",
+    };
+    render(<About data={multiParagraphData} dict={mockDict} />);
+
+    expect(screen.getByText("First paragraph about software engineering.")).toBeInTheDocument();
+    expect(screen.getByText("Second paragraph about clean architecture.")).toBeInTheDocument();
   });
 });

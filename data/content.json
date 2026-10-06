@@ -57,125 +57,249 @@
     "sectionLabel": "Learn About Me",
     "sectionTitle": "Information",
     "image": "img/about.png",
-    "description": "I am an Android Developer with a strong passion for building real-world applications and continuously improving my technical skills. I focus on developing practical solutions using modern Android development approaches such as MVVM architecture, ViewModel, and efficient state management. I am highly motivated to grow in fast-paced environments where I can face real challenges, solve problems, and gain hands-on experience in software development. Currently, I am seeking opportunities to expand my experience through real projects and collaborative work environments.",
-    "skills": [
-      {
-        "name": "Android Development",
-        "percentage": 90
-      },
-      {
-        "name": "Kotlin & Java",
-        "percentage": 90
-      },
-      {
-        "name": "Version Control Github",
-        "percentage": 70
-      },
-      {
-        "name": "Front End Website",
-        "percentage": 40
-      },
-      {
-        "name": "Vanila Js, Next Js",
-        "percentage": 40
-      },
-      {
-        "name": "Vanila CSS, Tailwind CSS",
-        "percentage": 40
-      },
-      {
-        "name": "AI Vibes Coding",
-        "percentage": 70
-      }
-    ]
+    "description": "I am a Software Engineer with over 6 years of experience engineering native Android applications and modern web solutions. My technical expertise centers on native Android development with Kotlin and Jetpack Compose, alongside modern web technologies including Next.js, TypeScript, and Tailwind CSS.\n\nThroughout my work across fintech, e-commerce, and digital health platforms, as well as maintaining open-source tools in the Frogo ecosystem, I focus on clean architecture, modular codebases, and maintainable software design. I am committed to solving complex technical challenges and building scalable, high-quality products that deliver lasting impact."
   },
   "services": {
     "sectionLabel": "What have I been doing all this time?",
     "sectionTitle": "Awesome Project",
     "items": [
       {
+        "icon": "fas fa-cash-register",
+        "title": "KulaPOS",
+        "description": "Modern, fast, and responsive Point of Sale (POS) application for coffee shops and culinary MSMEs.",
+        "description_id": "Aplikasi Point of Sale (POS) modern, cepat, dan responsif untuk UMKM kedai kopi dan usaha kuliner.",
+        "delay": "0.1s",
+        "url": "https://kasir-web-seven.vercel.app/",
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Fkasir-web-seven.vercel.app%2F?w=800&h=450",
+        "badge": "Web POS"
+      },
+      {
+        "icon": "fas fa-calculator",
+        "title": "Life Calculator Financial",
+        "description": "Integrated financial and business calculator for Indonesian regulations: BEP, BPHTB, Mortgages, Compound Interest, and Depreciation.",
+        "description_id": "Kalkulator finansial dan bisnis terintegrasi regulasi Indonesia: BEP, BPHTB, KPR, Compound Interest, dan Depresiasi.",
+        "delay": "0.2s",
+        "url": "https://financial-math-amir.vercel.app/",
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Ffinancial-math-amir.vercel.app%2F?w=800&h=450",
+        "badge": "Financial Tool"
+      },
+      {
+        "icon": "fas fa-hospital",
+        "title": "RS Ambulatory Care",
+        "description": "Official healthcare portal for integrated outpatient services, specialist clinics, laboratory, and radiology reservations.",
+        "description_id": "Portal resmi layanan rawat jalan terpadu, poliklinik spesialis, serta reservasi laboratorium dan radiologi modern.",
+        "delay": "0.3s",
+        "url": "https://ambulatory-fawn.vercel.app/",
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Fambulatory-fawn.vercel.app%2F?w=800&h=450",
+        "badge": "Healthcare Portal"
+      },
+      {
+        "icon": "fas fa-magic",
+        "title": "Magic Clipper AI",
+        "description": "Professional web tool to trim and auto-process video clips using artificial intelligence.",
+        "description_id": "Alat web profesional untuk memotong video menjadi klip dan memprosesnya secara otomatis dengan kecerdasan buatan.",
+        "delay": "0.4s",
+        "url": "https://clipper-magic.vercel.app/",
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Fclipper-magic.vercel.app%2F?w=800&h=450",
+        "badge": "AI Video Tool"
+      },
+      {
+        "icon": "fas fa-camera-retro",
+        "title": "PhotoBooth Pro",
+        "description": "Premium photobooth web application with background removal, custom text overlays, and creative visual filters.",
+        "description_id": "Aplikasi web photobooth premium dengan penghapus latar belakang, teks kustom, dan filter visual kreatif.",
+        "delay": "0.2s",
+        "url": "https://photobooth-six-taupe.vercel.app/",
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Fphotobooth-six-taupe.vercel.app%2F?w=800&h=450",
+        "badge": "Photo Studio"
+      },
+      {
+        "icon": "fas fa-map-marked-alt",
+        "title": "Live At Probolinggo",
+        "description": "Citizen service directory portal for Probolinggo: find builders, water carriers, and trusted local service providers.",
+        "description_id": "Portal direktori layanan warga Probolinggo: temukan tukang bangunan, pengangkut air, dan penyedia jasa terpercaya.",
+        "delay": "0.3s",
+        "url": "https://live-at-probolinggo.vercel.app/",
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Flive-at-probolinggo.vercel.app%2F?w=800&h=450",
+        "badge": "Community Portal"
+      },
+      {
+        "icon": "fas fa-envelope-open-text",
+        "title": "Undangan Aqiqah Alyssa",
+        "description": "Interactive and responsive digital invitation platform for Alyssa Hannah Azzahrah's Aqiqah celebration.",
+        "description_id": "Platform undangan digital interaktif dan responsif untuk tasyakuran Aqiqah Alyssa Hannah Azzahrah.",
+        "delay": "0.4s",
+        "url": "https://aqiqah-alyssa.vercel.app/id",
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Faqiqah-alyssa.vercel.app%2Fid?w=800&h=450",
+        "badge": "Digital Invitation"
+      },
+      {
+        "icon": "fas fa-book-open",
+        "title": "DocuFlip",
+        "description": "Interactive web application for reading PDF documents with a realistic flipbook visual experience.",
+        "description_id": "Aplikasi web interaktif untuk membaca dokumen PDF dengan pengalaman visual flipbook realistis seperti buku fisik.",
+        "delay": "0.2s",
+        "url": "https://docuflip.vercel.app/",
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Fdocuflip.vercel.app%2F?w=800&h=450",
+        "badge": "Flipbook Reader"
+      },
+      {
+        "icon": "fab fa-github",
+        "title": "Finpro Management System",
+        "description": "Web and Android-based final project and thesis management system for academic supervision, evaluation, and examinations.",
+        "description_id": "Sistem manajemen proyek akhir dan skripsi berbasis web dan Android untuk bimbingan, monitoring evaluasi, dan sidang.",
+        "delay": "0.3s",
+        "url": "https://github.com/amirisback/finpro",
+        "thumbnail": "https://opengraph.githubassets.com/3ef23d223f71ea4c03e1787dc00985c5bdfa4f5ef64d099717fc8ed548c50817/amirisback/finpro",
+        "badge": "Academic System"
+      },
+      {
+        "icon": "fab fa-github",
+        "title": "De Knappe: Online Exam",
+        "description": "Structured online examination and remedial platform for educational institutions and learning evaluation.",
+        "description_id": "Platform ujian online dan remedial terstruktur untuk institusi pendidikan, sekolah, dan evaluasi belajar.",
+        "delay": "0.4s",
+        "url": "https://github.com/amirisback/de-knappe",
+        "thumbnail": "https://opengraph.githubassets.com/a64c67b53f1a1cefd02b3ff9f2728639602a580c4c95a272d7f150253836e993/amirisback/de-knappe",
+        "badge": "Online Exam"
+      },
+      {
+        "icon": "fas fa-hand-sparkles",
+        "title": "Hobby Hands Recognition",
+        "description": "Interactive real-time hand gesture recognition web application powered by MediaPipe and Machine Learning.",
+        "description_id": "Aplikasi interaktif pengenalan gestur tangan realtime berbasis web menggunakan MediaPipe dan Machine Learning.",
+        "delay": "0.2s",
+        "url": "https://amirisback.github.io/hobby-hands-recognition/",
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Famirisback.github.io%2Fhobby-hands-recognition%2F?w=800&h=450",
+        "badge": "Computer Vision"
+      },
+      {
+        "icon": "fas fa-award",
+        "title": "Wall of Fame Angel Sponsor",
+        "description": "Interactive Wall of Fame page honoring sponsors and donors of the Frogo open-source ecosystem.",
+        "description_id": "Halaman interaktif Wall of Fame untuk apresiasi sponsor dan donor ekosistem open-source Frogo dan proyek pribadi.",
+        "delay": "0.3s",
+        "url": "https://amirisback.github.io/wall-of-fame-angel-sponsor/",
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Famirisback.github.io%2Fwall-of-fame-angel-sponsor%2F?w=800&h=450",
+        "badge": "Open Source"
+      },
+      {
+        "icon": "fas fa-heart",
+        "title": "A Journey of Us: Amir & Septian",
+        "description": "Interactive love story website celebrating special milestones with modern animation visuals.",
+        "description_id": "Website interaktif cerita perjalanan cinta dan momen spesial Amir dan Septian dengan visual animasi modern.",
+        "delay": "0.4s",
+        "url": "https://amirisback.github.io/propose-love/",
+        "thumbnail": "https://s0.wp.com/mshots/v1/https%3A%2F%2Famirisback.github.io%2Fpropose-love%2F?w=800&h=450",
+        "badge": "Interactive Story"
+      },
+      {
         "icon": "fab fa-android",
         "title": "Android Library",
-        "description": "SDK for anything your problem to make easier developing android apps",
+        "description": "Modular Android libraries and SDKs to accelerate Android app development.",
+        "description_id": "Kumpulan pustaka dan SDK Android modular untuk mempermudah dan mempercepat pengembangan aplikasi Android.",
         "delay": "0.6s",
-        "url": "https://github.com/amirisback"
+        "url": "https://github.com/amirisback",
+        "badge": "Android"
       },
       {
         "icon": "fas fa-code",
         "title": "automated-build-android-app-with-github-action",
-        "description": "Android CI",
+        "description": "Automated CI/CD build pipeline for Android applications using GitHub Actions.",
+        "description_id": "Alur otomasi CI/CD untuk membangun dan menguji aplikasi Android menggunakan GitHub Actions.",
         "delay": "0.4s",
-        "url": "https://github.com/amirisback/automated-build-android-app-with-github-action"
+        "url": "https://github.com/amirisback/automated-build-android-app-with-github-action",
+        "badge": "Mobile & SDK"
       },
       {
         "icon": "fab fa-android",
         "title": "keyboard",
-        "description": "Keyboard Like Google",
+        "description": "Custom Android keyboard extension inspired by Google Keyboard.",
+        "description_id": "Papan ketik kustom untuk Android yang terinspirasi dari antarmuka Google Keyboard.",
         "delay": "0.4s",
-        "url": "https://github.com/amirisback/keyboard"
+        "url": "https://github.com/amirisback/keyboard",
+        "badge": "Mobile & SDK"
       },
       {
         "icon": "fab fa-android",
         "title": "KoinWorks",
-        "description": "While working at PT. LUNARIA ANNUA TEKNOLOGI, I helped develop the KoinWorks Android app",
+        "description": "Contributed to engineering the KoinWorks Android application while working at PT Lunaria Annua Teknologi.",
+        "description_id": "Berkontribusi dalam pengembangan aplikasi Android KoinWorks saat bekerja di PT Lunaria Annua Teknologi.",
         "delay": "0.4s",
-        "url": "https://play.google.com/store/search?q=koinworks&c=apps&hl=id"
+        "url": "https://play.google.com/store/search?q=koinworks&c=apps&hl=id",
+        "badge": "Fintech"
       },
       {
         "icon": "fab fa-android",
         "title": "Qomunal",
-        "description": "While working at PT Qomunal, I helped develop the Qomunal Android app",
+        "description": "Contributed to engineering the Qomunal Android application while working at PT Qomunal.",
+        "description_id": "Berkontribusi dalam pengembangan aplikasi Android Qomunal saat bekerja di PT Qomunal.",
         "delay": "0.4s",
-        "url": "https://play.google.com/store/apps/details?id=id.aot.qomunal&hl=id"
+        "url": "https://play.google.com/store/apps/details?id=id.aot.qomunal&hl=id",
+        "badge": "Fintech"
       },
       {
         "icon": "fab fa-android",
         "title": "SJI (School of Journalism) Indonesia)",
-        "description": "While working at PT Qomunal, I helped develop the SJI Android application",
+        "description": "Contributed to engineering the SJI Android application while working at PT Qomunal.",
+        "description_id": "Berkontribusi dalam pengembangan aplikasi Android SJI saat bekerja di PT Qomunal.",
         "delay": "0.4s",
-        "url": "https://play.google.com/store/apps/details?id=com.qomunal.sji"
+        "url": "https://play.google.com/store/apps/details?id=com.qomunal.sji",
+        "badge": "Mobile & SDK"
       },
       {
         "icon": "fab fa-android",
         "title": "Hening",
-        "description": "While working at PT Qomunal, I helped develop the Hening Android application",
+        "description": "Contributed to engineering the Hening Android application while working at PT Qomunal.",
+        "description_id": "Berkontribusi dalam pengembangan aplikasi Android Hening saat bekerja di PT Qomunal.",
         "delay": "0.4s",
-        "url": "https://play.google.com/store/apps/details?id=com.hening.android&hl=id"
+        "url": "https://play.google.com/store/apps/details?id=com.hening.android&hl=id",
+        "badge": "Mobile & SDK"
       },
       {
         "icon": "fab fa-android",
         "title": "NewLife: For Mothers and Babies",
-        "description": "While working at PT Qomunal, I helped develop the NewLife Android application",
+        "description": "Contributed to engineering the NewLife Android application while working at PT Qomunal.",
+        "description_id": "Berkontribusi dalam pengembangan aplikasi Android NewLife saat bekerja di PT Qomunal.",
         "delay": "0.4s",
-        "url": "https://play.google.com/store/apps/details?id=com.qomunal.newlife.android"
+        "url": "https://play.google.com/store/apps/details?id=com.qomunal.newlife.android",
+        "badge": "Mobile & SDK"
       },
       {
         "icon": "fab fa-android",
         "title": "Tokowibu Android",
-        "description": "While working at PT Qomunal, I helped develop the Tokowibu Android application",
+        "description": "Contributed to engineering the Tokowibu Android application while working at PT Qomunal.",
+        "description_id": "Berkontribusi dalam pengembangan aplikasi Android Tokowibu saat bekerja di PT Qomunal.",
         "delay": "0.4s",
-        "url": "https://play.google.com/store/apps/details?id=id.tokowibu.app.android"
+        "url": "https://play.google.com/store/apps/details?id=id.tokowibu.app.android",
+        "badge": "Android"
       },
       {
         "icon": "fas fa-code",
         "title": "Tokowibu Web",
-        "description": "While working at PT Qomunal, I helped develop the Tokowibu Web application",
+        "description": "Contributed to engineering the Tokowibu Web application while working at PT Qomunal.",
+        "description_id": "Berkontribusi dalam pengembangan aplikasi web Tokowibu saat bekerja di PT Qomunal.",
         "delay": "0.4s",
-        "url": "https://tokowibu.anievo.id/"
+        "url": "https://tokowibu.anievo.id/",
+        "badge": "Web"
       },
       {
         "icon": "fab fa-android",
         "title": "Frogo-Recycler-View",
-        "description": "RecyclerView With No Adapter | Available For Jetpack Compose ",
+        "description": "Adapter-free RecyclerView solution, fully compatible with Jetpack Compose.",
+        "description_id": "Solusi RecyclerView tanpa adapter, sepenuhnya kompatibel dengan Jetpack Compose.",
         "delay": "0.4s",
-        "url": "https://github.com/amirisback/frogo-recycler-view"
+        "url": "https://github.com/amirisback/frogo-recycler-view",
+        "badge": "Mobile & SDK"
       },
       {
         "icon": "fab fa-android",
         "title": "frogo-sdk",
-        "description": "Frogo SDK - SDK Core for Easy Development",
+        "description": "Frogo SDK, core toolkit for simplified Android and multiplatform development.",
+        "description_id": "Frogo SDK, pustaka inti untuk menyederhanakan pengembangan Android dan multiplatform.",
         "delay": "0.4s",
-        "url": "https://github.com/frogobox/frogo-sdk"
+        "url": "https://github.com/frogobox/frogo-sdk",
+        "badge": "Open Source"
       }
     ]
   },
@@ -185,44 +309,44 @@
     "items": [
       {
         "date": "September 2023 - Now",
-        "title": "Software Engineer (Android & Frontend Next Js)",
+        "title": "Software Engineer",
         "company": "Qomunal",
         "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
         "side": "left"
       },
       {
         "date": "Jun 2022 - Mar 2023",
-        "title": "Android Engineer",
+        "title": "Software Engineer",
         "company": "KoinWorks",
         "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
         "side": "right"
       },
       {
         "date": "Jun 2022 - Jun 2022",
-        "title": "Android Engineer",
+        "title": "Software Engineer",
         "company": "PT Rumahawan Karya Indonesia",
         "location": "Jakarta Selatan, DKI Jakarta, Indonesia",
         "side": "left"
       },
       {
-        "date": "Jul 2020 - Des 2020",
-        "title": "Android Programmer (Internship)",
-        "company": "Chat Aja Messeger",
-        "location": "Bandung, West Java, Indonesia",
+        "date": "Jul 2020 - Dec 2020",
+        "title": "Software Engineer",
+        "company": "Chat Aja Messenger",
+        "location": "Bandung, Jawa Barat, Indonesia",
         "side": "right"
       },
       {
         "date": "Jun 2019 - Sep 2019",
-        "title": "Android Programmer",
+        "title": "Software Engineer",
         "company": "GITS Indonesia",
-        "location": "Jl. Margacinta No. 29 Bandung Indonesia",
+        "location": "Jl. Margacinta No. 29 Bandung, Indonesia",
         "side": "left"
       },
       {
-        "date": "Jan 2019 - Mei 2019",
-        "title": "Android Programmer (Internship)",
+        "date": "Jan 2019 - May 2019",
+        "title": "Software Engineer",
         "company": "Kodelokus",
-        "location": "Bandung dan Sekitarnya, Jawa Barat, IndonesiaBandung",
+        "location": "Bandung dan Sekitarnya, Jawa Barat, Indonesia",
         "side": "right"
       }
     ]
@@ -260,7 +384,7 @@
     "address": "Probolinggo - Jawa Timur, Indonesia",
     "phone": "+6281357108568",
     "email": "faisalamircs@gmail.com",
-    "copyright": "Muhammad Faisal Amir, All Right Reserved 2026",
+    "copyright": "Muhammad Faisal Amir, All Rights Reserved 2026",
     "socials": [
       {
         "icon": "fab fa-twitter",

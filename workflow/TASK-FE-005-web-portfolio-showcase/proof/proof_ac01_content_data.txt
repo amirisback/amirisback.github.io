@@ -1,0 +1,17 @@
+[PROOF AC-01: Content Data Verification]
+Verified 13 web projects added to data/content.json with accurate URLs and thumbnail endpoints:
+1. KulaPOS: https://kasir-web-seven.vercel.app/ (Thumbnail: https://s0.wp.com/mshots/v1/https%3A%2F%2Fkasir-web-seven.vercel.app%2F?w=800&h=450)
+2. Life Calculator Financial: https://financial-math-amir.vercel.app/ (Thumbnail: https://s0.wp.com/mshots/v1/https%3A%2F%2Ffinancial-math-amir.vercel.app%2F?w=800&h=450)
+3. RS Ambulatory Care: https://ambulatory-fawn.vercel.app/ (Thumbnail: https://s0.wp.com/mshots/v1/https%3A%2F%2Fambulatory-fawn.vercel.app%2F?w=800&h=450)
+4. Magic Clipper AI: https://clipper-magic.vercel.app/ (Thumbnail: https://s0.wp.com/mshots/v1/https%3A%2F%2Fclipper-magic.vercel.app%2F?w=800&h=450)
+5. PhotoBooth Pro: https://photobooth-six-taupe.vercel.app/ (Thumbnail: https://s0.wp.com/mshots/v1/https%3A%2F%2Fphotobooth-six-taupe.vercel.app%2F?w=800&h=450)
+6. Live At Probolinggo: https://live-at-probolinggo.vercel.app/ (Thumbnail: https://s0.wp.com/mshots/v1/https%3A%2F%2Flive-at-probolinggo.vercel.app%2F?w=800&h=450)
+7. Undangan Aqiqah Alyssa: https://aqiqah-alyssa.vercel.app/id (Thumbnail: https://s0.wp.com/mshots/v1/https%3A%2F%2Faqiqah-alyssa.vercel.app%2Fid?w=800&h=450)
+8. DocuFlip: https://docuflip.vercel.app/ (Thumbnail: https://s0.wp.com/mshots/v1/https%3A%2F%2Fdocuflip.vercel.app%2F?w=800&h=450)
+9. Finpro Management System: https://github.com/amirisback/finpro (Thumbnail: https://opengraph.githubassets.com/3ef23d223f71ea4c03e1787dc00985c5bdfa4f5ef64d099717fc8ed548c50817/amirisback/finpro)
+10. De Knappe: Online Exam: https://github.com/amirisback/de-knappe (Thumbnail: https://opengraph.githubassets.com/a64c67b53f1a1cefd02b3ff9f2728639602a580c4c95a272d7f150253836e993/amirisback/de-knappe)
+11. Hobby Hands Recognition: https://amirisback.github.io/hobby-hands-recognition/ (Thumbnail: https://s0.wp.com/mshots/v1/https%3A%2F%2Famirisback.github.io%2Fhobby-hands-recognition%2F?w=800&h=450)
+12. Wall of Fame Angel Sponsor: https://amirisback.github.io/wall-of-fame-angel-sponsor/ (Thumbnail: https://s0.wp.com/mshots/v1/https%3A%2F%2Famirisback.github.io%2Fwall-of-fame-angel-sponsor%2F?w=800&h=450)
+13. A Journey of Us: Amir & Septian: https://amirisback.github.io/propose-love/ (Thumbnail: https://s0.wp.com/mshots/v1/https%3A%2F%2Famirisback.github.io%2Fpropose-love%2F?w=800&h=450)
+
+Total projects in content.json: 25 items. Status: VERIFIED.

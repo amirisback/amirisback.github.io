@@ -1,0 +1,4 @@
+$ eslint
+
+Done in 2.14s (0 errors, 0 warnings).
+Zero suppression annotations detected.

@@ -37,16 +37,16 @@ export default async function Home() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <Hero data={content.hero} />
+        <Hero data={content.hero} dict={dict} />
 
         {/* About Section */}
         <About data={content.about} dict={dict} />
 
         {/* Projects Section */}
-        <Projects data={content.services} dict={dict} />
+        <Projects data={content.services} dict={dict} currentLang={locale} />
 
         {/* Experience Section */}
-        <Experience data={content.experience} dict={dict} />
+        <Experience data={content.experience} dict={dict} currentLang={locale} />
 
         {/* Blog Section */}
         <Blog data={content.blog} dict={dict} />

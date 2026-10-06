@@ -27,7 +27,7 @@ export interface PortfolioData {
     sectionTitle: string;
     image: string;
     description: string;
-    skills: Array<{ name: string; percentage: number }>;
+    skills?: Array<{ name: string; percentage: number }>;
   };
   services: {
     sectionLabel: string;
@@ -36,8 +36,11 @@ export interface PortfolioData {
       icon: string;
       title: string;
       description: string;
+      description_id?: string;
       delay: string;
       url?: string;
+      thumbnail?: string;
+      badge?: string;
     }>;
   };
   experience: {

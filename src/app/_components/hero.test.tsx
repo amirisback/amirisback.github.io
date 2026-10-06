@@ -67,4 +67,14 @@ describe("Hero Component", () => {
     const iframe = document.getElementById("hero-youtube-video");
     expect(iframe).not.toBeInTheDocument();
   });
+
+  it("should render 3D kinetic background canvas and 3D avatar tilt container", () => {
+    render(<Hero data={mockHeroData} />);
+
+    const canvas = screen.getByTestId("hero-background-3d");
+    expect(canvas).toBeInTheDocument();
+
+    const avatarTilt = screen.getByTestId("hero-avatar-tilt");
+    expect(avatarTilt).toBeInTheDocument();
+  });
 });

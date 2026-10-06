@@ -135,25 +135,29 @@
       el("p", {}, data.description)
     );
 
-    const skills = el("div", { className: "skills" });
-    data.skills.forEach((skill) => {
-      const skillName = el("div", { className: "skill-name" },
-        el("p", {}, skill.name),
-        el("p", {}, skill.percentage + "%")
-      );
-      const progressBar = el("div", {
-        className: "progress-bar",
-        role: "progressbar",
-        "aria-valuenow": String(skill.percentage),
-        "aria-valuemin": "0",
-        "aria-valuemax": "100",
+    const aboutChildren = [sectionHeader, aboutText];
+    if (data.skills && Array.isArray(data.skills) && data.skills.length > 0) {
+      const skills = el("div", { className: "skills" });
+      data.skills.forEach((skill) => {
+        const skillName = el("div", { className: "skill-name" },
+          el("p", {}, skill.name),
+          el("p", {}, skill.percentage + "%")
+        );
+        const progressBar = el("div", {
+          className: "progress-bar",
+          role: "progressbar",
+          "aria-valuenow": String(skill.percentage),
+          "aria-valuemin": "0",
+          "aria-valuemax": "100",
+        });
+        const progress = el("div", { className: "progress" }, progressBar);
+        skills.appendChild(skillName);
+        skills.appendChild(progress);
       });
-      const progress = el("div", { className: "progress" }, progressBar);
-      skills.appendChild(skillName);
-      skills.appendChild(progress);
-    });
+      aboutChildren.push(skills);
+    }
 
-    const aboutContent = el("div", { className: "about-content" }, sectionHeader, aboutText, skills);
+    const aboutContent = el("div", { className: "about-content" }, ...aboutChildren);
     const contentCol = el("div", { className: "col-lg-6" }, aboutContent);
 
     const row = el("div", { className: "row align-items-center" }, imgCol, contentCol);

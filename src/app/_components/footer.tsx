@@ -29,6 +29,8 @@ interface FooterProps {
     footer: {
       copyright: string;
       madeWith: string;
+      location?: string;
+      connectSocials?: string;
     };
   };
 }
@@ -108,7 +110,7 @@ export function Footer({ data, dict }: FooterProps) {
           {/* Right Column: Social Links */}
           <ScrollReveal direction="right" className="flex flex-col justify-center space-y-6">
             <h3 className="text-xl font-semibold text-zinc-800 dark:text-white">
-              Connect on Socials
+              {dict.footer.connectSocials || "Connect on Socials"}
             </h3>
             <div className="flex flex-wrap gap-4">
               {data.socials.map((social, idx) => (
@@ -134,7 +136,7 @@ export function Footer({ data, dict }: FooterProps) {
           <p>{copyrightText}</p>
           <p className="flex items-center gap-1.5">
             {dict.footer.madeWith}{" "}
-            <span className="text-red-500 animate-pulse">❤️</span> in Indonesia
+            <span className="text-red-500 animate-pulse">❤️</span> {dict.footer.location || "in Indonesia"}
           </p>
         </div>
       </div>

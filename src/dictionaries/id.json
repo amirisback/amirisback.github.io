@@ -30,19 +30,26 @@
     "contact": "Kontak",
     "menu": "Menu",
     "language": "Bahasa",
-    "project": "Projek",
+    "project": "Proyek",
     "experience": "Pengalaman",
     "blog": "Medium",
     "cms": "CMS"
   },
+  "hero": {
+    "greeting": "Saya",
+    "iAmA": "Saya seorang",
+    "viewCv": "Lihat CV Amir",
+    "followGithub": "Ikuti GitHub Amir"
+  },
   "portfolio": {
-    "sectionLabel": "Projek Saya",
-    "sectionTitle": "Projek Keren",
-    "viewProject": "Lihat Projek"
+    "sectionLabel": "Proyek Saya",
+    "sectionTitle": "Proyek Pilihan",
+    "viewProject": "Lihat Proyek"
   },
   "experience": {
-    "sectionLabel": "Resume Saya",
-    "sectionTitle": "Pengalaman Kerja"
+    "sectionLabel": "Pengalaman Saya",
+    "sectionTitle": "Pengalaman Kerja",
+    "present": "Sekarang"
   },
   "blog": {
     "sectionLabel": "Dari Blog",
@@ -51,7 +58,8 @@
   },
   "about": {
     "sectionLabel": "Pelajari Tentang Saya",
-    "sectionTitle": "Informasi"
+    "sectionTitle": "Informasi",
+    "description": "Saya adalah seorang Software Engineer dengan pengalaman lebih dari 6 tahun dalam mengembangkan aplikasi native Android dan solusi web modern. Keahlian teknis saya berfokus pada pengembangan native Android dengan Kotlin dan Jetpack Compose, serta teknologi web modern termasuk Next.js, TypeScript, dan Tailwind CSS.\n\nSepanjang perjalanan karier saya di berbagai platform fintech, e-commerce, dan kesehatan digital, serta mengelola alat open-source dalam ekosistem Frogo, saya berfokus pada arsitektur yang bersih, basis kode modular, dan desain perangkat lunak yang mudah dikembangkan. Saya berkomitmen untuk memecahkan tantangan teknis yang kompleks dan membangun produk berkualitas tinggi serta terukur yang memberikan dampak berkelanjutan."
   },
   "contact": {
     "sectionLabel": "Hubungi Saya",
@@ -71,7 +79,7 @@
   },
   "metadata": {
     "title": "Muhammad Faisal Amir",
-    "description": "Muhammad Faisal Amir — Aplikasi Web Progressive"
+    "description": "Muhammad Faisal Amir, Aplikasi Web Progresif"
   },
   "error": {
     "notFound": "Halaman tidak ditemukan",
@@ -82,7 +90,9 @@
   },
   "footer": {
     "copyright": "© {year} Muhammad Faisal Amir. Semua hak dilindungi.",
-    "madeWith": "Dibuat dengan"
+    "madeWith": "Dibuat dengan",
+    "location": "di Indonesia",
+    "connectSocials": "Terhubung di Media Sosial"
   },
   "demo": {
     "title": "Enkripsi & Penyamaran ID",

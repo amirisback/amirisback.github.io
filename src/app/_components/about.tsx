@@ -10,17 +10,19 @@ interface AboutProps {
   data: {
     image: string;
     description: string;
-    skills: Skill[];
+    skills?: Skill[];
   };
   dict: {
     about: {
       sectionLabel: string;
       sectionTitle: string;
+      description?: string;
     };
   };
 }
 
 export function About({ data, dict }: AboutProps) {
+  const descriptionText = dict.about.description || data.description;
   return (
     <section id="about" className="relative py-24 bg-white dark:bg-zinc-950 overflow-hidden" data-testid="about">
       {/* Decorative accent shapes */}
@@ -61,33 +63,9 @@ export function About({ data, dict }: AboutProps) {
             </div>
 
             {/* Description */}
-            <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed text-base md:text-lg">
-              {data.description}
-            </p>
-
-            {/* Skills */}
-            <div className="space-y-5 pt-4">
-              {data.skills.map((skill, idx) => (
-                <div key={idx} className="space-y-2">
-                  <div className="flex justify-between items-center text-sm font-semibold text-zinc-700 dark:text-zinc-300">
-                    <span>{skill.name}</span>
-                    <span className="section-label font-bold">{skill.percentage}%</span>
-                  </div>
-                  {/* Skill Progress Bar Background */}
-                  <div className="h-3 w-full bg-zinc-100 dark:bg-zinc-800/60 rounded-full overflow-hidden">
-                    <div
-                      className="relative h-full rounded-full transition-all duration-1000 ease-out overflow-hidden shimmer-overlay"
-                      style={{
-                        width: `${skill.percentage}%`,
-                        background: 'linear-gradient(90deg, var(--accent-from), var(--accent-via), var(--accent-to))',
-                      }}
-                      role="progressbar"
-                      aria-valuenow={skill.percentage}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                    />
-                  </div>
-                </div>
+            <div className="space-y-4 text-zinc-600 dark:text-zinc-300 leading-relaxed text-base md:text-lg">
+              {descriptionText.split("\n\n").map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
               ))}
             </div>
           </ScrollReveal>

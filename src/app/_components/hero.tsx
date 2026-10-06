@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { TypingText } from "./typing-text";
+import { TiltCard3D } from "./tilt-card-3d";
+import { HeroBackground3D } from "./hero-background-3d";
 
 interface HeroButton {
   label: string;
@@ -15,9 +17,17 @@ interface HeroProps {
     videoBackground?: string;
     buttons: HeroButton[];
   };
+  dict?: {
+    hero?: {
+      greeting?: string;
+      iAmA?: string;
+      viewCv?: string;
+      followGithub?: string;
+    };
+  };
 }
 
-export function Hero({ data }: HeroProps) {
+export function Hero({ data, dict }: HeroProps) {
   const videoId = data.videoBackground;
   const videoSrc = videoId
     ? `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&playlist=${videoId}`
@@ -44,12 +54,15 @@ export function Hero({ data }: HeroProps) {
           background: 'radial-gradient(ellipse at 20% 50%, rgba(34,211,238,0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 20%, rgba(139,92,246,0.15) 0%, transparent 50%)',
         }}
       />
+ 
+       {/* 3D Kinetic Geometric Mesh & Particle Canvas */}
+       <HeroBackground3D />
 
-      {/* Floating CSS Shapes — purely decorative */}
-      <div className="absolute top-20 left-[10%] w-16 h-16 rounded-full bg-cyan-500/10 blur-sm" style={{ animation: 'float 6s ease-in-out infinite' }} aria-hidden="true" />
-      <div className="absolute top-40 right-[15%] w-24 h-24 rounded-full bg-violet-500/10 blur-md" style={{ animation: 'float-delayed 8s ease-in-out infinite' }} aria-hidden="true" />
-      <div className="absolute bottom-32 left-[25%] w-12 h-12 rounded-full bg-indigo-500/10 blur-sm" style={{ animation: 'float 7s ease-in-out infinite 1s' }} aria-hidden="true" />
-      <div className="absolute bottom-20 right-[20%] w-20 h-20 rounded-2xl rotate-45 bg-cyan-400/5 blur-sm" style={{ animation: 'float-delayed 9s ease-in-out infinite 2s' }} aria-hidden="true" />
+       {/* Floating CSS Shapes (purely decorative) */}
+       <div className="absolute top-20 left-[10%] w-16 h-16 rounded-full bg-cyan-500/10 blur-sm" style={{ animation: 'float 6s ease-in-out infinite' }} aria-hidden="true" />
+       <div className="absolute top-40 right-[15%] w-24 h-24 rounded-full bg-violet-500/10 blur-md" style={{ animation: 'float-delayed 8s ease-in-out infinite' }} aria-hidden="true" />
+       <div className="absolute bottom-32 left-[25%] w-12 h-12 rounded-full bg-indigo-500/10 blur-sm" style={{ animation: 'float 7s ease-in-out infinite 1s' }} aria-hidden="true" />
+       <div className="absolute bottom-20 right-[20%] w-20 h-20 rounded-2xl rotate-45 bg-cyan-400/5 blur-sm" style={{ animation: 'float-delayed 9s ease-in-out infinite 2s' }} aria-hidden="true" />
 
       {/* YouTube Video Background */}
       {videoSrc && (
@@ -75,42 +88,60 @@ export function Hero({ data }: HeroProps) {
             {/* Hero Left Column (Content) */}
             <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-6">
               <p className="text-lg md:text-xl font-medium tracking-widest uppercase text-cyan-300/80">
-                {data.greeting}
+                {dict?.hero?.greeting || data.greeting}
               </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-none gradient-text">
                 {data.name}
               </h1>
               <div className="h-10 sm:h-12 flex items-center text-xl sm:text-2xl lg:text-3xl font-medium text-white/90">
-                <span className="mr-2">I am a</span>
+                <span className="mr-2">{dict?.hero?.iAmA || "I am a"}</span>
                 <TypingText texts={data.typedTexts} />
               </div>
               
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto">
-                {data.buttons.map((btn, idx) => (
-                  <a
-                    key={idx}
-                    href={btn.href}
-                    target={btn.href.startsWith("http") ? "_blank" : "_self"}
-                    rel={btn.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className={`px-8 py-3.5 text-sm font-semibold tracking-wider rounded-full transition-all duration-300 text-center cursor-pointer ${
-                      idx === 0
-                        ? "bg-gradient-to-r from-cyan-400 via-indigo-500 to-violet-500 text-white shadow-lg hover:shadow-[0_0_25px_rgba(34,211,238,0.4),0_0_50px_rgba(139,92,246,0.3)] hover:scale-[1.03]"
-                        : "bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:border-white/40"
-                    }`}
-                  >
-                    {btn.label}
-                  </a>
-                ))}
+                {data.buttons.map((btn, idx) => {
+                  let buttonLabel = btn.label;
+                  if (dict?.hero) {
+                    if (btn.href.toLowerCase().includes("cv") && dict.hero.viewCv) {
+                      buttonLabel = dict.hero.viewCv;
+                    } else if (btn.href.toLowerCase().includes("github") && dict.hero.followGithub) {
+                      buttonLabel = dict.hero.followGithub;
+                    }
+                  }
+                  return (
+                    <a
+                      key={idx}
+                      href={btn.href}
+                      target={btn.href.startsWith("http") ? "_blank" : "_self"}
+                      rel={btn.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className={`px-8 py-3.5 text-sm font-semibold tracking-wider rounded-full transition-all duration-300 text-center cursor-pointer ${
+                        idx === 0
+                          ? "bg-gradient-to-r from-cyan-400 via-indigo-500 to-violet-500 text-white shadow-lg hover:shadow-[0_0_25px_rgba(34,211,238,0.4),0_0_50px_rgba(139,92,246,0.3)] hover:scale-[1.03]"
+                          : "bg-white/10 text-white border border-white/20 backdrop-blur-sm hover:bg-white/20 hover:border-white/40"
+                      }`}
+                    >
+                      {buttonLabel}
+                    </a>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Hero Right Column (Image) - Hidden on Mobile */}
+            {/* Hero Right Column (Hidden on Mobile with 3D Tilt) */}
             <div className="hidden md:flex justify-end pr-8">
-              <div className="relative w-80 h-80 lg:w-96 lg:h-96">
+              <TiltCard3D
+                maxTilt={10}
+                scale={1.03}
+                perspective={1200}
+                glare={true}
+                glareMaxOpacity={0.18}
+                className="relative w-80 h-80 lg:w-96 lg:h-96 rounded-full"
+                data-testid="hero-avatar-tilt"
+              >
                 {/* Elegant gradient ring border (stationary, never rotates) */}
                 <div
-                  className="relative w-full h-full rounded-full p-1.5 transition-transform duration-500 hover:scale-[1.02]"
+                  className="relative w-full h-full rounded-full p-1.5"
                   style={{
                     background: 'linear-gradient(135deg, var(--accent-from), var(--accent-via), var(--accent-to))',
                   }}
@@ -137,7 +168,7 @@ export function Hero({ data }: HeroProps) {
                   }}
                   aria-hidden="true"
                 />
-              </div>
+              </TiltCard3D>
             </div>
           </div>
         </div>

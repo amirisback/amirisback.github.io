@@ -1,11 +1,16 @@
 import { ScrollReveal } from "./scroll-reveal";
+import { ProjectThumbnail } from "./project-thumbnail";
+import { TiltCard3D } from "./tilt-card-3d";
 
 interface ProjectItem {
   icon: string;
   title: string;
   description: string;
+  description_id?: string;
   delay: string;
   url?: string;
+  thumbnail?: string;
+  badge?: string;
 }
 
 interface ProjectsProps {
@@ -19,14 +24,15 @@ interface ProjectsProps {
       viewProject: string;
     };
   };
+  currentLang?: string;
 }
 
-export function Projects({ data, dict }: ProjectsProps) {
+export function Projects({ data, dict, currentLang }: ProjectsProps) {
   return (
     <section id="service" className="relative py-24 bg-slate-50 dark:bg-zinc-950/50 overflow-hidden" data-testid="projects">
-      {/* Background mesh accent */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-cyan-400/5 dark:bg-cyan-400/3 blur-3xl" aria-hidden="true" />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-violet-500/5 dark:bg-violet-500/3 blur-3xl" aria-hidden="true" />
+      {/* Background subtle accents */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-cyan-400/5 dark:bg-cyan-400/3 blur-3xl pointer-events-none" aria-hidden="true" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-violet-500/5 dark:bg-violet-500/3 blur-3xl pointer-events-none" aria-hidden="true" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Section Header */}
@@ -47,30 +53,55 @@ export function Projects({ data, dict }: ProjectsProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.items.map((item, idx) => {
             const cardContent = (
-              <div className="relative h-full flex flex-col justify-between p-8 bg-white/80 dark:bg-zinc-900/50 backdrop-blur-sm border border-zinc-200/60 dark:border-zinc-800/40 rounded-2xl shadow-sm hover:shadow-2xl hover:shadow-cyan-500/10 dark:hover:shadow-cyan-500/5 hover:-translate-y-2 hover:border-cyan-400/40 dark:hover:border-cyan-400/30 transition-all duration-500 group">
-                <div className="space-y-4">
-                  {/* Icon */}
-                  <div className="flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-400/20 via-indigo-500/10 to-violet-500/20 dark:from-cyan-400/15 dark:via-indigo-500/10 dark:to-violet-500/15 text-cyan-600 dark:text-cyan-400 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-500/20 transition-all duration-300">
-                    <i className={`${item.icon} text-2xl`} />
-                  </div>
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-zinc-800 dark:text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-cyan-500 group-hover:to-violet-500 group-hover:bg-clip-text transition-colors duration-300">
-                    {item.title}
-                  </h3>
-                  {/* Description */}
-                  <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
+              <TiltCard3D
+                maxTilt={8}
+                scale={1.02}
+                perspective={1000}
+                glare={true}
+                glareMaxOpacity={0.14}
+                className="h-full rounded-2xl"
+                data-testid="project-card-tilt"
+              >
+                <div className="relative h-full flex flex-col justify-between p-6 bg-white/90 dark:bg-zinc-900/60 backdrop-blur-xs border border-zinc-200/80 dark:border-zinc-800/80 rounded-2xl shadow-xs hover:shadow-xl hover:shadow-cyan-500/10 dark:hover:shadow-cyan-500/5 hover:border-cyan-500/40 dark:hover:border-cyan-400/30 transition-colors duration-300 group [transform-style:preserve-3d]">
+                  <div>
+                    {/* Thumbnail / Mockup Preview */}
+                    <div className="[transform:translateZ(10px)]">
+                      <ProjectThumbnail
+                        title={item.title}
+                        thumbnail={item.thumbnail}
+                        icon={item.icon}
+                        badge={item.badge}
+                      />
+                    </div>
 
-                {/* Optional Project Link */}
-                {item.url && (
-                  <div className="pt-6 flex items-center text-sm font-semibold section-label group-hover:gap-2 transition-all duration-300">
-                    <span>{dict.portfolio.viewProject}</span>
-                    <i className="fas fa-chevron-right ml-2 text-xs transition-transform group-hover:translate-x-1" />
+                    {/* Title & Description */}
+                    <div className="space-y-2 [transform:translateZ(15px)]">
+                      <div className="flex items-center gap-2.5">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-cyan-500/10 dark:bg-cyan-500/15 text-cyan-600 dark:text-cyan-400 shrink-0">
+                          <i className={`${item.icon} text-sm`} />
+                        </div>
+                        <h3 className="text-lg font-bold text-zinc-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors duration-300 line-clamp-1">
+                          {item.title}
+                        </h3>
+                      </div>
+                      <p className="text-zinc-600 dark:text-zinc-400 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                        {currentLang === "id" && item.description_id ? item.description_id : item.description}
+                      </p>
+                    </div>
                   </div>
-                )}
-              </div>
+
+                  {/* Project Link Action */}
+                  {item.url && (
+                    <div className="pt-4 mt-4 border-t border-zinc-100 dark:border-zinc-800/60 flex items-center justify-between text-xs font-semibold text-cyan-600 dark:text-cyan-400 group-hover:gap-2 transition-all duration-300 [transform:translateZ(10px)]">
+                      <span className="flex items-center gap-1.5">
+                        <span>{dict.portfolio.viewProject}</span>
+                        <i className="fas fa-chevron-right text-[10px] transition-transform group-hover:translate-x-1" />
+                      </span>
+                      <i className="fas fa-external-link-alt text-[10px] text-zinc-400 dark:text-zinc-500" />
+                    </div>
+                  )}
+                </div>
+              </TiltCard3D>
             );
 
             return (
@@ -85,7 +116,7 @@ export function Projects({ data, dict }: ProjectsProps) {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block h-full cursor-pointer"
+                    className="block h-full cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 rounded-2xl"
                   >
                     {cardContent}
                   </a>

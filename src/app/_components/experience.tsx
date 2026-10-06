@@ -16,11 +16,36 @@ interface ExperienceProps {
     experience: {
       sectionLabel: string;
       sectionTitle: string;
+      present?: string;
     };
   };
+  currentLang?: string;
 }
 
-export function Experience({ data, dict }: ExperienceProps) {
+function formatExperienceDate(dateStr: string, dictPresent?: string, lang?: string): string {
+  let result = dateStr;
+  if (dictPresent) {
+    result = result.replace(/\bNow\b/i, dictPresent).replace(/\bSekarang\b/i, dictPresent);
+  }
+  if (lang === "en") {
+    result = result.replace(/\bDes\b/g, "Dec").replace(/\bMei\b/g, "May");
+  } else if (lang === "id") {
+    result = result.replace(/\bDec\b/g, "Des").replace(/\bMay\b/g, "Mei");
+  }
+  return result;
+}
+
+function formatExperienceLocation(locStr: string, lang?: string): string {
+  let loc = locStr.replace("IndonesiaBandung", "Indonesia");
+  if (lang === "en") {
+    loc = loc.replace("Jawa Barat", "West Java");
+  } else if (lang === "id") {
+    loc = loc.replace("West Java", "Jawa Barat");
+  }
+  return loc;
+}
+
+export function Experience({ data, dict, currentLang }: ExperienceProps) {
   return (
     <section id="experience" className="relative py-24 bg-white dark:bg-zinc-950 overflow-hidden" data-testid="experience">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -76,7 +101,7 @@ export function Experience({ data, dict }: ExperienceProps) {
                         : "md:right-[calc(50%+30px)] md:left-auto md:text-right"
                     } -translate-y-8 md:translate-y-0`}
                   >
-                    {item.date}
+                    {formatExperienceDate(item.date, dict.experience?.present, currentLang)}
                   </div>
 
                   {/* Card Block */}
@@ -94,7 +119,7 @@ export function Experience({ data, dict }: ExperienceProps) {
                         {item.company}
                       </h4>
                       <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                        {item.location}
+                        {formatExperienceLocation(item.location, currentLang)}
                       </p>
                     </div>
                   </ScrollReveal>

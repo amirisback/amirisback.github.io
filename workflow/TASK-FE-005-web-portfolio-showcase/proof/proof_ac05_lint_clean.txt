@@ -1,0 +1,10 @@
+[PROOF AC-05: Linter & Static Analysis Verification]
+Command: bun run lint
+Output:
+$ eslint
+
+Exit code: 0
+Issues: 0 errors, 0 warnings
+Zero suppression comments (@ts-ignore, eslint-disable) present in modified files.
+
+Status: PASSED.

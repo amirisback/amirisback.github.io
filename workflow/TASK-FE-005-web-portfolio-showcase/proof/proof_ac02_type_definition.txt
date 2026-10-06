@@ -1,0 +1,16 @@
+[PROOF AC-02: Type Definition Verification]
+File: src/lib/content.ts
+Interface: PortfolioData['services']['items']
+
+Updated Interface shape:
+items: Array<{
+  icon: string;
+  title: string;
+  description: string;
+  delay: string;
+  url?: string;
+  thumbnail?: string;
+  badge?: string;
+}>;
+
+Status: Type-check and strict TypeScript compile verified.

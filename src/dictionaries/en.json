@@ -35,14 +35,21 @@
     "blog": "Medium",
     "cms": "CMS"
   },
+  "hero": {
+    "greeting": "I'm",
+    "iAmA": "I am a",
+    "viewCv": "View Amir's CV",
+    "followGithub": "Follow Amir's GitHub"
+  },
   "portfolio": {
     "sectionLabel": "My Projects",
-    "sectionTitle": "Awesome Projects",
+    "sectionTitle": "Featured Projects",
     "viewProject": "View Project"
   },
   "experience": {
-    "sectionLabel": "My Resume",
-    "sectionTitle": "Working Experience"
+    "sectionLabel": "My Experience",
+    "sectionTitle": "Working Experience",
+    "present": "Present"
   },
   "blog": {
     "sectionLabel": "From Blog",
@@ -51,7 +58,8 @@
   },
   "about": {
     "sectionLabel": "Learn About Me",
-    "sectionTitle": "Information"
+    "sectionTitle": "Information",
+    "description": "I am a Software Engineer with over 6 years of experience engineering native Android applications and modern web solutions. My technical expertise centers on native Android development with Kotlin and Jetpack Compose, alongside modern web technologies including Next.js, TypeScript, and Tailwind CSS.\n\nThroughout my work across fintech, e-commerce, and digital health platforms, as well as maintaining open-source tools in the Frogo ecosystem, I focus on clean architecture, modular codebases, and maintainable software design. I am committed to solving complex technical challenges and building scalable, high-quality products that deliver lasting impact."
   },
   "contact": {
     "sectionLabel": "Contact Me",
@@ -71,7 +79,7 @@
   },
   "metadata": {
     "title": "Muhammad Faisal Amir",
-    "description": "Muhammad Faisal Amir — Progressive Web Application"
+    "description": "Muhammad Faisal Amir, Progressive Web Application"
   },
   "error": {
     "notFound": "Page not found",
@@ -82,7 +90,9 @@
   },
   "footer": {
     "copyright": "© {year} Muhammad Faisal Amir. All rights reserved.",
-    "madeWith": "Made with"
+    "madeWith": "Made with",
+    "location": "in Indonesia",
+    "connectSocials": "Connect on Socials"
   },
   "demo": {
     "title": "Encryption & ID Obfuscation",
