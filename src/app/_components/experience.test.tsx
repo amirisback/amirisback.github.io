@@ -128,4 +128,13 @@ describe("Experience Component", () => {
     // Location translation check (West Java -> Jawa Barat)
     expect(screen.getByText("Menlo Park, Jawa Barat")).toBeInTheDocument();
   });
+
+  it("should render subtle architectural background pattern with proper accessibility attributes", () => {
+    render(<Experience data={mockExperienceData} dict={mockDictEn} currentLang="en" />);
+    const pattern = screen.getByTestId("experience-bg-pattern");
+    expect(pattern).toBeInTheDocument();
+    expect(pattern).toHaveAttribute("aria-hidden", "true");
+    expect(pattern.className).toContain("pointer-events-none");
+    expect(pattern.className).toContain("absolute");
+  });
 });

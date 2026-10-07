@@ -94,9 +94,10 @@ Accomplished and growth-oriented **Software Engineer** with over 6 years of hand
 ## Education
 
 ### **Telkom University** — Bandung, Indonesia
-**Bachelor of Informatics (S1 Informatika / Computer Science)** | *Graduated 2022*
+**Bachelor of Computer Science (S.Kom.) — S1 Informatics, School of Computing** | *2019 – 2022*
 - **Research & Final Project:** *"Framework Developer for Creating Nutrition-Related Applications based on Android Platform"* (*Pengembang Framework untuk Membuat Aplikasi Seputar Permasalahan Gizi berbasis Platform Android*).
 - **Intellectual Property:** Formally awarded copyright certification from the Ministry (Kemdiktisaintek) for the *MicroNutrient Application Generator*.
+- **Graduation & Credentials:** Rector Decree No. KR.149/AKD15/AKD-BAA/2022 (Graduation: March 2, 2022), National Diploma No: 552012022001490 (Student ID: 1301198497).
 
 ### **Telkom University** — Bandung, Indonesia
 **Associate Degree in Software Engineering (D3 Rekayasa Perangkat Lunak Aplikasi)** | *2016 – 2019*

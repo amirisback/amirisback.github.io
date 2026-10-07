@@ -222,9 +222,10 @@ export const cvData: Record<"en" | "id", CvContentLocale> = {
       {
         institution: "Telkom University",
         location: "Bandung, Indonesia",
-        degree: "Bachelor of Informatics (S1 Informatika / Computer Science)",
-        period: "Graduated 2022",
+        degree: "Bachelor of Computer Science (S.Kom.) — S1 Informatics, School of Computing",
+        period: "2019 – 2022",
         highlights: [
+          "Official Degree: Sarjana Komputer (S.Kom.) conferred under Rector Decree No. KR.149/AKD15/AKD-BAA/2022 (Graduation: March 2, 2022, Diploma No: 552012022001490).",
           "Research & Final Project: 'Framework Developer for Creating Nutrition-Related Applications based on Android Platform'.",
           "Intellectual Property: Awarded copyright certification from Kemdiktisaintek for the MicroNutrient Application Generator.",
         ],
@@ -413,9 +414,10 @@ export const cvData: Record<"en" | "id", CvContentLocale> = {
       {
         institution: "Universitas Telkom (Telkom University)",
         location: "Bandung, Indonesia",
-        degree: "Sarjana Informatika (S1 Informatika)",
-        period: "Lulus 2022",
+        degree: "Sarjana Komputer (S.Kom.) — S1 Informatika, Fakultas Informatika",
+        period: "2019 – 2022",
         highlights: [
+          "Gelar Resmi: Sarjana Komputer (S.Kom.) berdasarkan SK Rektor No. KR.149/AKD15/AKD-BAA/2022 (Yudisium: 2 Maret 2022, No. Ijazah Nasional: 552012022001490).",
           "Penelitian / Tugas Akhir: 'Pengembang Framework untuk Membuat Aplikasi Seputar Permasalahan Gizi berbasis Platform Android'.",
           "Hak Cipta / HKI: Memperoleh Sertifikat Hak Cipta resmi dari Kemdiktisaintek untuk 'Generator Aplikasi MicroNutrient'.",
         ],

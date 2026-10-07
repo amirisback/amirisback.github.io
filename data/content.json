@@ -380,11 +380,33 @@
         "skills": ["Mobile Architecture", "Kotlin", "Code Audit", "Technical Consulting"]
       },
       {
+        "date": "Aug 2019 - Mar 2022",
+        "title": "Sarjana Komputer (S.Kom.) — S1 Informatika",
+        "company": "Universitas Telkom",
+        "location": "Bandung, Jawa Barat, Indonesia",
+        "side": "right",
+        "type": "Bachelor's Degree",
+        "type_id": "Pendidikan Formal (S1)",
+        "description": "Graduated with Bachelor of Computer Science in Informatics from School of Computing, Telkom University. Specialized in Android mobile application frameworks, clean architecture, and modular software engineering.",
+        "description_id": "Menyelesaikan pendidikan Strata 1 (S1) Teknik Informatika di Fakultas Informatika, Universitas Telkom. Berfokus pada perancangan framework aplikasi Android, arsitektur bersih, dan rekayasa perangkat lunak modular.",
+        "highlights": [
+          "Awarded Bachelor of Computer Science (S.Kom.) under Rector Decree No. KR.149/AKD15/AKD-BAA/2022 (National Diploma No: 552012022001490).",
+          "Final Project Research: 'Framework Developer for Creating Nutrition-Related Applications based on Android Platform'.",
+          "Formally awarded official Copyright Certificate from Kemdiktisaintek for 'MicroNutrient Application Generator'."
+        ],
+        "highlights_id": [
+          "Meraih gelar Sarjana Komputer (S.Kom.) berdasarkan SK Rektor No. KR.149/AKD15/AKD-BAA/2022 (No. Ijazah Nasional: 552012022001490).",
+          "Penelitian Tugas Akhir: 'Pengembang Framework untuk Membuat Aplikasi Seputar Permasalahan Gizi berbasis Platform Android'.",
+          "Memperoleh Sertifikat Hak Cipta resmi dari Kemdiktisaintek untuk karya 'Generator Aplikasi MicroNutrient'."
+        ],
+        "skills": ["Computer Science", "Android Platform", "Software Engineering", "Clean Architecture", "Framework Development", "Kotlin"]
+      },
+      {
         "date": "Jul 2020 - Dec 2020",
         "title": "Software Engineer",
         "company": "Chat Aja Messenger",
         "location": "Bandung, Jawa Barat, Indonesia",
-        "side": "right",
+        "side": "left",
         "type": "Full-time",
         "type_id": "Penuh Waktu",
         "description": "Engineered core instant messaging and media distribution capabilities for an enterprise messaging platform.",
@@ -406,7 +428,7 @@
         "title": "Software Engineer",
         "company": "GITS Indonesia",
         "location": "Jl. Margacinta No. 29 Bandung, Indonesia",
-        "side": "left",
+        "side": "right",
         "type": "Internship",
         "type_id": "Magang",
         "description": "Contributed to native Android client mobile applications for prominent enterprise and government clients under agile workflows.",
@@ -428,7 +450,7 @@
         "title": "Software Engineer",
         "company": "Kodelokus",
         "location": "Bandung dan Sekitarnya, Jawa Barat, Indonesia",
-        "side": "right",
+        "side": "left",
         "type": "Internship",
         "type_id": "Magang",
         "description": "Developed responsive mobile user interfaces and database persistence layers for early-stage digital products.",

@@ -56,6 +56,7 @@ export interface PortfolioData {
       side: "left" | "right" | string;
       type?: string;
       type_id?: string;
+      icon?: string;
       description?: string;
       description_id?: string;
       highlights?: string[];

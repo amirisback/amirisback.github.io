@@ -9,6 +9,7 @@ interface ExperienceItem {
   side: "left" | "right" | string;
   type?: string;
   type_id?: string;
+  icon?: string;
   description?: string;
   description_id?: string;
   highlights?: string[];
@@ -38,9 +39,9 @@ function formatExperienceDate(dateStr: string, dictPresent?: string, lang?: stri
     result = result.replace(/\bNow\b/i, dictPresent).replace(/\bSekarang\b/i, dictPresent);
   }
   if (lang === "en") {
-    result = result.replace(/\bDes\b/g, "Dec").replace(/\bMei\b/g, "May");
+    result = result.replace(/\bDes\b/g, "Dec").replace(/\bMei\b/g, "May").replace(/\bAgu\b/g, "Aug");
   } else if (lang === "id") {
-    result = result.replace(/\bDec\b/g, "Des").replace(/\bMay\b/g, "Mei");
+    result = result.replace(/\bDec\b/g, "Des").replace(/\bMay\b/g, "Mei").replace(/\bAug\b/g, "Agu");
   }
   return result;
 }
@@ -58,11 +59,24 @@ function formatExperienceLocation(locStr: string, lang?: string): string {
 export function Experience({ data, dict, currentLang }: ExperienceProps) {
   return (
     <section id="experience" className="relative py-24 bg-white dark:bg-zinc-950 overflow-hidden" data-testid="experience">
+      {/* Architectural coordinate dot matrix pattern with smooth radial falloff */}
+      <div
+        className="pointer-events-none absolute inset-0 select-none text-zinc-900/[0.04] dark:text-white/[0.035]"
+        style={{
+          backgroundImage: "radial-gradient(circle, currentColor 1.2px, transparent 1.2px)",
+          backgroundSize: "24px 24px",
+          maskImage: "radial-gradient(ellipse 65% 55% at 50% 50%, #000 40%, transparent 100%)",
+          WebkitMaskImage: "radial-gradient(ellipse 65% 55% at 50% 50%, #000 40%, transparent 100%)",
+        }}
+        aria-hidden="true"
+        data-testid="experience-bg-pattern"
+      />
+
       {/* Background ambient lighting for 3D depth */}
       <div className="absolute top-1/4 left-10 w-96 h-96 rounded-full bg-cyan-400/5 dark:bg-cyan-400/3 blur-3xl pointer-events-none" aria-hidden="true" />
       <div className="absolute bottom-1/4 right-10 w-96 h-96 rounded-full bg-violet-500/5 dark:bg-violet-500/3 blur-3xl pointer-events-none" aria-hidden="true" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center">
           <div className="flex items-center space-x-3 mb-2">
@@ -99,6 +113,13 @@ export function Experience({ data, dict, currentLang }: ExperienceProps) {
               const highlights = currentLang === "id" && item.highlights_id && item.highlights_id.length > 0 ? item.highlights_id : (item.highlights || []);
               const skills = item.skills || [];
 
+              const isEducation =
+                Boolean(item.type?.toLowerCase().includes("degree")) ||
+                Boolean(item.type?.toLowerCase().includes("education")) ||
+                Boolean(item.type_id?.toLowerCase().includes("pendidikan"));
+              const milestoneIcon = item.icon || (isEducation ? "fas fa-graduation-cap" : "fas fa-briefcase");
+              const orgIcon = isEducation ? "fas fa-university" : "fas fa-building";
+
               return (
                 <div
                   key={idx}
@@ -118,7 +139,7 @@ export function Experience({ data, dict, currentLang }: ExperienceProps) {
                         animation: 'dot-pulse 2.5s ease-in-out infinite',
                       }}
                     >
-                      <i className="fas fa-briefcase text-[8px] text-white" />
+                      <i className={`${milestoneIcon} text-[8px] text-white`} />
                     </div>
                   </div>
 
@@ -159,7 +180,7 @@ export function Experience({ data, dict, currentLang }: ExperienceProps) {
                           </h3>
                           <div className="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-sm [transform:translateZ(14px)]">
                             <span className="font-semibold text-cyan-600 dark:text-cyan-400 flex items-center gap-1.5">
-                              <i className="fas fa-building text-xs text-cyan-500" aria-hidden="true" />
+                              <i className={`${orgIcon} text-xs text-cyan-500`} aria-hidden="true" />
                               <span>{item.company}</span>
                             </span>
                             {employmentType && (

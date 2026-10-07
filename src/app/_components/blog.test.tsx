@@ -54,4 +54,13 @@ describe("Blog Component", () => {
     const readMoreLink = screen.getByText("Read details").closest("a");
     expect(readMoreLink).toHaveAttribute("href", "https://medium.com/test");
   });
+
+  it("should render subtle editorial micro-grid background pattern with proper accessibility attributes", () => {
+    render(<Blog data={mockBlogData} dict={mockDict} />);
+    const pattern = screen.getByTestId("blog-bg-pattern");
+    expect(pattern).toBeInTheDocument();
+    expect(pattern).toHaveAttribute("aria-hidden", "true");
+    expect(pattern.className).toContain("pointer-events-none");
+    expect(pattern.className).toContain("absolute");
+  });
 });

@@ -190,7 +190,7 @@ export function Projects({ data, dict, currentLang }: ProjectsProps) {
       <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-cyan-400/5 dark:bg-cyan-400/3 blur-3xl pointer-events-none" aria-hidden="true" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full bg-violet-500/5 dark:bg-violet-500/3 blur-3xl pointer-events-none" aria-hidden="true" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center">
           <div className="flex items-center space-x-3 mb-2">
