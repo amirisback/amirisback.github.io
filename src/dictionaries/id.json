@@ -207,5 +207,23 @@
     "errorInvalidNumber": "Silakan masukkan angka positif yang valid.",
     "errorEmptyText": "Teks tidak boleh kosong.",
     "success": "Sukses!"
+  },
+  "cv": {
+    "title": "Curriculum Vitae",
+    "subtitle": "Resume Profesional — Senior Android Developer & Software Engineer",
+    "backToHome": "Kembali ke Beranda",
+    "printCv": "Cetak / Simpan PDF",
+    "downloadPdf": "Unduh PDF",
+    "downloadEnPdf": "Unduh PDF (EN)",
+    "downloadIdPdf": "Unduh PDF (ID)",
+    "printTip": "Tips: Pilih 'Simpan sebagai PDF' pada dialog cetak dengan opsi 'Grafis latar belakang' aktif dan 'Margin: Default' untuk hasil cetak optimal.",
+    "language": "Bahasa",
+    "summaryTitle": "Ringkasan Profesional",
+    "skillsTitle": "Keahlian Teknis & Kompetensi Utama",
+    "experienceTitle": "Pengalaman Kerja",
+    "projectsTitle": "Proyek Open-Source & Kontribusi Komunitas",
+    "educationTitle": "Pendidikan & Hak Cipta",
+    "languagesTitle": "Bahasa",
+    "present": "Sekarang"
   }
 }

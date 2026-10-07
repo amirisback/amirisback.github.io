@@ -207,5 +207,23 @@
     "errorInvalidNumber": "Please enter a valid positive number.",
     "errorEmptyText": "Text cannot be empty.",
     "success": "Success!"
+  },
+  "cv": {
+    "title": "Curriculum Vitae",
+    "subtitle": "Professional Resume — Senior Android Developer & Software Engineer",
+    "backToHome": "Back to Home",
+    "printCv": "Print / Save as PDF",
+    "downloadPdf": "Download PDF",
+    "downloadEnPdf": "Download PDF (EN)",
+    "downloadIdPdf": "Download PDF (ID)",
+    "printTip": "Tip: Select 'Save as PDF' in the print dialog with 'Background graphics' enabled and 'Margins: Default' for high-precision output.",
+    "language": "Language",
+    "summaryTitle": "Professional Summary",
+    "skillsTitle": "Core Competencies & Technical Skills",
+    "experienceTitle": "Professional Experience",
+    "projectsTitle": "Open-Source & Noteworthy Projects",
+    "educationTitle": "Education & Credentials",
+    "languagesTitle": "Languages",
+    "present": "Present"
   }
 }
