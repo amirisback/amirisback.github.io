@@ -94,9 +94,10 @@
 ## Pendidikan
 
 ### **Universitas Telkom (Telkom University)** — Bandung, Indonesia
-**Sarjana Informatika (S1 Informatika)** | *Lulus 2022*
+**Sarjana Komputer (S.Kom.) — S1 Informatika, Fakultas Informatika** | *2019 – 2022*
 - **Penelitian / Tugas Akhir:** *"Pengembang Framework untuk Membuat Aplikasi Seputar Permasalahan Gizi berbasis Platform Android"*.
 - **Hak Cipta / HKI:** Memperoleh Sertifikat Hak Cipta resmi dari Kemdiktisaintek untuk karya *"Generator Aplikasi MicroNutrient"*.
+- **Kelulusan & Kredensial:** SK Rektor No. KR.149/AKD15/AKD-BAA/2022 (Yudisium: 2 Maret 2022), No. Ijazah Nasional: 552012022001490 (NIM: 1301198497).
 
 ### **Universitas Telkom (Telkom University)** — Bandung, Indonesia
 **Diploma Tiga Rekayasa Perangkat Lunak Aplikasi (D3 RPL Aplikasi)** | *2016 – 2019*

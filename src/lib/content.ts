@@ -27,7 +27,7 @@ export interface PortfolioData {
     sectionTitle: string;
     image: string;
     description: string;
-    skills: Array<{ name: string; percentage: number }>;
+    skills?: Array<{ name: string; percentage: number }>;
   };
   services: {
     sectionLabel: string;
@@ -36,8 +36,13 @@ export interface PortfolioData {
       icon: string;
       title: string;
       description: string;
+      description_id?: string;
       delay: string;
       url?: string;
+      thumbnail?: string;
+      badge?: string;
+      featured?: boolean;
+      tags?: string[];
     }>;
   };
   experience: {
@@ -49,6 +54,14 @@ export interface PortfolioData {
       company: string;
       location: string;
       side: "left" | "right" | string;
+      type?: string;
+      type_id?: string;
+      icon?: string;
+      description?: string;
+      description_id?: string;
+      highlights?: string[];
+      highlights_id?: string[];
+      skills?: string[];
     }>;
   };
   blog: {

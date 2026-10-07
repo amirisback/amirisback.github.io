@@ -35,14 +35,29 @@
     "blog": "Medium",
     "cms": "CMS"
   },
+  "hero": {
+    "greeting": "I'm",
+    "iAmA": "I am a",
+    "viewCv": "View Amir's CV",
+    "followGithub": "Follow Amir's GitHub"
+  },
   "portfolio": {
     "sectionLabel": "My Projects",
-    "sectionTitle": "Awesome Projects",
-    "viewProject": "View Project"
+    "sectionTitle": "Featured Projects",
+    "viewProject": "View Project",
+    "flagshipBadge": "Flagship Showcase",
+    "flagshipSubtitle": "4 flagship web applications featuring interactive architecture and modern computing capabilities.",
+    "allProjectsTitle": "More Projects & Open Source",
+    "allProjectsSubtitle": "Explore additional web apps, modular Android libraries, and open-source contributions.",
+    "liveDemo": "Live Demo",
+    "visitApp": "Visit Website"
   },
   "experience": {
-    "sectionLabel": "My Resume",
-    "sectionTitle": "Working Experience"
+    "sectionLabel": "My Experience",
+    "sectionTitle": "Working Experience",
+    "present": "Present",
+    "keyAchievements": "Key Contributions & Impact",
+    "technologies": "Technologies & Stack"
   },
   "blog": {
     "sectionLabel": "From Blog",
@@ -51,14 +66,100 @@
   },
   "about": {
     "sectionLabel": "Learn About Me",
-    "sectionTitle": "Information"
+    "sectionTitle": "Information & Engineering Architecture",
+    "description": "I am a Software Engineer with over 6 years of experience engineering native Android applications and modern web solutions. My technical expertise centers on native Android development with Kotlin and Jetpack Compose, alongside modern web technologies including Next.js, TypeScript, and Tailwind CSS.\n\nThroughout my work across fintech, e-commerce, and digital health platforms, as well as maintaining open-source tools in the Frogo ecosystem, I focus on clean architecture, modular codebases, and maintainable software design. I am committed to solving complex technical challenges and building scalable, high-quality products that deliver lasting impact.",
+    "badges": {
+      "experience": "6+ Years Experience",
+      "openSource": "Frogo Open Source",
+      "architecture": "Clean Architecture"
+    },
+    "metrics": {
+      "expYears": { "value": "6+", "label": "Years Engineering Experience" },
+      "openSource": { "value": "30+", "label": "Open Source Repos & Tools" },
+      "enterpriseTier": { "value": "Enterprise", "label": "Fintech & Health Scale" },
+      "modernStack": { "value": "100%", "label": "Modern Clean Architecture" }
+    },
+    "pillarsTitle": "Core Engineering Pillars & Mastery",
+    "pillarsSubtitle": "Comprehensive specialization ranging from native mobile engineering to modern enterprise web architectures.",
+    "pillars": {
+      "android": {
+        "title": "Native Android & Mobile Architecture",
+        "desc": "High-performance native development with Kotlin, Jetpack Compose, CameraX, Coroutines, modular systems, and Google Play Store compliance."
+      },
+      "web": {
+        "title": "Modern Web & Full-Stack Systems",
+        "desc": "High-speed reactive web engineering with Next.js App Router, React 19, TypeScript, Tailwind CSS v4, PWA, and SEO optimization."
+      },
+      "modular": {
+        "title": "Modular Systems & Open Source Impact",
+        "desc": "Modular library authoring, layered Clean Architecture patterns, AES-256 authenticated cryptographic security, and the Frogo open-source ecosystem."
+      }
+    }
   },
   "contact": {
     "sectionLabel": "Contact Me",
-    "sectionTitle": "Contact",
+    "sectionTitle": "Let's Build Something High-Impact",
+    "sectionSubtitle": "Have an engineering project, mobile architecture challenge, or technical advisory inquiry? Reach out directly or drop a message below.",
+    "subtitle": "Have an engineering project, mobile architecture challenge, or technical advisory inquiry? Reach out directly or drop a message below.",
+    "statusAvailable": "Available for Projects & Tech Collaborations",
+    "statusDotLabel": "Live Status",
+    "availability": "Available for Projects & Tech Collaborations",
+    "timezoneLabel": "Operating Timezone",
+    "location": "WIB / UTC+7 • Probolinggo, East Java, Indonesia",
+    "timezone": "WIB / UTC+7 • Probolinggo, East Java, Indonesia",
+    "profileTitle": "Senior Software Engineer & Open Source Architect",
+    "profileSubtitle": "Specializing in Native Android (Kotlin, Jetpack Compose) & Modern Web Systems (Next.js, TypeScript).",
     "address": "Address",
     "phone": "Phone",
-    "email": "Email"
+    "email": "Email",
+    "whatsappTitle": "WhatsApp Direct",
+    "whatsappDesc": "Instant messaging for quick sync and project inquiries.",
+    "whatsappAction": "Chat on WhatsApp",
+    "whatsappGreeting": "Hi Amir, I would like to discuss an engineering collaboration.",
+    "emailTitle": "Direct Email",
+    "emailDesc": "Preferred for structured proposals, RFPs, and job opportunities.",
+    "emailCopy": "Copy Email",
+    "emailCopyAction": "Copy Email",
+    "emailCopied": "Copied to Clipboard!",
+    "emailOpenClient": "Open in Mail Client",
+    "emailOpenAction": "Open in Mail Client",
+    "socialTitle": "Professional Networks",
+    "formTitle": "Send a Message",
+    "formDesc": "Fill in your inquiry details to generate a structured email draft.",
+    "topicLabel": "Inquiry Topic",
+    "topics": {
+      "project": "Project Collaboration",
+      "career": "Engineering Role",
+      "role": "Engineering Role",
+      "advisory": "Tech Advisory",
+      "chat": "Casual Chat"
+    },
+    "fields": {
+      "nameLabel": "Your Name",
+      "namePlaceholder": "Your Full Name",
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "name@organization.com",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "e.g. Project Inquiry - Mobile App Architecture",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell me about your project scope, timeline, or engineering challenges..."
+    },
+    "fieldName": "Your Name",
+    "placeholderName": "Your Full Name",
+    "fieldEmail": "Email Address",
+    "placeholderEmail": "name@organization.com",
+    "fieldSubject": "Subject",
+    "placeholderSubject": "e.g. Project Inquiry - Mobile App Architecture",
+    "fieldMessage": "Message",
+    "placeholderMessage": "Tell me about your project scope, timeline, or engineering challenges...",
+    "submitButton": "Send Message via Mail Client",
+    "submittingButton": "Launching Mail Client...",
+    "submittedNotice": "Draft has been prepared in your email client.",
+    "successTitle": "Draft Prepared in Mail Client!",
+    "successDesc": "Your message has been formatted and opened in your email application. If it didn't open automatically, send directly to faisalamircs@gmail.com.",
+    "resetForm": "Write Another Message",
+    "errorRequired": "This field is required.",
+    "errorEmailInvalid": "Please enter a valid email address."
   },
   "home": {
     "title": "Welcome",
@@ -71,7 +172,7 @@
   },
   "metadata": {
     "title": "Muhammad Faisal Amir",
-    "description": "Muhammad Faisal Amir — Progressive Web Application"
+    "description": "Muhammad Faisal Amir, Progressive Web Application"
   },
   "error": {
     "notFound": "Page not found",
@@ -82,7 +183,9 @@
   },
   "footer": {
     "copyright": "© {year} Muhammad Faisal Amir. All rights reserved.",
-    "madeWith": "Made with"
+    "madeWith": "Made with",
+    "location": "in Indonesia",
+    "connectSocials": "Connect on Socials"
   },
   "demo": {
     "title": "Encryption & ID Obfuscation",
@@ -104,5 +207,23 @@
     "errorInvalidNumber": "Please enter a valid positive number.",
     "errorEmptyText": "Text cannot be empty.",
     "success": "Success!"
+  },
+  "cv": {
+    "title": "Curriculum Vitae",
+    "subtitle": "Professional Resume — Senior Android Developer & Software Engineer",
+    "backToHome": "Back to Home",
+    "printCv": "Print / Save as PDF",
+    "downloadPdf": "Download PDF",
+    "downloadEnPdf": "Download PDF (EN)",
+    "downloadIdPdf": "Download PDF (ID)",
+    "printTip": "Tip: Select 'Save as PDF' in the print dialog with 'Background graphics' enabled and 'Margins: Default' for high-precision output.",
+    "language": "Language",
+    "summaryTitle": "Professional Summary",
+    "skillsTitle": "Core Competencies & Technical Skills",
+    "experienceTitle": "Professional Experience",
+    "projectsTitle": "Open-Source & Noteworthy Projects",
+    "educationTitle": "Education & Credentials",
+    "languagesTitle": "Languages",
+    "present": "Present"
   }
 }

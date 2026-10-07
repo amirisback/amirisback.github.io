@@ -9,6 +9,7 @@ import { About } from "./_components/about";
 import { Projects } from "./_components/projects";
 import { Experience } from "./_components/experience";
 import { Blog } from "./_components/blog";
+import { Contact } from "./_components/contact";
 import { Footer } from "./_components/footer";
 import { BackToTop } from "./_components/back-to-top";
 
@@ -37,19 +38,22 @@ export default async function Home() {
 
       <main className="flex-grow">
         {/* Hero Section */}
-        <Hero data={content.hero} />
+        <Hero data={content.hero} dict={dict} />
 
         {/* About Section */}
         <About data={content.about} dict={dict} />
 
         {/* Projects Section */}
-        <Projects data={content.services} dict={dict} />
+        <Projects data={content.services} dict={dict} currentLang={locale} />
 
         {/* Experience Section */}
-        <Experience data={content.experience} dict={dict} />
+        <Experience data={content.experience} dict={dict} currentLang={locale} />
 
         {/* Blog Section */}
         <Blog data={content.blog} dict={dict} />
+
+        {/* Luxurious Contact Section */}
+        <Contact data={content.footer} dict={dict} />
       </main>
 
       {/* Footer Section */}

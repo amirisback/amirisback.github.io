@@ -29,7 +29,31 @@ interface BlogProps {
 export function Blog({ data, dict }: BlogProps) {
   return (
     <section id="blog" className="relative py-24 bg-slate-50 dark:bg-zinc-950/50 overflow-hidden" data-testid="blog">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+      {/* Ambient depth lighting nodes */}
+      <div
+        className="pointer-events-none absolute -top-24 right-10 h-96 w-96 rounded-full bg-cyan-400/5 dark:bg-cyan-400/3 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -bottom-24 left-10 h-96 w-96 rounded-full bg-indigo-500/5 dark:bg-indigo-500/3 blur-3xl"
+        aria-hidden="true"
+      />
+
+      {/* Editorial coordinate micro-grid pattern with smooth radial falloff */}
+      <div
+        className="pointer-events-none absolute inset-0 select-none text-slate-900/[0.035] dark:text-white/[0.025]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+          maskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, #000 30%, transparent 100%)",
+          WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 50%, #000 30%, transparent 100%)",
+        }}
+        aria-hidden="true"
+        data-testid="blog-bg-pattern"
+      />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 flex flex-col items-center">
           <div className="flex items-center space-x-3 mb-2">

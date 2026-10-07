@@ -67,4 +67,23 @@ describe("Hero Component", () => {
     const iframe = document.getElementById("hero-youtube-video");
     expect(iframe).not.toBeInTheDocument();
   });
+
+  it("should render 3D kinetic background canvas and 3D avatar tilt container", () => {
+    render(<Hero data={mockHeroData} />);
+
+    const canvas = screen.getByTestId("hero-background-3d");
+    expect(canvas).toBeInTheDocument();
+
+    const avatarTilt = screen.getByTestId("hero-avatar-tilt");
+    expect(avatarTilt).toBeInTheDocument();
+
+    // Verify 3D spatial tech badges
+    expect(screen.getByTestId("hero-badge-android")).toBeInTheDocument();
+    expect(screen.getByTestId("hero-badge-nextjs")).toBeInTheDocument();
+    expect(screen.getByTestId("hero-badge-architect")).toBeInTheDocument();
+
+    // Verify 3D gyroscopic orbital rings
+    expect(screen.getByTestId("hero-orbit-ring-1")).toBeInTheDocument();
+    expect(screen.getByTestId("hero-orbit-ring-2")).toBeInTheDocument();
+  });
 });
